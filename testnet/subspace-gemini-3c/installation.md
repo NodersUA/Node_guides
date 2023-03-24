@@ -35,7 +35,7 @@ subspace init
 4. Specify a plot size (min 50 GB, example: 50 GB, 1100 GB)
 5. Press Enter
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 # Fix journal (One command)
@@ -79,7 +79,7 @@ sudo systemctl restart subspaced
 sudo journalctl -fu subspaced --no-hostname -o cat
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Check your node in [telemetry](https://telemetry.subspace.network/#list/0xab946a15b37f59c5f4f27c5de93acde9fe67a28e0b724a43a30e4fe0e87246b7)
 
