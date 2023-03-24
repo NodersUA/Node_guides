@@ -8,6 +8,11 @@
 
 ## Testnet
 
+* [Subspace | Gemini-3c](testnet/subspace-or-gemini-3c/README.md)
+  * [Installation](testnet/subspace-or-gemini-3c/installation.md)
+  * [Update](testnet/subspace-or-gemini-3c/update.md)
+  * [Useful commands](testnet/subspace-or-gemini-3c/useful-commands.md)
+  * [Delete](testnet/subspace-or-gemini-3c/delete.md)
 * [Lava Network](testnet/lava-network/README.md)
   * [Installation](testnet/lava-network/installation.md)
   * [Update](testnet/lava-network/update.md)

@@ -52,7 +52,7 @@ lavad version --long | grep -e version -e commit
 # 0.4.4
 ```
 
-```
+```bash
 # Initialize the node
 lavad init $MONIKER_LAVA --chain-id $CHAIN_ID_LAVA
 ```
