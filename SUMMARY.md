@@ -18,7 +18,7 @@
   * [Update](testnet/lava-network/update.md)
   * [Useful commands](testnet/lava-network/useful-commands.md)
   * [StateSync/Snapshot/AddrBook](testnet/lava-network/statesync-snapshot-addrbook.md)
-* [DeFund](testnet/defund/README.md)
+* [DeFund | Installation Guide](testnet/defund/README.md)
   * [Page 2](testnet/defund/page-2.md)
 * [Realio Network](testnet/realio-network.md)
 
