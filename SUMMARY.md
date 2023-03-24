@@ -8,6 +8,10 @@
 
 ## Testnet
 
+* [Shardeum](testnet/shardeum/README.md)
+  * [Installation](testnet/shardeum/installation.md)
+  * [Update](testnet/shardeum/update.md)
+  * [Useful Commands](testnet/shardeum/useful-commands.md)
 * [DeFund](testnet/defund/README.md)
   * [Installation](testnet/defund/installation.md)
   * [Update](testnet/defund/update.md)
@@ -28,15 +32,6 @@
   * [Update](testnet/realio/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/realio/statesync-snapshot-addrbook.md)
   * [Useful Commands](testnet/realio/useful-commands.md)
-* [Subspace / Gemini-3c](testnet/subspace-gemini-3c/README.md)
-  * [Installation](testnet/subspace-gemini-3c/installation.md)
-  * [Update](testnet/subspace-gemini-3c/update.md)
-  * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
-  * [Delete](testnet/subspace-gemini-3c/delete.md)
-* [Shardeum](testnet/shardeum/README.md)
-  * [Installation](testnet/shardeum/installation.md)
-  * [Update](testnet/shardeum/update.md)
-  * [Useful Commands](testnet/shardeum/useful-commands.md)
 
 ## Mainnet
 

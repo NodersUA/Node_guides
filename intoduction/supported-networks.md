@@ -18,6 +18,6 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Realio](../testnet/realio/)
 
-[Subspace](../testnet/subspace-gemini-3c/)
+[Subspace](broken-reference)
 {% endtab %}
 {% endtabs %}
