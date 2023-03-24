@@ -1,4 +1,4 @@
-# DeFund
+# DeFundd
 
 **Installation Guide**
 
