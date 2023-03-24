@@ -2,17 +2,17 @@
 
 #### Node <a href="#user-content-aoos" id="user-content-aoos"></a>
 
-```
+```bash
 # Update the repositories
 apt update && apt upgrade -y
 ```
 
-```
+```bash
 # Install developer packages
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
 
-```
+```bash
 # Install Go (one command)
 ver="1.20.1" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
@@ -26,7 +26,7 @@ go version
 # go version go1.20.1 linux/amd64
 ```
 
-```
+```bash
 # Set the variables
 
 # Come up with the name of your node and replace it instead <your_moniker>
@@ -39,7 +39,7 @@ source $HOME/.bash_profile
 # check whether the last command was executed
 ```
 
-```
+```bash
 # Download binary files
 cd $HOME
 git clone https://github.com/defund-labs/defund
@@ -52,12 +52,12 @@ defundd version --long | grep -e version -e commit
 # commit: 8f2ebe3d30efe84e013ec5fcdf21a3b99e786c3d
 ```
 
-```
+```bash
 # Initialize the node
 defundd init $DEFUND_MONIKER --chain-id $DEFUND_CHAIN_ID
 ```
 
-```
+```bash
 # Download Genesis
 wget -O $HOME/.defund/config/genesis.json "https://raw.githubusercontent.com/defund-labs/testnet/main/orbit-alpha-1/genesis.json"
 
@@ -67,7 +67,7 @@ sha256sum $HOME/.defund/config/genesis.json
 # 58916f9c7c4c4b381f55b6274bce9b8b8d482bfb15362099814ff7d0c1496658
 ```
 
-```
+```bash
 # Set the ports
 
 # config.toml
@@ -85,7 +85,7 @@ sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:$
 
 **Setup config**
 
-```
+```bash
 # correct config (so we can no longer use the chain-id flag for every CLI command in client.toml)
 defundd config chain-id $DEFUND_CHAIN_ID
 
@@ -128,19 +128,19 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 
 **(OPTIONAL) Turn off indexing in config.toml**
 
-```
+```bash
 indexer="null" && \
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.defund/config/config.toml
 ```
 
 **Cosmovisor**
 
-```
+```bash
 # Install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ```
 
-```
+```bash
 # Create directories
 mkdir -p ~/.defund/cosmovisor
 mkdir -p ~/.defund/cosmovisor/genesis
@@ -148,12 +148,12 @@ mkdir -p ~/.defund/cosmovisor/genesis/bin
 mkdir -p ~/.defund/cosmovisor/upgrades
 ```
 
-```
+```bash
 # Copy the binary file to the cosmovisor folder
 cp `which defundd` ~/.defund/cosmovisor/genesis/bin/defundd
 ```
 
-```
+```bash
 # Create service file (One command)
 sudo tee /etc/systemd/system/defundd.service > /dev/null <<EOF
 [Unit]
@@ -177,7 +177,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-```
+```bash
 # Start the node
 systemctl daemon-reload
 systemctl enable defundd
@@ -186,7 +186,7 @@ systemctl restart defundd && journalctl -u defundd -f -o cat
 # Escape from logs ctrl+c
 ```
 
-```
+```bash
 # Check the logs again
 journalctl -u defundd -f -o cat
 
@@ -195,7 +195,7 @@ journalctl -u defundd -f -o cat
 
 **Now all ok, check the status**
 
-```
+```bash
 # Check status
 curl localhost:${DEFUND_PORT}657/status
 
@@ -204,14 +204,14 @@ curl localhost:${DEFUND_PORT}657/status
 
 #### Wallet <a href="#user-content-2osy" id="user-content-2osy"></a>
 
-```
+```bash
 # Create wallet
 defundd keys add wallet
 ```
 
 Create a password for the wallet and write it down so you don't forget it. The wallet has been created. In the last line there will be a phrase that must be written down
 
-```
+```bash
 # If the wallet was already there, restore it
 defundd keys add wallet --recover
 # Insert the seed phrase from your wallet
@@ -220,7 +220,7 @@ defundd keys add wallet --recover
 
 Go to the [# ](https://discord.com/channels/913091321114296330/1038133368841310280)[faucet](https://discord.com/channels/913091321114296330/1038133368841310280) branch and request tokens
 
-```
+```bash
 # Save the wallet address
 # Replace <your_address> with your wallet address
 DEFUND_ADDRESS=<your_address>
@@ -228,8 +228,8 @@ echo "export DEFUND_ADDRESS=$DEFUND_ADDRESS" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-```
-# Check the ballance
+```bash
+bash# Check the ballance
 defundd q bank balances $DEFUND_ADDRESS
 ```
 
@@ -237,7 +237,7 @@ defundd q bank balances $DEFUND_ADDRESS
 
 Do not forget to create a profile on [https://keybase.io/](https://keybase.io/) and set a profile photo there that will be imported by key and used for your validators.
 
-```
+```bash
 # Change <identity> to your key from keybase
 defundd tx staking create-validator \
 --amount 1000000ufetf \
@@ -260,11 +260,11 @@ Check yourself in the list [explorer](https://defund.explorers.guru/validators)
 
 Or by command
 
-```
+```bash
 defundd query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$DEFUND_MONIKER")' | jq
 ```
 
-```
+```bash
 # Edit the validator
 defundd tx staking edit-validator \
   --new-moniker=$DEFUND_MONIKER \
@@ -276,7 +276,7 @@ defundd tx staking edit-validator \
   --from=wallet
 ```
 
-```
+```bash
 # Save valoper_address in bash
 # Change <your_valoper_address> to the address of the validator, starting with nibivaloper...
 DEFUND_VALOPER=<your_valoper_address>
