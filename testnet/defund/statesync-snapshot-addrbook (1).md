@@ -1,2 +1,0 @@
-# StateSync/Snapshot/AddrBook
-
