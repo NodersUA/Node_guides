@@ -255,7 +255,7 @@ lavad tx staking create-validator \
 -y
 ```
 
-Check yourself in the list [explorer](https://lava.explorers.guru/validators)
+Check yourself in the list [explorer](https://lava.exploreme.pro/validators)
 
 Or by command
 
