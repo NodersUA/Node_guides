@@ -1,6 +1,6 @@
 # DeFund
 
-## DeFund | Installation Guide
+## Installation Guide
 
 <figure><img src="https://miro.medium.com/max/700/1*HLrXIbN6xzyRL4s67Bd5yA.png" alt=""><figcaption></figcaption></figure>
 
