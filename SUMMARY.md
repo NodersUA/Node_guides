@@ -33,6 +33,10 @@
   * [Update](testnet/subspace-gemini-3c/update.md)
   * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3c/delete.md)
+* [Shardeum](testnet/shardeum/README.md)
+  * [Installation](testnet/shardeum/installation.md)
+  * [Update](testnet/shardeum/update.md)
+  * [Useful Commands](testnet/shardeum/useful-commands.md)
 
 ## Mainnet
 
