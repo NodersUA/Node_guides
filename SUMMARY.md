@@ -18,12 +18,16 @@
   * [Update](testnet/lava-network/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/lava-network/statesync-snapshot-addrbook.md)
   * [Useful commands](testnet/lava-network/useful-commands.md)
-* [Realio Network](testnet/realio-network.md)
 * [DeFund](testnet/defund/README.md)
   * [Installation](testnet/defund/installation.md)
   * [Update](testnet/defund/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/defund/statesync-snapshot-addrbook.md)
   * [Useful Commands](testnet/defund/useful-commands.md)
+* [Realio](testnet/realio/README.md)
+  * [Installation](testnet/realio/installation.md)
+  * [Update](testnet/realio/update.md)
+  * [StateSync/Snapshot/AddrBook](testnet/realio/statesync-snapshot-addrbook.md)
+  * [Useful Commands](testnet/realio/useful-commands.md)
 
 ## Mainnet
 
