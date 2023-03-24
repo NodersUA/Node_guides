@@ -13,6 +13,11 @@
   * [Update](testnet/defund/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/defund/statesync-snapshot-addrbook.md)
   * [Useful Commands](testnet/defund/useful-commands.md)
+* [Gitopia](testnet/gitopia/README.md)
+  * [Installation](testnet/gitopia/installation.md)
+  * [Update](testnet/gitopia/update.md)
+  * [StateSync/Snapshot/AddrBook](testnet/gitopia/statesync-snapshot-addrbook.md)
+  * [Useful Commands](testnet/gitopia/useful-commands.md)
 * [Lava Network](testnet/lava-network/README.md)
   * [Installation](testnet/lava-network/installation.md)
   * [Update](testnet/lava-network/update.md)
@@ -28,11 +33,6 @@
   * [Update](testnet/subspace-gemini-3c/update.md)
   * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3c/delete.md)
-* [Gitopia](testnet/gitopia/README.md)
-  * [Installation](testnet/gitopia/installation.md)
-  * [Update](testnet/gitopia/update.md)
-  * [StateSync/Snapshot/AddrBook](testnet/gitopia/statesync-snapshot-addrbook.md)
-  * [Useful Commands](testnet/gitopia/useful-commands.md)
 
 ## Mainnet
 
