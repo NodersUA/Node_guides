@@ -18,6 +18,8 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Realio](../testnet/realio/)
 
+[Shardeum](../testnet/shardeum/)
+
 [Subspace](broken-reference)
 {% endtab %}
 {% endtabs %}
