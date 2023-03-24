@@ -1,8 +1,17 @@
-Node
+# Installation
+
+**Node**
+
+```bash
 # Update the repositories
 apt update && apt upgrade -y
+```
+```bash
 # Install developer packages
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
+```
+
+```bash
 # Install Go (one command)
 ver="1.19.1" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
@@ -14,6 +23,9 @@ source $HOME/.bash_profile && \
 go version
 
 # go version go1.19.1 linux/amd64
+```
+
+```bash
 # Set the variables
 
 # Come up with the name of your node and replace it instead <your_moniker>
@@ -24,6 +36,9 @@ echo "export REALIO_CHAIN_ID=realionetwork_1110-2" >> $HOME/.bash_profile
 echo "export REALIO_PORT=12" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
+```
+
+```bash
 # Download binary files
 cd $HOME
 git clone https://github.com/realiotech/realio-network.git && cd realio-network
@@ -33,14 +48,23 @@ make install
 realio-networkd version
 
 # version: 0.7.2
+```
+
+```bash
 # Initialize the node
 realio-networkd init $REALIO_NODE_NAME --chain-id $REALIO_CHAIN_ID
+```
+
+```bash
 # Download Genesis
 curl https://raw.githubusercontent.com/realiotech/testnets/master/$REALIO_CHAIN_ID/genesis.json > $HOME/.realio-network/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.realio-network/config/genesis.json 
 # a2f8fae48eb019720ef78524d683a9ca22884dd4e9ba4f8d5b3ac10db1275183
+```
+
+```bash
 # Set the ports
 
 # config.toml
@@ -54,6 +78,9 @@ sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${RE
 
 external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${REALIO_PORT}656\"/" $HOME/.realio-network/config/config.toml
+```
+
+```bash
 Setup config
 # correct config (so we can no longer use the chain-id flag for every CLI command in client.toml)
 realio-networkd config chain-id $REALIO_CHAIN_ID
@@ -92,10 +119,16 @@ sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.realio-network/config
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.realio-network/config/app.toml
 sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.realio-network/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.realio-network/config/app.toml
-(OPTIONAL) Turn off indexing in config.toml
+```
+
+
+**(OPTIONAL) Turn off indexing in config.toml**
+```bash
 indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.realio-network/config/config.toml
+```
 
+```bash
 # Create service file (One command)
 sudo tee /etc/systemd/system/realio-networkd.service > /dev/null <<EOF
 [Unit]
@@ -112,38 +145,65 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
+
+```bash
 # Start the node
 sudo systemctl daemon-reload
 sudo systemctl enable realio-networkd
 sudo systemctl start realio-networkd
 
 # Escape from logs ctrl+c
+```
+
+```bash
 # Check the logs again
 sudo journalctl -u realio-networkd -f -o cat
 
 # Escape from logs ctrl+c
+```
+
+```bash
 # Check status
 realio-networkd status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 
 "catching_up": false means that the node is synchronized, we are waiting for complete synchronization
-Wallets
+```
+
+**Wallets**
+
+```bash
 # Create wallet
 realio-networkd keys add wallet
 Create a password for the wallet and write it down so you don't forget it. The wallet has been created. In the last line there will be a phrase that must be written down
+```
+
+```bash
 # If the wallet was already there, restore it
 realio-networkd keys add wallet --recover
 # Insert the seed phrase from your wallet
 # If everything is correct, you will see your wallet data
-Go to the # faucet branch and request tokens
+```
+
+**Go to the # faucet branch and request tokens**
+
+```bash
 # Save the wallet address
 # Replace <your_address> with your wallet address
 REALIO_ADDRESS=<your_address>
 echo "export REALIO_ADDRESS=$REALIO_ADDRESS" >> $HOME/.bash_profile
 source $HOME/.bash_profile
+```
+
+```bash
 # Check the ballance
 realio-networkd q bank balances $REALIO_ADDRESS
-Validator
+```
+
+**Validator**
 Do not forget to create a profile on https://keybase.io/ and set a profile photo there that will be imported by key and used for your validators.
+
+```bash
 # Change <identity> to your key from keybase
 realio-networkd tx staking create-validator \
 --amount 1000000000000000000ario \
@@ -160,9 +220,17 @@ realio-networkd tx staking create-validator \
 --details="" \
 --website="" \
 -y
-Check yourself in the list ecsplorer
+```
+
+Check yourself in the list explorer
+
 Or by command
+
+```bash
 realio-networkd query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$GITOPIA_NODE_NAME")' | jq
+```
+
+```bash
 # Edit the validator
 realio-networkd tx staking edit-validator \
   --new-moniker=$REALIO_NODE_NAME \
@@ -172,12 +240,15 @@ realio-networkd tx staking edit-validator \
   --chain-id=$REALIO_CHAIN_ID \
   --fees=5000000000000000ario \
   --from=$REALIO_WALLET_NAME
-  
+ ```
+
+```bash
 # Save valoper_address in bash
 # Change <your_valoper_address> to the address of the validator, starting with nibivaloper...
 REALIO_VALOPER=<your_valoper_address>
 echo "export REALIO_VALOPER=$REALIO_VALOPER" >> $HOME/.bash_profile
 source $HOME/.bash_profile
+```
   
 !!! Save priv_validator_key.json which is located in /root/.gitopiad/config
 
