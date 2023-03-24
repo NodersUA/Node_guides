@@ -2,7 +2,7 @@
 description: Farmer installation guide
 ---
 
-# Subspace | Gemini-3c
+# Subspace / Gemini-3c
 
 <figure><img src="https://pbs.twimg.com/card_img/1637936717670801411/5UFzWixu?format=jpg&#x26;name=medium" alt=""><figcaption></figcaption></figure>
 
