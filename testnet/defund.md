@@ -1,6 +1,6 @@
 # DeFund | Installation Guide
 
-<figure><img src="../../.gitbook/assets/1_HLrXIbN6xzyRL4s67Bd5yA.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/1_HLrXIbN6xzyRL4s67Bd5yA.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;                 [WebSite](https://www.defund.app/) | [Discord](https://discord.gg/7xbbyK3H) | [Twitter](https://twitter.com/defund\_finance) | [Github](https://github.com/defund-labs/defund) | [Explorer](https://defund.explorers.guru/validators)
 
