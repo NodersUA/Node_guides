@@ -286,4 +286,3 @@ source $HOME/.bash_profile
 
 !!! Save priv\_validator\_key.json which is located in /root/.defund/config
 
-\
