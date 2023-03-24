@@ -18,7 +18,7 @@
   * [Update](testnet/lava-network/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/lava-network/statesync-snapshot-addrbook.md)
   * [Useful commands](testnet/lava-network/useful-commands.md)
-* [DeFund | Installation Guide](testnet/defund.md)
+* [DeFund | Installation Guide](testnet/defund-or-installation-guide/README.md)
   * [Installation](testnet/defund/installation.md)
   * [Update](testnet/defund/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/defund/statesync-snapshot-addrbook.md)
