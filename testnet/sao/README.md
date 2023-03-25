@@ -8,6 +8,4 @@ SAO Network is a secure and decentralized Web3 storage infrastructure based on C
 
 <figure><img src="https://img1.teletype.in/files/09/f5/09f5fc49-2086-4845-9569-3b2748c1faee.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://img1.teletype.in/files/09/f5/09f5fc49-2086-4845-9569-3b2748c1faee.png" alt=""><figcaption></figcaption></figure>
-
 ###
