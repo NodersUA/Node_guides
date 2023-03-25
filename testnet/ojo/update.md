@@ -1,4 +1,4 @@
-***Update on block hight ***
+***Update on block hight***
 ```bash
 cd $HOME/ojo
 git pull
