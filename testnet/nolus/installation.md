@@ -252,4 +252,4 @@ VALOPER_NOLUS=<your_valoper_address>
 echo "export VALOPER_NOLUS="${VALOPER_NOLUS}"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
-!!! Save priv_validator_key.json which located in /root/.sao/config
+!!! Save priv_validator_key.json which located in /root/.nolus/config
