@@ -14,6 +14,8 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [DeFund](../testnet/defund/)
 
+[Dymension](../testnet/dimension/)
+
 [Gitopia](../testnet/gitopia/)
 
 [Lava](../testnet/lava-network/)
