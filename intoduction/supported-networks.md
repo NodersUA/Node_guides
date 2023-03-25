@@ -26,7 +26,7 @@ Forta
 
 [Shardeum](../testnet/shardeum/)
 
-[Subspace](broken-reference)
+[Subspace](../testnet/subspace-gemini-3c/)
 {% endtab %}
 
 {% tab title="Untitled" %}
