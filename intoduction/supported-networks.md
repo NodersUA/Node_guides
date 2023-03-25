@@ -10,6 +10,8 @@ Discover base tools contributed to the projects by NodersUA Team.
 {% endtab %}
 
 {% tab title="TESTNET" %}
+[Andromeda](../testnet/andromeda/)
+
 [DeFund](../testnet/defund/)
 
 [Gitopia](../testnet/gitopia/)
