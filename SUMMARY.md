@@ -57,6 +57,11 @@
   * [Update](testnet/subspace-gemini-3c/update.md)
   * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3c/delete.md)
+* [Nolus](testnet/nolus/README.md)
+  * [Installation](testnet/nolus/installation.md)
+  * [Update](testnet/nolus/update.md)
+  * [SnapShot/StateSync/AddrBook](testnet/nolus/snapshot-statesync-addrbook.md)
+  * [Useful Commands](testnet/nolus/useful-commands.md)
 
 ## Mainnet
 
