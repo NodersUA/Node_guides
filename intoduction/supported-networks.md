@@ -2,7 +2,7 @@
 
 Discover base tools contributed to the projects by NodersUA Team.
 
-**Chains supported**: 5 | **Assets staked**: $0 | **Clients**: 0
+**Chains supported**: 9 | **Assets staked**: $0 | **Clients**: 0
 
 {% tabs %}
 {% tab title="MAINNET" %}
@@ -19,6 +19,8 @@ Discover base tools contributed to the projects by NodersUA Team.
 [Gitopia](../testnet/gitopia/)
 
 [Lava](../testnet/lava-network/)
+
+[OJO](../testnet/ojo/)
 
 [Realio](../testnet/realio/)
 
