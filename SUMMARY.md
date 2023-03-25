@@ -8,6 +8,11 @@
 
 ## Testnet
 
+* [Andromeda](testnet/andromeda/README.md)
+  * [Installation](testnet/andromeda/installation.md)
+  * [Update](testnet/andromeda/update.md)
+  * [Snapshot/StateSync/AddrBook](testnet/andromeda/snapshot-statesync-addrbook.md)
+  * [Useful Commands](testnet/andromeda/useful-commands.md)
 * [DeFund](testnet/defund/README.md)
   * [Installation](testnet/defund/installation.md)
   * [Update](testnet/defund/update.md)
@@ -37,11 +42,6 @@
   * [Update](testnet/subspace-gemini-3c/update.md)
   * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3c/delete.md)
-* [Andromeda](testnet/andromeda/README.md)
-  * [Installation](testnet/andromeda/installation.md)
-  * [Update](testnet/andromeda/update.md)
-  * [Snapshot/StateSync/AddrBook](testnet/andromeda/snapshot-statesync-addrbook.md)
-  * [Useful Commands](testnet/andromeda/useful-commands.md)
 
 ## Mainnet
 
