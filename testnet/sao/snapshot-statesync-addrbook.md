@@ -39,7 +39,6 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.sao/config/config.toml
 
 systemctl restart saod && journalctl -u saod -f -o cat
 ```
-
 ***If you cannot connect to peers long time download addrbook***
 ```bash
 # AddrBook
