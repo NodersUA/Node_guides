@@ -18,7 +18,7 @@
   * [Update](testnet/defund/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/defund/statesync-snapshot-addrbook.md)
   * [Useful Commands](testnet/defund/useful-commands.md)
-* [Dimension](testnet/dimension/README.md)
+* [Dymension](testnet/dimension/README.md)
   * [Installation](testnet/dimension/installation.md)
   * [Update](testnet/dimension/update.md)
   * [Snapshot/StateSync/AddrBook](testnet/dimension/snapshot-statesync-addrbook.md)
