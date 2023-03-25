@@ -6,4 +6,4 @@
 
 **Github -**  [**https://github.com/NodersUA**](https://github.com/NodersUA)****
 
-**Twitter -**  [**https://twitter.com/home**](https://twitter.com/home)****
+**Twitter -**  [**https://twitter.com/NodersUA**](https://twitter.com/NodersUA)****
