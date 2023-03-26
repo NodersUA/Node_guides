@@ -2,7 +2,7 @@
 
 Discover base tools contributed to the projects by NodersUA Team.
 
-**Chains supported**: 11 | **Assets staked**: $0 | **Clients**: 0
+**Chains supported**: 12 | **Assets staked**: $0 | **Clients**: 0
 
 {% tabs %}
 {% tab title="MAINNET" %}
@@ -19,6 +19,8 @@ Forta
 [Gitopia](../testnet/gitopia/)
 
 [Lava](../testnet/lava-network/)
+
+[Nibiru](../testnet/nibiru/)
 
 [Nolus](../testnet/nolus/)
 
