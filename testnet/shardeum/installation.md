@@ -56,37 +56,37 @@ sudo apt install apparmor-profiles
 curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
 ```
 
-The terminal will ask questions about your setup settings.
+**The terminal will ask questions about your setup settings.**
 
-Give permission to collect validator data for bug reporting:
+_<mark style="color:green;">**Give permission to collect validator data for bug reporting:**</mark>_
 
-**By running this installer, you agree to allow the Shardeum team to collect this data. (y/n)?:**
+<mark style="color:red;">**By running this installer, you agree to allow the Shardeum team to collect this data. (y/n)?:**</mark>
 
-Enter y to setup the web based dashboard:
+_<mark style="color:green;">**Enter y to setup the web based dashboard:**</mark>_
 
-**Do you want to run the web based Dashboard? (y/n): y**
+<mark style="color:red;">**Do you want to run the web based Dashboard? (y/n): y**</mark>
 
-Set a password for dashboard access:
+_<mark style="color:green;">**Set a password for dashboard access:**</mark>_
 
-**Set the password to access the Dashboard:**
+<mark style="color:red;">**Set the password to access the Dashboard:**</mark>
 
-Add a custom session port for the web based dashboard or hit enter for port 8080:
+_<mark style="color:green;">**Add a custom session port for the web based dashboard or hit enter for port 8080:**</mark>_
 
-**Enter the port (1025-65536) to access the web based Dashboard (default 8080):**
+<mark style="color:green;">**Enter the port (1025-65536) to access the web based Dashboard (default 8080):**</mark>
 
-For the default port, just Enter, if you want a custom one, select and enter it (for example, 3101)
+<mark style="color:red;">For the default port, just Enter, if you want a custom one, select and enter it (for example, 3101)</mark>
 
-**This allows p2p communication between nodes. Enter the first port (1025-65536) for p2p communication (default 9001):**
+<mark style="color:green;">**This allows p2p communication between nodes. Enter the first port (1025-65536) for p2p communication (default 9001):**</mark>
 
-For the default port, just Enter, if you want a custom one, select and enter it (for example, 9113)
+<mark style="color:red;">For the default port, just Enter, if you want a custom one, select and enter it (for example, 9113)</mark>
 
-**Enter the second port (1025-65536) for p2p communication (default 10001):**
+<mark style="color:green;">**Enter the second port (1025-65536) for p2p communication (default 10001):**</mark>
 
-For the default port, just Enter, if you want a custom one, select and enter it (for example, 10013)
+<mark style="color:red;">For the default port, just Enter, if you want a custom one, select and enter it (for example, 10013)</mark>
 
-Add a custom path or install to root:
+_**Add a custom path or install to root:**_
 
-**What base directory should the node use (defaults to \~/.shardeum):**
+_<mark style="color:green;">**What base directory should the node use (defaults to \~/.shardeum):**</mark>_
 
 Waiting for the installation to finish from about 10 to 30 minutes.
 
