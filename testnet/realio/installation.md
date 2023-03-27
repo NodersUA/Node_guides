@@ -13,7 +13,7 @@ apt install curl iptables build-essential git wget jq make gcc nano tmux htop nv
 
 ```bash
 # Install Go (one command)
-ver="1.19.1" && \
+ver="1.20.2" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
@@ -22,7 +22,7 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile &
 source $HOME/.bash_profile && \
 go version
 
-# go version go1.19.1 linux/amd64
+# go version go1.20.2 linux/amd64
 ```
 
 ```bash
@@ -32,7 +32,7 @@ go version
 REALIO_NODE_NAME=<your_node_name>
 
 echo 'export REALIO_NODE_NAME='$REALIO_NODE_NAME>> $HOME/.bash_profile
-echo "export REALIO_CHAIN_ID=realionetwork_1110-2" >> $HOME/.bash_profile
+echo "export REALIO_CHAIN_ID=realionetwork_1110-3" >> $HOME/.bash_profile
 echo "export REALIO_PORT=12" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
@@ -42,12 +42,12 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/realiotech/realio-network.git && cd realio-network
-git checkout tags/v0.7.2
+git checkout v0.8.0-rc2
 make install
 
 realio-networkd version
 
-# version: 0.7.2
+# v0.8.0-rc2
 ```
 
 ```bash
@@ -61,7 +61,7 @@ curl https://raw.githubusercontent.com/realiotech/testnets/master/$REALIO_CHAIN_
 
 # Check Genesis
 sha256sum $HOME/.realio-network/config/genesis.json 
-# a2f8fae48eb019720ef78524d683a9ca22884dd4e9ba4f8d5b3ac10db1275183
+# 695c10ad99740908d6a1efb2260b51eeeb1c496ac3e515fcf18933b51633d2e8
 ```
 
 ```bash
@@ -94,10 +94,10 @@ realio-networkd config node tcp://localhost:${REALIO_PORT}657
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0ario\"/" $HOME/.realio-network/config/app.toml
 
 # Add seeds/peers в config.toml
-peers=""
+peers="ec2dbd6e5d25501c50fb8585b5678a7460ef11da@144.126.196.99:26656,5bd91f6e7e3bcaaddead32fd37d67458723fec73@159.223.132.183:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.realio-network/config/config.toml
 
-seeds="aa194e9f9add331ee8ba15d2c3d8860c5a50713f@143.110.230.177:26656"
+seeds=""
 sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" $HOME/.realio-network/config/config.toml
 
 # Set up filter for "bad" peers
@@ -175,7 +175,7 @@ realio-networkd status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 ```bash
 # Create wallet
 realio-networkd keys add wallet
-Create a password for the wallet and write it down so you don't forget it. The wallet has been created. In the last line there will be a phrase that must be written down
+# The wallet has been created. In the last line there will be a phrase that must be written down
 ```
 
 ```bash
@@ -185,7 +185,7 @@ realio-networkd keys add wallet --recover
 # If everything is correct, you will see your wallet data
 ```
 
-**Go to the # faucet branch and request tokens**
+**Send your address to the chanel #[testnet-tokens](https://discord.com/channels/1016319560581914747/1047873677020123186)**
 
 ```bash
 # Save the wallet address
