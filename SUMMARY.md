@@ -67,6 +67,8 @@
   * [Update](testnet/subspace-gemini-3c/update.md)
   * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3c/delete.md)
+* [Sui](testnet/sui/README.md)
+  * [Installation](testnet/sui/installation.md)
 
 ## Mainnet
 

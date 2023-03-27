@@ -1,10 +1,14 @@
-***Sanpshot***t
+# SnapShot/StateSync/AddrBook
+
+_**Sanpshot**_t
+
 ```bash
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.nibid/config/app.toml
 ```
 
-***State Sync***
+_**State Sync**_
+
 ```bash
 # install lz4
 apt update
@@ -31,7 +35,9 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.nibid/config/config.toml
 
 systemctl restart nibid && journalctl -u nibid -f -o cat
 ```
-***If you cannot connect to peers long time download addrbook***
+
+_**If you cannot connect to peers long time download addrbook**_
+
 ```bash
 wget -O $HOME/.nibid/config/addrbook.json "https://share.utsa.tech/nibiru/addrbook.json"
 

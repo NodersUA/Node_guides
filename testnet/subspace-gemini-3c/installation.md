@@ -38,7 +38,7 @@ subspace init
 4. Specify a plot size (min 50 GB, example: 50 GB, 1100 GB)
 5. Press Enter
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 # Fix journal (One command)
