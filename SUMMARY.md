@@ -53,6 +53,7 @@
   * [Update](testnet/realio/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/realio/statesync-snapshot-addrbook.md)
   * [Useful Commands](testnet/realio/useful-commands.md)
+  * [Delete](testnet/realio/delete.md)
 * [SAO](testnet/sao/README.md)
   * [Installation](testnet/sao/installation.md)
   * [Update](testnet/sao/update.md)
