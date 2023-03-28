@@ -32,7 +32,7 @@ go version
 REALIO_NODE_NAME=<your_node_name>
 
 echo 'export REALIO_NODE_NAME='$REALIO_NODE_NAME>> $HOME/.bash_profile
-echo "export REALIO_CHAIN_ID=realionetwork_1110-1" >> $HOME/.bash_profile
+echo "export REALIO_CHAIN_ID=realionetwork_3300-1" >> $HOME/.bash_profile
 echo "export REALIO_PORT=12" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
