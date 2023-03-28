@@ -30,4 +30,10 @@ sed -i.bak -e "s|^persistent_peers *=.*|persistent_peers = \"$STATE_SYNC_PEER\"|
 mv $HOME/.realio-network/priv_validator_state.json.backup $HOME/.realio-network/data/priv_validator_state.json
 sudo systemctl restart realio-networkd && journalctl -u realio-networkd -f --no-hostname -o cat
 ```
+_**If you cannot connect to peers long time download addrbook**_
 
+```bash
+wget -O $HOME/.realio-network/config/addrbook.json https://files.itrocket.net/testnet/realio/addrbook.json
+
+systemctl restart nibid && journalctl -u nibid -f -o cat
+```
