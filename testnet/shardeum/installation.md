@@ -1,5 +1,10 @@
 # Installation
 
+### Automatic Installation
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/shardeum.sh)
+```
+
 ### Node
 
 Update the repositories
