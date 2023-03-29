@@ -240,7 +240,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 ```bash
 lavad tx staking create-validator \
 --amount 9000000ulava \
---from=$WALLET_LAVA \
+--from=wallet \
 --commission-rate "0.07" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -249,7 +249,7 @@ lavad tx staking create-validator \
 --moniker=$MONIKER_LAVA \
 --chain-id=$CHAIN_ID_LAVA \
 --fees=10000ulava \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
