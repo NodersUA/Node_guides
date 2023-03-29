@@ -5,4 +5,4 @@
 sudo systemctl stop subspaced
 ```
 
-Start the installation [again](broken-reference)
+Start the installation [again](https://nodersua.gitbook.io/about-nodersua/testnet/subspace-gemini-3c/installation)
