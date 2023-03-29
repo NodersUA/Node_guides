@@ -250,7 +250,7 @@ defundd tx staking create-validator \
 --moniker=$DEFUND_MONIKER \
 --chain-id=$DEFUND_CHAIN_ID \
 --fees=5000ufetf \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
