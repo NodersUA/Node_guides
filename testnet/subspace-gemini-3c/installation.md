@@ -26,13 +26,13 @@ cd $HOME && \
 rm -Rvf $HOME/subspace >/dev/null 2>&1
 ```
 
-Create your [polkadot.js](https://teletype.in/@muhaylo.semenyuk/7SVtg0CRgDF) wallet or import wallet from gemini 2
+Create your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) wallet or import wallet from gemini 2
 
 ```bash
 subspace init
 ```
 
-1. Enter your [polkadot.js](https://teletype.in/@muhaylo.semenyuk/7SVtg0CRgDF) address
+1. Enter your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) address
 2. Enter your NodeName
 3. Press Enter
 4. Specify a plot size (min 50 GB, example: 50 GB, 1100 GB)
