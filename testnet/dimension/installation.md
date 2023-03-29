@@ -211,7 +211,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 # Change <identity> to your key from keybase
 dymd tx staking create-validator \
 --amount 1000000udym \
---from=$WALLET_DYMENSION \
+--from=wallet \
 --commission-rate "0.15" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -220,7 +220,7 @@ dymd tx staking create-validator \
 --moniker=$MONIKER_DYMENSION \
 --chain-id=$CHAIN_ID_DYMENSION \
 --fees=5000udym \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
