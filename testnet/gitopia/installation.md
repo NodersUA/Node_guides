@@ -216,7 +216,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 # Change <identity> to your key from keybase
 gitopiad tx staking create-validator \
 --amount 1000000utlore \
---from=$GITOPIA_WALLET_NAME \
+--from=wallet \
 --commission-rate "0.05" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -225,7 +225,7 @@ gitopiad tx staking create-validator \
 --moniker=$GITOPIA_NODE_NAME \
 --chain-id=$GITOPIA_CHAIN_ID \
 --fees=5000utlore \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
