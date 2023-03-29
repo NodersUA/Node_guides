@@ -213,7 +213,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 # Change <identity> to your key from keybase
 saod tx staking create-validator \
 --amount 1000000sao \
---from=$WALLET_SAO \
+--from=wallet \
 --commission-rate "0.05" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -222,7 +222,7 @@ saod tx staking create-validator \
 --moniker=$MONIKER_SAO \
 --chain-id=$CHAIN_ID_SAO \
 --fees=5000sao \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
