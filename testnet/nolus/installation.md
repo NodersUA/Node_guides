@@ -213,7 +213,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 # Change <identity> to your key from keybase
 nolusd tx staking create-validator \
 --amount 1000000sunls \
---from=$WALLET_NOLUS \
+--from=wallet \
 --commission-rate "0.05" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -222,7 +222,7 @@ nolusd tx staking create-validator \
 --moniker=$MONIKER_NOLUS \
 --chain-id=$CHAIN_ID_NOLUS \
 --fees=5000unls \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
