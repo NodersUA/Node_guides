@@ -198,7 +198,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 # Change <identity> to your key from keybase
 realio-networkd tx staking create-validator \
 --amount 1000000000000000000ario \
---from=$REALIO_WALLET_NAME \
+--from=wallet \
 --commission-rate "0.05" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -207,7 +207,7 @@ realio-networkd tx staking create-validator \
 --moniker=$REALIO_NODE_NAME \
 --chain-id=$REALIO_CHAIN_ID \
 --fees=5000000000000000ario \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
