@@ -73,6 +73,8 @@
   * [Installation (Docker)](testnet/sui/installation-docker.md)
   * [Update (Linux)](testnet/sui/update-linux.md)
   * [Useful commands](testnet/sui/useful-commands.md)
+  * [Delete (Linux)](testnet/sui/delete-linux.md)
+  * [Delete (Docker)](testnet/sui/delete-docker.md)
 
 ## Mainnet
 
