@@ -42,12 +42,12 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/realiotech/realio-network.git && cd realio-network
-git checkout v0.8.0-rc2
+git checkout v0.8.0-rc3
 make install
 
 realio-networkd version
 
-# v0.8.0-rc2
+# v0.8.0-rc3
 ```
 
 ```bash
