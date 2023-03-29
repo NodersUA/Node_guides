@@ -214,7 +214,7 @@ Do not forget to create a profile on https://keybase.io/ and set a profile photo
 # Change <identity> to your key from keybase
 ojod tx staking create-validator \
 --amount 1000000uojo \
---from=$WALLET_DYMENSION \
+--from=wallet \
 --commission-rate "0.05" \
 --commission-max-rate "0.20" \
 --commission-max-change-rate "0.1" \
@@ -223,7 +223,7 @@ ojod tx staking create-validator \
 --moniker=$MONIKER_OJO \
 --chain-id=$CHAIN_ID_OJO \
 --fees=5000uojo \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
