@@ -222,7 +222,7 @@ nibid tx staking create-validator \
 --moniker=$NIBIRU_MONIKER \
 --chain-id=$NIBIRU_CHAIN_ID \
 --fees=5000unibi \
---identity="" \
+--identity=<identity> \
 --details="" \
 --website="" \
 -y
