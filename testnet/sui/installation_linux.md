@@ -9,76 +9,86 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/sui_aut
 ### Manual
 
 ```bash
-# Update the repositories
-apt update && apt upgrade -y
-```
-
-```bash
-# Install developer packages
-sudo apt install wget jq git libclang-dev libpq-dev cmake -y
+# Update the repositories and developer packages
+sudo apt-get update \
+&& sudo apt-get install -y --no-install-recommends \
+tzdata \
+ca-certificates \
+build-essential \
+libssl-dev \
+libclang-dev \
+pkg-config \
+cmake
 ```
 
 ```bash
 # Install Rust
-. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/installers/rust.sh)
-
+sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
 ```
 
 ```bash
-# Download binary files (One command)
-mkdir -p $HOME/.sui
-git clone https://github.com/MystenLabs/sui && \
-cd sui && \
-git remote add upstream https://github.com/MystenLabs/sui && \
-git fetch upstream && \
-git checkout -B devnet --track upstream/devnet && \
-cargo build --release && \
-mv $HOME/sui/target/release/{sui,sui-node,sui-faucet} /usr/bin/ && cd
+# Create directory for SUI db and genesis state file
+mkdir -p /var/sui/db
+```
+
+```bash
+# Clone GitHub SUI repository
+cd $HOME
+git clone https://github.com/MystenLabs/sui.git
+cd sui
+git remote add upstream https://github.com/MystenLabs/sui
+git fetch upstream
+git checkout --track upstream/devnet
+```
+
+```bash
+# Make a copy of fullnode.yaml and update path to db and genesis state file.
+cp crates/sui-config/data/fullnode-template.yaml /var/sui/fullnode.yaml
+sed -i.bak "s/db-path:.*/db-path: \"\/var\/sui\/db\"/ ; s/genesis-file-location:.*/genesis-file-location: \"\/var\/sui\/genesis.blob\"/" /var/sui/fullnode.yaml
 ```
 
 ```bash
 # Download Genesis
-wget -qO $HOME/.sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blobh
+wget -P /var/sui https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
 ```
 
 ```bash
-# Copy and edit config (One command)
-cp $HOME/sui/crates/sui-config/data/fullnode-template.yaml \
-$HOME/.sui/fullnode.yaml && \
-sed -i -e "s%db-path:.*%db-path: \"$HOME/.sui/db\"%; "\
-"s%metrics-address:.*%metrics-address: \"0.0.0.0:9184\"%; "\
-"s%json-rpc-address:.*%json-rpc-address: \"0.0.0.0:9000\"%; "\
-"s%genesis-file-location:.*%genesis-file-location: \"$HOME/.sui/genesis.blob\"%; " $HOME/.sui/fullnode.yaml
+# Build SUI binaries
+cargo build --release
+mv ~/sui/target/release/sui-node /usr/local/bin/
+mv ~/sui/target/release/sui /usr/local/bin/
 
 ```
 
 ```bash
-# Open the ports
-. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/miscellaneous/ports_opening.sh) \
-9000 9184
-```
-
-```bash
-# Create service file (One command)
-printf "[Unit]
-Description=Sui node
-After=network-online.target
+# Create Service file for SUI Node
+echo "[Unit]
+Description=Sui Node
+After=network.target
 
 [Service]
 User=$USER
-ExecStart=`which sui-node` --config-path $HOME/.sui/fullnode.yaml
+Type=simple
+ExecStart=/usr/local/bin/sui-node --config-path /var/sui/fullnode.yaml
 Restart=on-failure
-RestartSec=3
 LimitNOFILE=65535
 
 [Install]
-WantedBy=multi-user.target" > /etc/systemd/system/suid.service
+WantedBy=multi-user.target" > $HOME/suid.service
+
+mv $HOME/suid.service /etc/systemd/system/
+
+sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
+Storage=persistent
+EOF
 ```
 
 ```bash
 # Start the node
+sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
 sudo systemctl enable suid
-sudo systemctl restart suid
+sudo systemctl start suid
 sudo journalctl -fn 100 -u suid
 ```
