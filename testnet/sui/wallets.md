@@ -18,3 +18,16 @@ echo $HOME/sui/sui_config/
 # Make sure that the address has been created
 sui keytool list
 ```
+***Request tokens from the faucet***
+```bash
+# Display and copy the wallet address (in the left column)
+sui keytool list
+
+# Go to:
+#🚰・devnet-faucet and send a command with the wallet address:
+!faucet 0x___
+
+# Create a NFT
+⠀NFT-example is created by the command
+sui client create-example-nft
+```
