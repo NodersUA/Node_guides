@@ -68,7 +68,7 @@
   * [Update](testnet/subspace-gemini-3c/update.md)
   * [Useful commands](testnet/subspace-gemini-3c/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3c/delete.md)
-* [Sui](testnet/sui/README.md)
+* [Sui (Devnet)](testnet/sui/README.md)
   * [Installation (Linux)](testnet/sui/installation\_linux.md)
   * [Installation (Docker)](testnet/sui/installation-docker.md)
   * [Update (Linux)](testnet/sui/update-linux.md)
