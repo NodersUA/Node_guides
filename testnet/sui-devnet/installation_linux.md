@@ -3,7 +3,7 @@
 ### Automatic Installation
 
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/sui_autoinstall.sh)
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/sui/sui_devnet.sh)
 ```
 
 ### Manual
