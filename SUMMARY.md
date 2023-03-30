@@ -88,4 +88,5 @@
 
 ## Mainnet
 
-* [Forta](mainnet/page-1.md)
+* [Forta](mainnet/forta/README.md)
+  * [Installation](mainnet/forta/installation.md)
