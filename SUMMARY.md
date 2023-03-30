@@ -25,6 +25,7 @@
   * [Useful Commands](testnet/dimension/useful-commands.md)
 * [Iron Fish](testnet/iron-fish/README.md)
   * [Installation](testnet/iron-fish/installation.md)
+  * [Wallet](testnet/iron-fish/wallet.md)
   * [Update](testnet/iron-fish/update.md)
   * [Useful Commands](testnet/iron-fish/useful-commands.md)
 * [Gitopia](testnet/gitopia/README.md)
@@ -87,4 +88,5 @@
 
 ## Mainnet
 
-* [Page 1](mainnet/page-1.md)
+* [Forta](mainnet/forta/README.md)
+  * [Installation](mainnet/forta/installation.md)
