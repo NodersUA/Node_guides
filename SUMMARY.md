@@ -88,4 +88,4 @@
 
 ## Mainnet
 
-* [Page 1](mainnet/page-1.md)
+* [Forta](mainnet/page-1.md)

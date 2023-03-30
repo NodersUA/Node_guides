@@ -16,6 +16,8 @@ Forta
 
 [Dymension](../testnet/dimension/)
 
+[Iron Fish](../testnet/iron-fish/)
+
 [Gitopia](../testnet/gitopia/)
 
 [Lava](../testnet/lava-network/)
@@ -33,10 +35,10 @@ Forta
 [Shardeum](../testnet/shardeum/)
 
 [Subspace](../testnet/subspace-gemini-3c/)
-{% endtab %}
 
-{% tab title="Untitled" %}
-Iron Fish
+Sui [(Testnet)](../testnet/sui-testnet/) [( Devnet)](../testnet/sui-devnet/)
+
+
 {% endtab %}
 {% endtabs %}
 
