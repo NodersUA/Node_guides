@@ -1,6 +1,6 @@
 ***Automatic Installation***
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/Andromeda.sh) && chmod +x Andromeda && ./Andromeda
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/Andromeda) && chmod +x Andromeda && ./Andromeda
 ```
 **Manual Installation**
 ```bash
