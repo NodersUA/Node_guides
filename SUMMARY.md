@@ -75,6 +75,7 @@
   * [Useful commands](testnet/sui/useful-commands.md)
   * [Delete (Linux)](testnet/sui/delete-linux.md)
   * [Delete (Docker)](testnet/sui/delete-docker.md)
+  * [Wallets](testnet/sui/wallets.md)
 
 ## Mainnet
 
