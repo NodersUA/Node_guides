@@ -1,4 +1,4 @@
-# Installation (Linux)
+# Installation
 
 ### Automatic Installation
 
@@ -10,7 +10,15 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/sui_aut
 
 ```bash
 # Update the repositories and developer packages
-sudo apt-get update && sudo apt-get install -y --no-install-recommends tzdata libprotobuf-dev ca-certificates build-essential libssl-dev libclang-dev pkg-config openssl protobuf-compiler git clang cmake -y
+sudo apt-get update \
+&& sudo apt-get install -y --no-install-recommends \
+tzdata \
+ca-certificates \
+build-essential \
+libssl-dev \
+libclang-dev \
+pkg-config \
+cmake
 ```
 
 ```bash
@@ -20,8 +28,8 @@ source $HOME/.cargo/env
 ```
 
 ```bash
-# Create a directory for database, genesis.blob, fullnode.yaml
-mkdir $HOME/.sui
+# Create directory for SUI db and genesis state file
+mkdir -p /var/sui/db
 ```
 
 ```bash
@@ -31,25 +39,26 @@ git clone https://github.com/MystenLabs/sui.git
 cd sui
 git remote add upstream https://github.com/MystenLabs/sui
 git fetch upstream
-git checkout --track upstream/testnet
+git checkout --track upstream/devnet
 ```
 
 ```bash
 # Make a copy of fullnode.yaml and update path to db and genesis state file.
-cp $HOME/sui/crates/sui-config/data/fullnode-template.yaml $HOME/.sui/fullnode.yaml
-sed -i.bak "s|db-path:.*|db-path: \"$HOME\/.sui\/db\"| ; s|genesis-file-location:.*|genesis-file-location: \"$HOME\/.sui\/genesis.blob\"| ; s|127.0.0.1|0.0.0.0|" $HOME/.sui/fullnode.yaml
+cp crates/sui-config/data/fullnode-template.yaml /var/sui/fullnode.yaml
+sed -i.bak "s/db-path:.*/db-path: \"\/var\/sui\/db\"/ ; s/genesis-file-location:.*/genesis-file-location: \"\/var\/sui\/genesis.blob\"/" /var/sui/fullnode.yaml
 ```
 
 ```bash
 # Download Genesis
-wget -P $HOME/.sui https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob
+wget -P /var/sui https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
 ```
 
 ```bash
 # Build SUI binaries
-cargo build --release -p sui-node -p sui
-mv $HOME/sui/target/release/sui-node /usr/local/bin/
-mv $HOME/sui/target/release/sui /usr/local/bin/
+cargo build --release
+mv ~/sui/target/release/sui-node /usr/local/bin/
+mv ~/sui/target/release/sui /usr/local/bin/
+
 ```
 
 ```bash
@@ -61,7 +70,7 @@ After=network.target
 [Service]
 User=$USER
 Type=simple
-ExecStart=/usr/local/bin/sui-node --config-path $HOME/.sui/fullnode.yaml
+ExecStart=/usr/local/bin/sui-node --config-path /var/sui/fullnode.yaml
 Restart=on-failure
 LimitNOFILE=65535
 
@@ -69,12 +78,17 @@ LimitNOFILE=65535
 WantedBy=multi-user.target" > $HOME/suid.service
 
 mv $HOME/suid.service /etc/systemd/system/
+
+sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
+Storage=persistent
+EOF
 ```
 
 ```bash
 # Start the node
+sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
 sudo systemctl enable suid
 sudo systemctl start suid
-journalctl -u suid -f
+sudo journalctl -fn 100 -u suid
 ```
