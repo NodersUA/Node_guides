@@ -85,8 +85,8 @@ sudo systemctl disable gitopiad && \
 rm /etc/systemd/system/gitopiad.service && \
 sudo systemctl daemon-reload && \
 cd $HOME && \
-rm -rf gitopiad && \
-rm -rf .gitopiad && \
+rm -rf gitopia && \
+rm -rf .gitopia && \
 rm -rf $(which gitopiad)
 ```
 
