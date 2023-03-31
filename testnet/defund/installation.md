@@ -1,6 +1,9 @@
-# Installation
+***Automatic Installation***
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/defund) && chmod +x defund && ./defund
+```
 
-**Node**
+**Manual Installation**
 
 ```bash
 # Update the repositories
