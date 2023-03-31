@@ -1,4 +1,9 @@
-***Node***
+***Automatic Installation***
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/dymensions) && chmod +x dymensions && ./dymensions
+```
+
+***Manual Installation***
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
