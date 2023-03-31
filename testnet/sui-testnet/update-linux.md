@@ -1,6 +1,7 @@
 # Update (Linux)
 
 ```bash
+# 287d37841adf35848e846e355f92dcaaa124fbd8
 cd $HOME/sui && \
 git fetch upstream && \
 git checkout 287d37841adf35848e846e355f92dcaaa124fbd8 && \
