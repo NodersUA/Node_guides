@@ -154,7 +154,7 @@ Restart=always
 RestartSec=3
 LimitNOFILE=infinity
 
-Environment="DAEMON_NAME=gitopiad"
+Environment="DAEMON_NAME=gitopia"
 Environment="DAEMON_HOME=${HOME}/.gitopia"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
