@@ -76,6 +76,7 @@
 * [Sui (Tesnet)](testnet/sui-testnet/README.md)
   * [Installation (Linux)](testnet/sui-testnet/installation\_linux.md)
   * [Useful commands](testnet/sui-testnet/useful-commands.md)
+  * [Update (Linux)](testnet/sui-testnet/update-linux.md)
   * [Delete (Linux)](testnet/sui-testnet/delete-linux.md)
 * [Sui (Devnet)](testnet/sui-devnet/README.md)
   * [Installation (Linux)](testnet/sui-devnet/installation\_linux.md)
