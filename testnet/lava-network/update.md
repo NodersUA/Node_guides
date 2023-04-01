@@ -5,12 +5,12 @@
 ```bash
 cd $HOME/lava
 git fetch --all 
-git checkout v0.6.0
+git checkout v...
 make install
-sudo mv $HOME/go/bin/lavad /usr/local/bin/lavad
+sudo cp $HOME/go/bin/lavad /usr/local/bin/lavad /.lava/cosmovisor/genesis/bin/lavad
 ```
 
-Check version 0.6.0
+Check version 
 
 ```bash
 lavad version
