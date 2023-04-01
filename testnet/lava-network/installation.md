@@ -8,12 +8,10 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/lava) &
 # Update the repositories
 apt update && apt upgrade -y
 ```
-
 ```bash
 # Install developer packages
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
-
 ```bash
 # Install Go (one command)
 ver="1.20.1" && \
@@ -24,11 +22,10 @@ rm "go$ver.linux-amd64.tar.gz" && \
 echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile && \
 go version
-
 # go version go1.20.1 linux/amd64
 ```
-
 ```bash
+
 # Set the variables
 
 # Come up with the name of your node and replace it instead <your_moniker>
@@ -40,7 +37,6 @@ echo "export PORT_LAVA=33" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
 ```
-
 ```bash
 # Download binary files
 cd $HOME 
@@ -53,12 +49,10 @@ sudo cp $HOME/go/bin/lavad /usr/local/bin/lavad
 lavad version --long | grep -e version -e commit
 # 0.8.1
 ```
-
 ```bash
 # Initialize the node
 lavad init $MONIKER_LAVA --chain-id $CHAIN_ID_LAVA
 ```
-
 ```bash
 # Download Genesis
 curl -s https://raw.githubusercontent.com/K433QLtr6RA9ExEq/GHFkqmTzpdNLDd6T/main/testnet-1/genesis_json/genesis.json > $HOME/.lava/config/genesis.json
@@ -67,7 +61,6 @@ curl -s https://raw.githubusercontent.com/K433QLtr6RA9ExEq/GHFkqmTzpdNLDd6T/main
 sha256sum ~/.lava/config/genesis.json
 # 72170a8a7314cb79bc57a60c1b920e26457769667ce5c2ff0595b342c0080d78
 ```
-
 ```bash
 # Set the ports
 
@@ -84,7 +77,7 @@ external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${PORT_LAVA}656\"/" $HOME/.lava/config/config.toml
 ```
 
-#### Setup config <a href="#grur" id="grur"></a>
+***Setup config***
 
 ```bash
 # correct config (so we can no longer use the chain-id flag for every CLI command in client.toml)
@@ -137,12 +130,10 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.lava/config/config.to
 ```
 
 **Cosmovisor**
-
 ```bash
 # Install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ```
-
 ```bash
 # Create directories
 mkdir -p ~/.lava/cosmovisor
@@ -150,12 +141,10 @@ mkdir -p ~/.lava/cosmovisor/genesis
 mkdir -p ~/.lava/cosmovisor/genesis/bin
 mkdir -p ~/.lava/cosmovisor/upgrades
 ```
-
 ```bash
 # Copy the binary file to the cosmovisor folder
 cp `which lavad` ~/.lava/cosmovisor/genesis/bin/lavad
 ```
-
 ```bash
 # Create service file (One command)
 sudo tee /etc/systemd/system/lavad.service > /dev/null <<EOF
@@ -204,7 +193,7 @@ curl localhost:${PORT_LAVA}657/status
 
 "catching\_up": false means that the node is synchronized, we are waiting for complete synchronization
 
-### Wallet <a href="#2osy" id="2osy"></a>
+***Wallet***
 
 ```bash
 # Create wallet
@@ -235,7 +224,7 @@ source $HOME/.bash_profile
 lavad q bank balances $WALLET_LAVA
 ```
 
-### Validator <a href="#zris" id="zris"></a>
+***Validator***
 
 Do not forget to create a profile on https://keybase.io/ and set a profile photo there that will be imported by key and used for your validators.
 
