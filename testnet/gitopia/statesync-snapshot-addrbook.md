@@ -29,4 +29,4 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.gitopia/config/config.tom
 ```bash
 wget -O $HOME/.gitopia/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Gitopia/addrbook.json"
 
-systemctl restart andromedad && journalctl -u andromedad -f -o cat
+systemctl restart gitopiad && journalctl -u gitopiad -f -o cat
