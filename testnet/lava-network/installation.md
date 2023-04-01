@@ -129,41 +129,19 @@ indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.lava/config/config.tomlbash
 ```
 
-**Cosmovisor**
-```bash
-# Install Cosmovisor
-go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
-```
-```bash
-# Create directories
-mkdir -p ~/.lava/cosmovisor
-mkdir -p ~/.lava/cosmovisor/genesis
-mkdir -p ~/.lava/cosmovisor/genesis/bin
-mkdir -p ~/.lava/cosmovisor/upgrades
-```
-```bash
-# Copy the binary file to the cosmovisor folder
-cp `which lavad` ~/.lava/cosmovisor/genesis/bin/lavad
-```
+**Service File**
 ```bash
 # Create service file (One command)
-sudo tee /etc/systemd/system/lavad.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/lavad.service > /dev/null << EOF
 [Unit]
-Description=lava daemon
+Description=Lava Network Node
 After=network-online.target
-
 [Service]
 User=$USER
-ExecStart=$(which cosmovisor) run start --x-crisis-skip-assert-invariants
-Restart=always
-RestartSec=3
-LimitNOFILE=infinity
-
-Environment="DAEMON_NAME=lavad"
-Environment="DAEMON_HOME=${HOME}/.lava"
-Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
-
+ExecStart=$(which lavad) start
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=10000
 [Install]
 WantedBy=multi-user.target
 EOF
