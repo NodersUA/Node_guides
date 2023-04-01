@@ -16,7 +16,7 @@ apt install curl iptables build-essential git wget jq make gcc nano tmux htop nv
 
 ```bash
 # Install Go (one command)
-ver="1.19.1" && \
+ver="1.20.1" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
@@ -25,7 +25,7 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile &
 source $HOME/.bash_profile && \
 go version
 
-# go version go1.19.1 linux/amd64
+# go version go1.20.1 linux/amd64
 ```
 
 ```bash
@@ -47,7 +47,7 @@ cd $HOME
 git clone https://github.com/lavanet/lava 
 cd lava 
 git fetch --all 
-git checkout v0.4.4
+git checkout v0.6.0
 make install
 sudo mv $HOME/go/bin/lavad /usr/local/bin/lavad
 lavad version --long | grep -e version -e commit
