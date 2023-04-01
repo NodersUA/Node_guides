@@ -5,14 +5,19 @@ SnapShot
 ```bash
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.lava/config/app.toml
-
 # install lz4
 apt update
 apt install snapd -y
 snap install lz4
-
-SNAP_LAVA=$(curl -s https://snapshots1-testnet.nodejumper.io/lava-testnet/ | egrep -o ">lava-testnet-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots1-testnet.nodejumper.io/lava-testnet/${SNAP_LAVA} | lz4 -dc - | tar -xf - -C $HOME/.lava
+# install dependencies, if needed
+sudo apt update
+sudo apt install lz4 -y
+sudo systemctl stop lavad
+cp $HOME/.lava/data/priv_validator_state.json $HOME/.lava/priv_validator_state.json.backup 
+lavad tendermint unsafe-reset-all --home $HOME/.lava --keep-addr-book 
+curl https://snapshots1-testnet.nodejumper.io/lava-testnet/lava-testnet-1_2023-04-01.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.lava
+mv $HOME/.lava/priv_validator_state.json.backup $HOME/.lava/data/priv_validator_state.json 
+sudo systemctl start lavad
 ```
 
 **StateSync**
@@ -41,7 +46,7 @@ systemctl restart lavad && journalctl -u lavad -f -o cat
 If you cannot connect to peers long time download addrbook.
 
 ```bash
-wget -O $HOME/.lava/config/addrbook.json "https://share2.utsa.tech/lava/addrbook.json"
+curl -s https://snapshots1-testnet.nodejumper.io/lava-testnet/addrbook.json > $HOME/.lava/config/addrbook.json
 
 systemctl restart lavad && journalctl -u lavad -f -o cat
 ```
