@@ -5,10 +5,6 @@ SnapShot
 ```bash
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.lava/config/app.toml
-# install lz4
-apt update
-apt install snapd -y
-snap install lz4
 # install dependencies, if needed
 sudo apt update
 sudo apt install lz4 -y
