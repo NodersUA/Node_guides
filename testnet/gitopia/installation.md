@@ -117,12 +117,12 @@ pruning_interval="10"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.gitopia/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.gitopia/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.gitopia/config/app.toml
+curl -s https://snapshots1-testnet.nodejumper.io/gitopia-testnet/addrbook.json > $HOME/.gitopia/config/addrbook.json
 
 gitopiad tendermint unsafe-reset-all --home $HOME/.gitopia --keep-addr-book
 
 SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/gitopia-testnet/info.json | jq -r .fileName)
 curl "https://snapshots1-testnet.nodejumper.io/gitopia-testnet/${SNAP_NAME}" | lz4 -dc - | tar -xf - -C "$HOME/.gitopia"
-curl -s https://snapshots1-testnet.nodejumper.io/gitopia-testnet/addrbook.json > $HOME/.gitopia/config/addrbook.json
 
 ```
 
