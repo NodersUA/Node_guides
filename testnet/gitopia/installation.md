@@ -123,41 +123,21 @@ indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.gitopia/config/config.toml
 ```
 
-***Cosmovisor***
+***SERVICE FILE***
 
-```bash
-# Install Cosmovisor
-go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
-```
-```bash
-# Create directories
-mkdir -p ~/.gitopia/cosmovisor
-mkdir -p ~/.gitopia/cosmovisor/genesis
-mkdir -p ~/.gitopia/cosmovisor/genesis/bin
-mkdir -p ~/.gitopia/cosmovisor/upgrades
-```
-```bash
-# Copy the binary file to the cosmovisor folder
-cp `which gitopiad` ~/.gitopia/cosmovisor/genesis/bin/gitopiad
-```
 ```bash
 # Create service file (One command)
 sudo tee /etc/systemd/system/gitopiad.service > /dev/null <<EOF
 [Unit]
-Description=gitopiad daemon
+Description=gitopiad
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which cosmovisor) run start --x-crisis-skip-assert-invariants
-Restart=always
+ExecStart=$(which gitopiad) start
+Restart=on-failure
 RestartSec=3
-LimitNOFILE=infinity
-
-Environment="DAEMON_NAME=gitopiad"
-Environment="DAEMON_HOME=${HOME}/.gitopia"
-Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
+LimitNOFILE=65535
 
 [Install]
 WantedBy=multi-user.target
