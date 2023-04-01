@@ -22,7 +22,7 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile &
 source $HOME/.bash_profile && \
 go version
 
-# go version go1.19.1 linux/amd64
+# go version go1.20.1 linux/amd64
 ```
 ```bash
 # Set the variables
