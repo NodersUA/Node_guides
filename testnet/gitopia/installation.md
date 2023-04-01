@@ -14,7 +14,7 @@ apt install curl iptables build-essential git wget jq make gcc nano tmux htop nv
 ```
 ```bash
 # Install Go (one command)
-ver="1.19.1" && \
+ver="1.20.1" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
@@ -23,7 +23,7 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile &
 source $HOME/.bash_profile && \
 go version
 
-# go version go1.19.1 linux/amd64
+# go version go1.20.1 linux/amd64
 ```
 ```bash
 # Set the variables
@@ -40,9 +40,12 @@ source $HOME/.bash_profile
 ```bash
 # Download binary files
 cd $HOME
-curl https://get.gitopia.com | bash
-git clone -b v1.2.0 gitopia://gitopia/gitopia
-cd gitopia && make install
+rm -rf gitopia
+git clone gitopia://Gitopia/gitopia
+cd gitopia
+git checkout v1.2.0
+make install
+sudo cp $HOME/go/bin/gitopiad /usr/local/bin/gitopiad
 
 gitopiad version --long | grep -e version -e commit
 
@@ -54,9 +57,9 @@ gitopiad init $GITOPIA_NODE_NAME --chain-id $GITOPIA_CHAIN_ID
 ```
 ```bash
 # Download Genesis
-wget https://server.gitopia.com/raw/gitopia/testnets/master/gitopia-janus-testnet-2/genesis.json.gz
-gunzip genesis.json.gz
-cp genesis.json $HOME/.gitopia/config/genesis.json
+curl -s https://server.gitopia.com/raw/gitopia/testnets/master/gitopia-janus-testnet-2/genesis.json.gz > ~/.gitopia/config/genesis.zip
+gunzip -c ~/.gitopia/config/genesis.zip > ~/.gitopia/config/genesis.json
+rm -rf ~/.gitopia/config/genesis.zip
 
 # Check Genesis
 sha256sum ~/.gitopia/config/genesis.json 
@@ -114,6 +117,13 @@ pruning_interval="10"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.gitopia/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.gitopia/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.gitopia/config/app.toml
+
+gitopiad tendermint unsafe-reset-all --home $HOME/.gitopia --keep-addr-book
+
+SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/gitopia-testnet/info.json | jq -r .fileName)
+curl "https://snapshots1-testnet.nodejumper.io/gitopia-testnet/${SNAP_NAME}" | lz4 -dc - | tar -xf - -C "$HOME/.gitopia"
+curl -s https://snapshots1-testnet.nodejumper.io/gitopia-testnet/addrbook.json > $HOME/.gitopia/config/addrbook.json
+
 ```
 
 **(OPTIONAL) Turn off indexing in config.toml**
