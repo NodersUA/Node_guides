@@ -171,7 +171,7 @@ RestartSec=3
 LimitNOFILE=infinity
 
 Environment="DAEMON_NAME=lavad"
-Environment="DAEMON_HOME=${HOME}/.lavad"
+Environment="DAEMON_HOME=${HOME}/.lava"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 
