@@ -107,6 +107,12 @@ mv $HOME/suid.service /etc/systemd/system/
 ```
 
 ```bash
+# Open ports
+ufw allow 9000
+ufw allow 9184
+```
+
+```bash
 # Start the node
 sudo systemctl daemon-reload
 sudo systemctl enable suid
