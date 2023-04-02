@@ -47,7 +47,7 @@ nolusd version --long | grep -e version -e commit -e build
 ```
 ```bash
 # Initialize the node
-saod init $MONIKER_NOLUS --chain-id $CHAIN_ID_NOLUS
+nolusd init $MONIKER_NOLUS --chain-id $CHAIN_ID_NOLUS
 ```
 ```bash
 # Download Genesis
