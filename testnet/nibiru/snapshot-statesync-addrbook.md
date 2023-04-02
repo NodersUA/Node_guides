@@ -1,45 +1,56 @@
 # SnapShot/StateSync/AddrBook
 
-_**Sanpshot**_t
-
+_**Sanpshot**_
 ```bash
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.nibid/config/app.toml
+# install dependencies, if needed
+sudo apt update
+sudo apt install lz4 -y
+sudo systemctl stop nibid
+cp $HOME/.nibid/data/priv_validator_state.json $HOME/.nibid/priv_validator_state.json.backup 
+nibid tendermint unsafe-reset-all --home $HOME/.nibid --keep-addr-book 
+curl https://snapshots2-testnet.nodejumper.io/nibiru-testnet/nibiru-itn-1_2023-04-02.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.nibid
+mv $HOME/.nibid/priv_validator_state.json.backup $HOME/.nibid/data/priv_validator_state.json 
+sudo systemctl start nibid
+sudo journalctl -u nibid -f --no-hostname -o cat
 ```
 
-_**State Sync**_
-
+***State Sync***
 ```bash
-# install lz4
-apt update
-apt install snapd -y
-snap install lz4
-# скачиваем wasm
-curl -L https://share.utsa.tech/nibiru/wasm-nibiru.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.nibid --strip-components 2
-# добавляем peer
-peers="d9699de67d7038f2f47ec60e235b146ee98a6936@65.108.6.45:60656"
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.nibid/config/config.toml
-SNAP_RPC=https://t-nibiru.rpc.utsa.tech:443
+sudo systemctl stop nibid
 
-LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
-BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000)); \
+cp $HOME/.nibid/data/priv_validator_state.json $HOME/.nibid/priv_validator_state.json.backup
+nibid tendermint unsafe-reset-all --home $HOME/.nibid --keep-addr-book
+
+SNAP_RPC="https://nibiru-testnet.nodejumper.io:443"
+
+LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height)
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000))
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
 
-sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
-s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
-s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.nibid/config/config.toml
+PEERS="a1b96d1437fb82d3d77823ecbd565c6268f06e34@nibiru-testnet.nodejumper.io:27656"
+sed -i 's|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.nibid/config/config.toml
 
-systemctl restart nibid && journalctl -u nibid -f -o cat
+sed -i 's|^enable *=.*|enable = true|' $HOME/.nibid/config/config.toml
+sed -i 's|^rpc_servers *=.*|rpc_servers = "'$SNAP_RPC,$SNAP_RPC'"|' $HOME/.nibid/config/config.toml
+sed -i 's|^trust_height *=.*|trust_height = '$BLOCK_HEIGHT'|' $HOME/.nibid/config/config.toml
+sed -i 's|^trust_hash *=.*|trust_hash = "'$TRUST_HASH'"|' $HOME/.nibid/config/config.toml
+
+mv $HOME/.nibid/priv_validator_state.json.backup $HOME/.nibid/data/priv_validator_state.json
+
+curl -s https://snapshots2-testnet.nodejumper.io/nibiru-testnet/wasm.lz4 | lz4 -dc - | tar -xf - -C $HOME/.nibid/data
+
+sudo systemctl restart nibid
+sudo journalctl -u nibid -f --no-hostname -o cat
 ```
 
 _**If you cannot connect to peers long time download addrbook**_
 
 ```bash
-wget -O $HOME/.nibid/config/addrbook.json "https://share.utsa.tech/nibiru/addrbook.json"
+curl -s https://snapshots2-testnet.nodejumper.io/nibiru-testnet/addrbook.json > $HOME/.nibid/config/addrbook.json
 
 systemctl restart nibid && journalctl -u nibid -f -o cat
 ```
