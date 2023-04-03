@@ -104,7 +104,7 @@ sed -i 's/create_empty_blocks = .*/create_empty_blocks = true/g' ~/.nolus/config
 sed -i 's/timeout_broadcast_tx_commit = ".*s"/timeout_broadcast_tx_commit = "10s"/g' ~/.nolus/config/config.tom
 
 # Set up pruning
-pruning="custom"
+pruning="nothing"
 pruning_keep_recent="1000"
 pruning_keep_every="0"
 pruning_interval="10"
