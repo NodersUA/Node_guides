@@ -38,7 +38,7 @@ cd $HOME
 git clone https://github.com/Nolus-Protocol/nolus-core
 cd nolus-core
 git fetch --all 
-git checkout v0.2.1-testnet
+git checkout v0.2.2-testnet
 make install
 sudo cp $HOME/go/bin/nolusd /usr/local/bin/nolusd
 nolusd version --long | grep -e version -e commit -e build
