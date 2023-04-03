@@ -48,7 +48,7 @@ ojod version --long | grep -e version -e commit -e build
 ```
 ```bash
 # Initialize the node
-dymd init $MONIKER_OJO --chain-id $CHAIN_ID_OJO
+ojod init $MONIKER_OJO --chain-id $CHAIN_ID_OJO
 ```
 ```bash
 # Download Genesis
