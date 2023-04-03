@@ -1,4 +1,9 @@
-## Installation
+## Automatic Installation
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/fleek)
+```
+
+## Manual Installation
 
 1. Update, upgrade and install requirements:
 ```shell
@@ -15,7 +20,7 @@ git clone https://github.com/fleek-network/ursa && \
 cd ursa && \
 make install
 ```
-4. Create a service:
+3. Create a service:
 ```shell
 
 sudo tee /etc/systemd/system/fleekd.service > /dev/null <<EOF
@@ -32,18 +37,18 @@ LimitNOFILE=65535
 WantedBy=multi-user.target
 EOF
 ```
-5. Restart the service:
+4. Restart the service:
 ```shell
 sudo systemctl daemon-reload && \
 sudo systemctl enable fleekd && \
 sudo systemctl restart fleekd && \
 sudo journalctl -u fleekd -f -o cat
 ```
-6. Set an identity:
+5. Set an identity:
 ```shell
 IDENTITY="nickname"
 ```
-7. Replace default identity:
+6. Replace default identity:
 ```shell
 systemctl stop fleekd && \
 sed -i.bak -e "s/^identity *=.*/identity = \"${IDENTITY}\"/" $HOME/.ursa/config.toml && \
@@ -52,7 +57,7 @@ sudo systemctl restart fleekd && \
 sudo journalctl -u fleekd -f -o cat
 ```
 
-8. Backup:
+7. Backup:
 ```shell
 echo -e "$HOME/.ursa/keystore/"
 ```
