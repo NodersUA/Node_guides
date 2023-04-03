@@ -1,9 +1,5 @@
 ***SnapShot***
 ```bash
-snapshot_interval=1000
-sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.sao/config/app.toml
-
-# Snapshot
 systemctl stop nolusd
 
 cp $HOME/.nolus/data/priv_validator_state.json $HOME/.nolus/priv_validator_state.json.backup
