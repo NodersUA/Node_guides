@@ -43,7 +43,7 @@ systemctl restart nolusd && journalctl -u nolusd -f -o cat
 ***If you cannot connect to peers long time download addrbook***
 ```bash
 # AddrBook
-wget -O $HOME/.nolus/config/addrbook.json "https://share2.utsa.tech/nolus/addrbook.json"
+wget -O $HOME/.nolus/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Nolus/addrbook.json"
 # Restart
 sudo systemctl restart nolusd && sudo journalctl -u nolusd -f
 ```
