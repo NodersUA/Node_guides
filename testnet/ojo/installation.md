@@ -52,11 +52,10 @@ ojod init $MONIKER_OJO --chain-id $CHAIN_ID_OJO
 ```
 ```bash
 # Download Genesis
-wget -O $HOME/.ojo/config/genesis.json "https://service.ppnv.space/ojo/genesis.json"
+curl -Ls https://rpc.devnet-n0.ojo-devnet.node.ojo.network/genesis > $HOME/.ojo/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.ojo/config/genesis.json
-# 6037d1c1a89110c024fc18143eafe33fee19671b9427a4d4ac9c701f7a3c9309
 ```
 ```bash
 # Set the ports
