@@ -1,6 +1,6 @@
 ***Automatic Installation***
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nibi) && chmod +x nibi && ./nibi
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nibi)
 ```
 ***Manual Installation***
 ```bash
@@ -189,7 +189,7 @@ nibid status 2>&1 | jq .SyncInfo
 nibid keys add wallet
 ```
 
-Create a password for the wallet and write it down so you don't forget it. The wallet has been created. In the last line there will be a phrase that must be written down
+The wallet has been created. In the last line there will be a phrase that must be written down
 ```bash
 # If the wallet was already there, restore it
 nibid keys add wallet --recover
@@ -232,7 +232,7 @@ nibid tx staking create-validator \
 -y
 ```
 
-Check yourself in the list explorer
+Check yourself in the list [explorer](https://nibiru.explorers.guru/validators)
 
 Or by command
 ```bash
@@ -247,7 +247,7 @@ nibidd tx staking edit-validator \
   --details="" \
   --chain-id=$NIBIEU_CHAIN_ID \
   --fees=5000unibi \
-  --from=$REALIO_WALLET_NAME
+  --from=wallet
 ```
 ```bash
 # Save valoper_address in bash
