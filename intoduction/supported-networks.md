@@ -16,6 +16,8 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Dymension](../testnet/dimension/)
 
+[Fleek](../testnet/fleek/)
+
 [Iron Fish](../testnet/iron-fish/)
 
 [Gitopia](../testnet/gitopia/)
@@ -37,8 +39,6 @@ Discover base tools contributed to the projects by NodersUA Team.
 [Subspace](../testnet/subspace-gemini-3c/)
 
 Sui [(Testnet)](../testnet/sui-testnet/) [( Devnet)](../testnet/sui-devnet/)
-
-
 {% endtab %}
 {% endtabs %}
 
