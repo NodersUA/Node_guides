@@ -3,7 +3,7 @@
 ```bash
 cd $HOME/realio-network
 git fetch --all
-git checkout v0.8.0-rc3
+git checkout v0.8.0-rc4
 make install
 sudo systemctl restart realio-networkd && sudo journalctl -u realio-networkd -f -o cat
 ```
@@ -12,5 +12,5 @@ sudo systemctl restart realio-networkd && sudo journalctl -u realio-networkd -f 
 # Check version
 realio-networkd version
 
-# v0.8.0-rc3
+# v0.8.0-rc4
 ```
