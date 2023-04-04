@@ -57,7 +57,7 @@ realio-networkd init $REALIO_NODE_NAME --chain-id $REALIO_CHAIN_ID
 
 ```bash
 # Download Genesis
-curl https://raw.githubusercontent.com/realiotech/testnets/master/$REALIO_CHAIN_ID/genesis.json > $HOME/.realio-network/config/genesis.json
+curl https://raw.githubusercontent.com/realiotech/testnets/blob/main/realionetwork_3300-2/genesis.json > $HOME/.realio-network/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.realio-network/config/genesis.json 
