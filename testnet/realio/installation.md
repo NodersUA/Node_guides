@@ -32,7 +32,7 @@ go version
 REALIO_NODE_NAME=<your_node_name>
 
 echo 'export REALIO_NODE_NAME='$REALIO_NODE_NAME>> $HOME/.bash_profile
-echo "export REALIO_CHAIN_ID=realionetwork_3300-1" >> $HOME/.bash_profile
+echo "export REALIO_CHAIN_ID=realionetwork_3300-2" >> $HOME/.bash_profile
 echo "export REALIO_PORT=12" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
@@ -42,12 +42,12 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/realiotech/realio-network.git && cd realio-network
-git checkout v0.8.0-rc3
+git checkout v0.8.0-rc4
 make install
 
 realio-networkd version
 
-# v0.8.0-rc3
+# v0.8.0-rc4
 ```
 
 ```bash
@@ -104,7 +104,7 @@ sed -i -e "s/^filter_peers *=.*/filter_peers = \"true\"/" $HOME/.realio-network/
 # Set up pruning
 pruning="custom"
 pruning_keep_recent="100"
-pruning_keep_every="0"
+pruning_keep_every="500"
 pruning_interval="10"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.realio-network/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.realio-network/config/app.toml
