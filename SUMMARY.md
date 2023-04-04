@@ -26,6 +26,8 @@
 * [Fleek](testnet/fleek/README.md)
   * [Installation](testnet/fleek/installation.md)
   * [Auto-Upgrade](testnet/fleek/auto-upgrade.md)
+* [Gear](testnet/gear/README.md)
+  * [Installation](testnet/gear/installation.md)
 * [Gitopia](testnet/gitopia/README.md)
   * [Installation](testnet/gitopia/installation.md)
   * [Update](testnet/gitopia/update.md)
