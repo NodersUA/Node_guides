@@ -1,6 +1,6 @@
 ***Automatic Installation***
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/dymensions) && chmod +x dymensions && ./dymensions
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/dymensions)
 ```
 
 ***Manual Installation***
