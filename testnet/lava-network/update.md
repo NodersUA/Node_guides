@@ -5,9 +5,9 @@
 ```bash
 cd $HOME/lava
 git fetch --all 
-git checkout v...
+git checkout v0.9.2
 make install
-sudo cp $HOME/go/bin/lavad /usr/local/bin/lavad /.lava/cosmovisor/genesis/bin/lavad
+sudo cp $HOME/go/bin/lavad /usr/local/bin/lavad
 ```
 
 Check version 
