@@ -12,6 +12,11 @@ apt update && apt upgrade -y
 ```
 
 ```bash
+# Open ports
+ufw allow 30333
+```
+
+```bash
 # Set the variables
 
 # Come up with the name of your node and replace it instead <your_moniker>
