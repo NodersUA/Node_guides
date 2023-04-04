@@ -1,6 +1,6 @@
 ***Automatic Installation***
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/lava) && chmod +x lava && ./lava
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/lava)
 ```
 
 ***Manual Installation***
