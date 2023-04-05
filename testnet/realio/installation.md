@@ -1,13 +1,18 @@
-***Automatic Installation***
+# Installation
+
+_**Automatic Installation**_
+
 ```bash
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/realio)
 ```
 
 **Manual Installation**
+
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
 ```
+
 ```bash
 # Install developer packages
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
@@ -64,7 +69,7 @@ curl https://raw.githubusercontent.com/realiotech/testnets/master/$REALIO_CHAIN_
 
 # Check Genesis
 sha256sum $HOME/.realio-network/config/genesis.json 
-# 695c10ad99740908d6a1efb2260b51eeeb1c496ac3e515fcf18933b51633d2e8
+# 7e3fef8375567d9cbffbbc9e32907c3c87143fd79ef2b6a1f13d232d89057ddc
 ```
 
 ```bash
@@ -97,8 +102,8 @@ realio-networkd config node tcp://localhost:${REALIO_PORT}657
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0ario\"/" $HOME/.realio-network/config/app.toml
 
 # Add seeds/peers в config.toml
-SEEDS="ee23c6b2367c7df0d71a7def5540cda879a06dab@realio-testnet-seed.itrocket.net:23656"
-PEERS="1057d9a2d9231093b4aadf3015efff8293290859@realio-testnet-peer.itrocket.net:23656"
+SEEDS=""
+PEERS="4d31b1306f36a7ac657a6ef0ba9fc14c0ac2bd7d@188.143.170.30:26656,6f3a6c4dfde1d051f7f8b45a66dc76402ae5921b@65.21.170.3:37656,72e901acf31dc5ccd7e6ff69ae1da68695c2cef0@38.242.221.64:32656,1e7e1faf277d19df05facebe2a7e403044662234@213.239.217.52:37656,39e84967c02c7c04a0dd4bd426d484a65373d158@206.189.49.63:46656,1dcf307315f780d8287ce44c26fe57598bf51333@144.76.97.251:31656,6d9d3315f71e8557a2c0f9acc3b26765fa133adf@44.202.66.61:26656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.realio-network/config/config.toml
 
 # Set up filter for "bad" peers
@@ -115,8 +120,8 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.realio-network/config/app.toml
 ```
 
-
 **(OPTIONAL) Turn off indexing in config.toml**
+
 ```bash
 indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.realio-network/config/config.toml
@@ -179,7 +184,7 @@ realio-networkd keys add wallet --recover
 # If everything is correct, you will see your wallet data
 ```
 
-**Send your address to the chanel #[testnet-tokens](https://discord.com/channels/1016319560581914747/1047873677020123186)**
+**Send your address to the chanel #**[**testnet-tokens**](https://discord.com/channels/1016319560581914747/1047873677020123186)
 
 ```bash
 # Save the wallet address
@@ -194,8 +199,7 @@ source $HOME/.bash_profile
 realio-networkd q bank balances $REALIO_ADDRESS
 ```
 
-**Validator**
-Do not forget to create a profile on https://keybase.io/ and set a profile photo there that will be imported by key and used for your validators.
+**Validator** Do not forget to create a profile on https://keybase.io/ and set a profile photo there that will be imported by key and used for your validators.
 
 ```bash
 # Change <identity> to your key from keybase
@@ -234,7 +238,7 @@ realio-networkd tx staking edit-validator \
   --chain-id=$REALIO_CHAIN_ID \
   --fees=5000000000000000ario \
   --from=$REALIO_WALLET_NAME
- ```
+```
 
 ```bash
 # Save valoper_address in bash
@@ -243,7 +247,5 @@ REALIO_VALOPER=<your_valoper_address>
 echo "export REALIO_VALOPER=$REALIO_VALOPER" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
-  
-!!! Save priv_validator_key.json which is located in /root/.gitopiad/config
 
-
+!!! Save priv\_validator\_key.json which is located in /root/.gitopiad/config
