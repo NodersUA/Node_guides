@@ -184,7 +184,7 @@ realio-networkd keys add wallet --recover
 # If everything is correct, you will see your wallet data
 ```
 
-**Send your address to the chanel #**[**testnet-tokens**](https://discord.com/channels/1016319560581914747/1047873677020123186)
+**Send your address to the chanel #**[**testnet-**](https://discord.com/channels/1016319560581914747/1024029260626800691)[**validators**](https://discord.com/channels/1016319560581914747/1024029260626800691)
 
 ```bash
 # Save the wallet address
