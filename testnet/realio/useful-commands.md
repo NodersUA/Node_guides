@@ -86,8 +86,8 @@ sudo systemctl disable realio-networkd && \
 rm /etc/systemd/system/realio-networkd.service && \
 sudo systemctl daemon-reload && \
 cd $HOME && \
-rm -rf realio-networkd && \
-rm -rf .realio-networkd && \
+rm -rf realio-network && \
+rm -rf .realio-network && \
 rm -rf $(which realio-networkd)
 ```
 
