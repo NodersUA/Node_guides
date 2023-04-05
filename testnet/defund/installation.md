@@ -228,9 +228,10 @@ Go to the [# ](https://discord.com/channels/913091321114296330/10381333688413102
 
 ```bash
 # Save the wallet address
-# Replace <your_address> with your wallet address
-DEFUND_ADDRESS=<your_address>
-echo "export DEFUND_ADDRESS=$DEFUND_ADDRESS" >> $HOME/.bash_profile
+DEFAND_ADDRESS=$(defundd keys show wallet -a)
+DEFAND_VALOPER=$(defundd keys show wallet --bech val -a)
+echo "export DEFAND_ADDRESS="${DEFAND_ADDRESS} >> $HOME/.bash_profile
+echo "export DEFAND_VALOPER="${DEFAND_VALOPER} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
@@ -280,14 +281,6 @@ defundd tx staking edit-validator \
   --chain-id=$DEFUND_CHAIN_ID \
   --fees=5000ufetf \
   --from=wallet
-```
-
-```bash
-# Save valoper_address in bash
-# Change <your_valoper_address> to the address of the validator, starting with nibivaloper...
-DEFUND_VALOPER=<your_valoper_address>
-echo "export DEFUND_VALOPER=$DEFUND_VALOPER" >> $HOME/.bash_profile
-source $HOME/.bash_profile
 ```
 
 !!! Save priv\_validator\_key.json which is located in /root/.defund/config
