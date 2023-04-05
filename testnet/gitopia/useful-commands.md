@@ -13,7 +13,7 @@ gitopiad status 2>&1 | jq .SyncInfo
 ```
 ```bash
 # Check balance
-gitopiad q bank balances wallet
+gitopiad q bank balances $GITOPIA_ADDRESS
 ```
 ```bash
 # Check pubkey of validator
