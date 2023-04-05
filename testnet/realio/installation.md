@@ -42,11 +42,12 @@ source $HOME/.bash_profile
 
 ```bash
 # Download binary files
-cd $HOME
-git clone https://github.com/realiotech/realio-network.git && cd realio-network
+ccd $HOME
+git clone https://github.com/realiotech/realio-network.git 
+cd realio-network
 git checkout v0.8.0-rc4
 make install
-
+sudo cp $HOME/go/bin/realio-networkd /usr/local/bin/realio-networkd
 realio-networkd version
 
 # v0.8.0-rc4
@@ -59,7 +60,7 @@ realio-networkd init $REALIO_NODE_NAME --chain-id $REALIO_CHAIN_ID
 
 ```bash
 # Download Genesis
-curl https://raw.githubusercontent.com/realiotech/testnets/blob/main/realionetwork_3300-2/genesis.json > $HOME/.realio-network/config/genesis.json
+curl https://raw.githubusercontent.com/realiotech/testnets/master/$REALIO_CHAIN_ID/genesis.json > $HOME/.realio-network/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.realio-network/config/genesis.json 
