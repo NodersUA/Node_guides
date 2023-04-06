@@ -199,10 +199,11 @@ nibid keys add wallet --recover
 
 Go to the # faucet branch and request tokens
 ```bash
-# Save the wallet address
-# Replace <your_address> with your wallet address
-NIBIRU_ADDRESS=<your_address>
-echo "export NIBIRU_ADDRESS=$NIBIRU_ADDRESS" >> $HOME/.bash_profile
+# Save the wallet and valoper address
+NIBIRU_ADDRESS=$(nibid keys show wallet -a)
+NIBIRU_VALOPER=$(nibid keys show wallet --bech val -a)
+echo "export NIBIRU_ADDRESS="${NIBIRU_ADDRESS} >> $HOME/.bash_profile
+echo "export NIBIRU_VALOPER="${NIBIRU_VALOPER} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 ```bash
@@ -248,13 +249,6 @@ nibidd tx staking edit-validator \
   --chain-id=$NIBIEU_CHAIN_ID \
   --fees=5000unibi \
   --from=wallet
-```
-```bash
-# Save valoper_address in bash
-# Change <your_valoper_address> to the address of the validator, starting with nibivaloper...
-NIBIRU_VALOPER=<your_valoper_address>
-echo "export NIBIRU_VALOPER=$NIBIRU_VALOPER" >> $HOME/.bash_profile
-source $HOME/.bash_profile
 ```
 
 **!!! Save priv_validator_key.json which is located in /root/.gitopiad/config**
