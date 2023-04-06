@@ -47,8 +47,7 @@ source $HOME/.bash_profile
 
 ```bash
 # Download binary files
-ccd $HOME
-git clone https://github.com/realiotech/realio-network.git 
+cd $HOME && git clone https://github.com/realiotech/realio-network.git 
 cd realio-network
 git checkout v0.8.0-rc4
 make install
