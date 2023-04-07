@@ -98,7 +98,7 @@ nibid q gov proposals --voter $NIBIRU_VALOPER
 ```
 ```bash
 # Vote 
-realio-networkd tx gov vote 1 yes --from $NIBIRU_ADRESS
+nibid tx gov vote 1 yes --from $NIBIRU_ADRESS
 ```
 
 ***Peers and RPC***
