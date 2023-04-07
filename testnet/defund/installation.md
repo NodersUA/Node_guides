@@ -228,10 +228,10 @@ Go to the [# ](https://discord.com/channels/913091321114296330/10381333688413102
 
 ```bash
 # Save the wallet address
-DEFAND_ADDRESS=$(defundd keys show wallet -a)
-DEFAND_VALOPER=$(defundd keys show wallet --bech val -a)
-echo "export DEFAND_ADDRESS="${DEFAND_ADDRESS} >> $HOME/.bash_profile
-echo "export DEFAND_VALOPER="${DEFAND_VALOPER} >> $HOME/.bash_profile
+DEFUND_ADDRESS=$(defundd keys show wallet -a)
+DEFUND_VALOPER=$(defundd keys show wallet --bech val -a)
+echo "export DEFUND_ADDRESS="${DEFUND_ADDRESS} >> $HOME/.bash_profile
+echo "export DEFUND_VALOPER="${DEFUND_VALOPER} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
