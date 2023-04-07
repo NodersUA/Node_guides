@@ -19,7 +19,7 @@ realio-networkd status 2>&1 | jq .SyncInfo
 
 ```bash
 # Check balance
-realio-networkd q bank balances $REALIO_WALLET_NAME
+realio-networkd q bank balances wallet
 ```
 
 ```bash
@@ -121,7 +121,7 @@ realio-networkd q gov proposals --voter $REALIO_VALOPER
 
 ```bash
 # Vote 
-realio-networkd tx gov vote 1 yes --from $REALIO_WALLET_NAME
+realio-networkd tx gov vote 1 yes --from wallet
 ```
 
 ```bash
