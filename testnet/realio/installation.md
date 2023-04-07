@@ -224,7 +224,7 @@ Check yourself in the list explorer
 Or by command
 
 ```bash
-realio-networkd query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$GITOPIA_NODE_NAME")' | jq
+realio-networkd query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$REALIO_NODE_NAME")' | jq
 ```
 
 ```bash
@@ -247,4 +247,4 @@ echo "export REALIO_VALOPER=$REALIO_VALOPER" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-!!! Save priv\_validator\_key.json which is located in /root/.gitopiad/config
+!!! Save priv\_validator\_key.json which is located in /root/.realio-network/config
