@@ -1,6 +1,6 @@
 **Automatic Installation**
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/ojo)
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/ojo) 
 ```
 
 **Manual Installation**
