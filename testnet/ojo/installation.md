@@ -1,9 +1,9 @@
-_**Automatic Installation**_
+**Automatic Installation**
 ```bash
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/ojo)
 ```
 
-_**Manual Installation**_
+**Manual Installation**
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
