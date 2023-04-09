@@ -14,6 +14,12 @@ sudo apt-get update && sudo apt-get install -y --no-install-recommends tzdata li
 ```
 
 ```bash
+# Open ports
+ufw allow 9000
+ufw allow 9184
+```
+
+```bash
 # Install Rust
 sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
