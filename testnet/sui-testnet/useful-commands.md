@@ -15,4 +15,5 @@ sudo systemctl restart suid
 sudo systemctl stop suid
 sudo rm -rf $HOME/.sui/db
 sudo systemctl restart suid
+sudo journalctl -fn 100 -u suid
 ```
