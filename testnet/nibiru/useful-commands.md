@@ -4,6 +4,10 @@
 nibid status 2>&1 | jq ."SyncInfo"."latest_block_height"
 ```
 ```bash
+# Restart
+systemctl restart nibid && journalctl -u nibid -f -o cat
+```
+```bash
 # Check logs
 journalctl -u nibid -f -o cat
 ```
