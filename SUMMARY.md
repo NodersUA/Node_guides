@@ -47,6 +47,7 @@
   * [Installation](testnet/nibiru/installation.md)
   * [Update](testnet/nibiru/update.md)
   * [SnapShot/StateSync/AddrBook](testnet/nibiru/snapshot-statesync-addrbook.md)
+  * [Smart Contract Tasks](testnet/nibiru/smart-contract-tasks.md)
   * [Useful Commands](testnet/nibiru/useful-commands.md)
 * [Nolus](testnet/nolus/README.md)
   * [Installation](testnet/nolus/installation.md)
