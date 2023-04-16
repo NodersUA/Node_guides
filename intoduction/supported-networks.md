@@ -36,7 +36,7 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Shardeum](../testnet/shardeum/)
 
-[Subspace](../testnet/subspace-gemini-3c/)
+[Subspace](../testnet/subspace-gemini-3d/)
 
 Sui [(Testnet)](../testnet/sui-testnet/) [( Devnet)](../testnet/sui-devnet/)
 {% endtab %}
