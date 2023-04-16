@@ -35,12 +35,12 @@ echo 'BEGIN {
 
 If your version **CPU supports x86-64-v2**
 ```bash
-VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v*" | head -n 1) && \
+VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v.*" | head -n 1) && \
 wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v2-${VER} -qO subspace
 ```
 If your version **CPU supports x86-64-v3**
 ```bash
-VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v*" | head -n 1) && \
+VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v.*" | head -n 1) && \
 wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v3-${VER} -qO subspace
 ```
 
