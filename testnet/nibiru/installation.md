@@ -206,6 +206,12 @@ echo "export NIBIRU_ADDRESS="${NIBIRU_ADDRESS} >> $HOME/.bash_profile
 echo "export NIBIRU_VALOPER="${NIBIRU_VALOPER} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
+
+```bash
+# Request tokens
+curl -X POST -d '{"address": "'"$NIBIRU_ADDRESS"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' "https://faucet.itn-1.nibiru.fi/"
+```
+
 ```bash
 # Check the ballance
 nibid q bank balances $NIBIRU_ADDRESS
