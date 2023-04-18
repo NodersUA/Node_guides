@@ -16,7 +16,7 @@ txhash=<your_thash>
 ```bash
 code_id=$(nibid q tx $txhash -o json | jq -r '.logs[].events[].attributes[] | select(.key=="code_id").value')
 INIT="{\"name\":\"$NIBIRU_MONIKER\",\"symbol\":\"$(echo $NIBIRU_MONIKER | cut -c1-4)\",\"decimals\":6,\"initial_balances\":[{\"address\":\"$NIBIRU_ADDRESS\",\"amount\":\"2000000\"}],\"mint\":{\"minter\":\"$NIBIRU_ADDRESS\"},\"marketing\":{}}"
-nibid tx wasm instantiate $code_id '$INIT' --from wallet --label "$NIBIRU_MONIKER cw20_base" --gas-adjustment 1.2 --gas 8000000 --fees 200000unibi --no-admin -y
+nibid tx wasm instantiate $code_id "$INIT" --from wallet --label "$NIBIRU_MONIKER cw20_base" --gas-adjustment 1.2 --gas 8000000 --fees 200000unibi --no-admin -y
 ```
 
 ```bash
