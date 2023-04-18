@@ -19,3 +19,8 @@ sudo journalctl -fu subspaced --no-hostname -o cat
 # Clean the database
 subspace wipe && rm -Rvf $HOME/.local/share/subspace-cli/node/chains/*
 ```
+
+```bash
+# Edit config
+nano $HOME/.config/subspace-cli/settings.toml
+```
