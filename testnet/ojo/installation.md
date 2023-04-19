@@ -84,7 +84,7 @@ sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:$
 ojod config chain-id ojo-devnet
 
 # adjust if necessary keyring-backend в client.toml 
-ojod config keyring-backend os
+ojod config keyring-backend test
 
 ojod config node tcp://localhost:${PORT_OJO}657
 
@@ -201,11 +201,13 @@ ojod keys add wallet --recover
 Go to the # faucet branch and request tokens
 ```bash
 # Save the wallet address
-# Replace <your_address> with your wallet address
-WALLET_OJO=<your_address>
-echo "export WALLET_OJO="${WALLET_OJO}"" >> $HOME/.bash_profile
+WALLET_OJO=$(ojod keys show wallet -a)
+VALOPER_OJO=$(ojod keys show wallet --bech val -a)
+echo "export WALLET_OJO="${WALLET_OJO} >> $HOME/.bash_profile
+echo "export VALOPER_OJO="${VALOPER_OJO} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
+
 ```bash
 # Check the ballance
 ojod q bank balances $WALLET_OJO
@@ -249,12 +251,5 @@ ojod tx staking edit-validator \
   --chain-id=$CHAIN_ID_OJO \
   --fees=1000uojo \
   --from=wallet
-```
-```bash
-# Save valoper_address in bash
-# Change <your_valoper_address> to the address of the validator, starting with andrvaloper...
-VALOPER_OJO=<your_valoper_address>
-echo "export VALOPER_OJO="${VALOPER_OJO}"" >> $HOME/.bash_profile
-source $HOME/.bash_profile
 ```
 !!! Save priv_validator_key.json which located in /root/.ojo/config
