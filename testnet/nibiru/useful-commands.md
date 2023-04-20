@@ -40,31 +40,31 @@ nibidd q slashing signing-info $(nibid tendermint show-validator)
 ***Transactions***
 ```bash
 # Collect rewards from all validators delegated to them (without commission)
-nibid tx distribution withdraw-all-rewards --from wallet --fees 7500unibi -y
+nibid tx distribution withdraw-all-rewards --from wallet --fees 7500unibi --gas=300000 -y
 ```
 ```bash
 # Collect rewards from a separate validator or rewards + commission from your own validator
-nibid tx distribution withdraw-rewards $NIBIRU_VALOPER --from wallet --fees 7500unibi --commission -y
+nibid tx distribution withdraw-rewards $NIBIRU_VALOPER --from wallet --fees 7500unibi --gas=300000 --commission -y
 ```
 ```bash
 # Delegate yourself (this is how 1 coin is sent)
-nibid tx staking delegate $NIBIRU_VALOPER 1000000unibi --from wallet --fees 7500unibi -y
+nibid tx staking delegate $NIBIRU_VALOPER 1000000unibi --from wallet --fees 7500unibi --gas=300000 -y
 ```
 ```bash
 # Redelegate to other validator
-nibid tx staking redelegate $NIBIRU_VALOPER <dst-validator-addr> 1000000unibi --from wallet --fees 7500unibi -y
+nibid tx staking redelegate $NIBIRU_VALOPER <dst-validator-addr> 1000000unibi --from wallet --fees 7500unibi --gas=300000 -y
 ```
 ```bash
 # unbond 
-nibid tx staking unbond $NIBIRU_VALOPER 1000000unibi --from wallet --fees 7500unibi -y
+nibid tx staking unbond $NIBIRU_VALOPER 1000000unibi --from wallet --fees 7500unibi --gas=300000 -y
 ```
 ```bash
 # Send tokens to other adress
-nibid tx bank send wallet <address> 1000000unibi --fees 7500unibi -y
+nibid tx bank send wallet <address> 1000000unibi --fees 7500unibi --gas=300000 -y
 ```
 ```bash
 # Escape from jail
-nibid tx slashing unjail --from wallet --fees 7500unibi
+nibid tx slashing unjail --from wallet --fees 7500unibi --gas=300000
 ```
 
 ! If the transactions are not sent with the error account sequence mismatch, expected 18, got 17: incorrect account sequence, then add the flag -s 18 to the command (replace the number with the one that is waiting for the sequence)
