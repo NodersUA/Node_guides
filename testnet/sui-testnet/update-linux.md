@@ -1,10 +1,14 @@
 # Update (Linux)
 
 ```bash
+sudo systemctl stop suid
 cd $HOME/sui
-git pull
-git checkout testnet-0.31.0
-cargo build --release -p sui-node 
-sudo mv $HOME/sui/target/release/sui-node /usr/local/bin/
+git fetch upstream
+git reset --hard 133fd85bcd79ed048a897be3a3f3bd4a2e9c616a
+cargo build --release --bin sui-node
+
+mv /$HOME/sui/target/release/sui-node /usr/local/bin/
+
 sudo systemctl restart suid
+journalctl -u suid -f
 ```
