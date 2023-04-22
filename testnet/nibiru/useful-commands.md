@@ -44,11 +44,11 @@ nibid tx distribution withdraw-all-rewards --from wallet --fees 7500unibi --gas=
 ```
 ```bash
 # Collect rewards from a separate validator or rewards + commission from your own validator
-nibid tx distribution withdraw-rewards $NIBIRU_VALOPER --from wallet --fees 7500unibi --gas=300000 --commission -y
+nibid tx distribution withdraw-rewards $NIBIRU_VALOPER --from wallet --fees 12500unibi --gas=500000 --commission -y
 ```
 ```bash
 # Delegate yourself (this is how 1 coin is sent)
-nibid tx staking delegate $NIBIRU_VALOPER 1000000unibi --from wallet --fees 7500unibi --gas=300000 -y
+nibid tx staking delegate $NIBIRU_VALOPER 1000000unibi --from wallet --fees 12500unibi --gas=500000 -y
 ```
 ```bash
 # Redelegate to other validator
