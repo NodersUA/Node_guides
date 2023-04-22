@@ -40,7 +40,7 @@ nibidd q slashing signing-info $(nibid tendermint show-validator)
 ***Transactions***
 ```bash
 # Collect rewards from all validators delegated to them (without commission)
-nibid tx distribution withdraw-all-rewards --from wallet --fees 7500unibi --gas=300000 -y
+nibid tx distribution withdraw-all-rewards --from wallet --fees 12500unibi --gas=500000 -y
 ```
 ```bash
 # Collect rewards from a separate validator or rewards + commission from your own validator
