@@ -43,11 +43,11 @@ cd $HOME
 git clone https://github.com/lavanet/lava 
 cd lava 
 git fetch --all 
-git checkout v0.8.1
+git checkout v0.9.8
 make install
 sudo cp $HOME/go/bin/lavad /usr/local/bin/lavad
 lavad version --long | grep -e version -e commit
-# 0.8.1
+# 0.9.8
 ```
 ```bash
 # Initialize the node
