@@ -43,7 +43,7 @@ git clone https://github.com/NibiruChain/nibiru
 cd nibiru
 git checkout v0.19.2
 make install
-sudo cp ./build/nibid /usr/local/bin/ && cd $HOME
+sudo cp $HOME/go/bin/nibid /usr/local/bin/
 
 nibid version --long | grep -e version -e commit
 # v0.19.2
