@@ -40,10 +40,9 @@ source $HOME/.bash_profile
 ```bash
 # Download binary files
 cd $HOME
-rm -rf gitopia
-git clone gitopia://Gitopia/gitopia
+curl https://get.gitopia.com | bash
+git clone -b v1.2.0 gitopia://gitopia/gitopia
 cd gitopia
-git checkout v1.2.0
 make install
 sudo cp $HOME/go/bin/gitopiad /usr/local/bin/gitopiad
 
