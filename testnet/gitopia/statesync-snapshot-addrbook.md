@@ -1,19 +1,16 @@
 **Snapshot**
 
 ```bash
-curl -L https://snapshots.kjnodes.com/gitopia-testnet/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.gitopia
-sudo apt update
-sudo apt install lz4 -y
 sudo systemctl stop gitopiad
 
 cp $HOME/.gitopia/data/priv_validator_state.json $HOME/.gitopia/priv_validator_state.json.backup 
 
 gitopiad tendermint unsafe-reset-all --home $HOME/.gitopia --keep-addr-book 
-curl https://snapshots1-testnet.nodejumper.io/gitopia-testnet/gitopia-janus-testnet-2_2023-04-01.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.gitopia
+curl https://snapshots1-testnet.nodejumper.io/gitopia-testnet/gitopia-janus-testnet-2_2023-04-23.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.gitopia
 
 mv $HOME/.gitopia/priv_validator_state.json.backup $HOME/.gitopia/data/priv_validator_state.json 
 
-sudo systemctl start gitopiad
+sudo systemctl restart gitopiad
 sudo journalctl -u gitopiad -f --no-hostname -o cat
 ```
 
