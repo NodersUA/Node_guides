@@ -4,16 +4,16 @@ _**Sanpshot**_
 ```bash
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.nibid/config/app.toml
-# install dependencies, if needed
-sudo apt update
-sudo apt install lz4 -y
 sudo systemctl stop nibid
+
 cp $HOME/.nibid/data/priv_validator_state.json $HOME/.nibid/priv_validator_state.json.backup 
+
 nibid tendermint unsafe-reset-all --home $HOME/.nibid --keep-addr-book 
-SNAP_NAME=$(curl -s https://snapshots2-testnet.nodejumper.io/nibiru-testnet/info.json | jq -r .fileName)
-curl "https://snapshots2-testnet.nodejumper.io/nibiru-testnet/${SNAP_NAME}" | lz4 -dc - | tar -xf - -C $HOME/.nibid
+curl https://snapshots2-testnet.nodejumper.io/nibiru-testnet/nibiru-itn-1_2023-04-23.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.nibid
+
 mv $HOME/.nibid/priv_validator_state.json.backup $HOME/.nibid/data/priv_validator_state.json 
-sudo systemctl start nibid
+
+sudo systemctl restart nibid
 sudo journalctl -u nibid -f --no-hostname -o cat
 ```
 
