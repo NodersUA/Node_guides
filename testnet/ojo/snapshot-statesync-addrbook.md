@@ -3,41 +3,52 @@
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.dymension/config/app.toml
 
-#cd $HOME
-#apt install lz4
-#sudo systemctl stop dymd
-#cp $HOME/.dymension/data/priv_validator_state.json $HOME/.dymension/priv_validator_state.json.backup
-#rm -rf $HOME/.dymension/data
-#curl -o - -L http://dymension.snapshot.stavr.tech:1019/dymension/dymension-snap.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.dymension --strip-components 2
-#mv $HOME/.dymension/priv_validator_state.json.backup $HOME/.dymension/data/priv_validator_state.json
-#wget -O $HOME/.dymension/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Dymension/addrbook.json"
+sudo systemctl stop ojod
 
-sudo systemctl restart dymd && journalctl -u dymd -f -o cat
+cp $HOME/.ojo/data/priv_validator_state.json $HOME/.ojo/priv_validator_state.json.backup 
+
+ojod tendermint unsafe-reset-all --home $HOME/.ojo --keep-addr-book 
+curl https://snapshots2-testnet.nodejumper.io/ojo-testnet/null_2023-04-24.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.ojo
+
+mv $HOME/.ojo/priv_validator_state.json.backup $HOME/.ojo/data/priv_validator_state.json 
+
+sudo systemctl restart ojod
+sudo journalctl -u ojod -f --no-hostname -o cat
 ```
 
 ***State Sync***
 ```bash
-SNAP_RPC=
+sudo systemctl stop ojod
 
-LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
-BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000)); \
+cp $HOME/.ojo/data/priv_validator_state.json $HOME/.ojo/priv_validator_state.json.backup
+ojod tendermint unsafe-reset-all --home $HOME/.ojo --keep-addr-book
+
+SNAP_RPC="https://ojo-testnet.nodejumper.io:443"
+
+LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height)
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000))
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
 
-sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
-s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
-s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.ojo/config/config.toml
+PEERS="17a5fad48064ee3da42f435925f7bbe055e6348d@ojo-testnet.nodejumper.io:37656"
+sed -i 's|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.ojo/config/config.toml
 
-systemctl restart ojod && journalctl -u ojod -f -o cat
+sed -i 's|^enable *=.*|enable = true|' $HOME/.ojo/config/config.toml
+sed -i 's|^rpc_servers *=.*|rpc_servers = "'$SNAP_RPC,$SNAP_RPC'"|' $HOME/.ojo/config/config.toml
+sed -i 's|^trust_height *=.*|trust_height = '$BLOCK_HEIGHT'|' $HOME/.ojo/config/config.toml
+sed -i 's|^trust_hash *=.*|trust_hash = "'$TRUST_HASH'"|' $HOME/.ojo/config/config.toml
+
+mv $HOME/.ojo/priv_validator_state.json.backup $HOME/.ojo/data/priv_validator_state.json
+
+sudo systemctl restart ojod
+sudo journalctl -u ojod -f --no-hostname -o cat
 ```
 
 ***If you cannot connect to peers long time download addrbook***
 ```bash
 # AddrBook
-wget -O $HOME/.ojo/config/addrbook.json "https://raw.githubusercontent.com/EnterStake/cosmosguides/main/Ojo/addrbook.json"
-# Restart
+curl -s https://snapshots2-testnet.nodejumper.io/ojo-testnet/addrbook.json > $HOME/.ojo/config/addrbook.json
+
 sudo systemctl restart ojod && sudo journalctl -u ojod -f
 ```
