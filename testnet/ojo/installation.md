@@ -256,71 +256,77 @@ ojod tx staking edit-validator \
 
 **Price Feeder**
 ```bash
-cd && curl -s https://github.com/ojo-network/price-feeder! | bash
+cd $HOME
+git clone https://github.com/ojo-network/price-feeder && cd price-feeder
+git checkout v0.1.1
+make install
+
+price-feeder version
+# version: HEAD-5d46ed438d33d7904c0d947ebc6a3dd48ce0de59
+# commit: 5d46ed438d33d7904c0d947ebc6a3dd48ce0de59
+# sdk: v0.46.7
+# go: go1.19.4 linux/amd64
+```
+```bash
+mkdir -p $HOME/ojo_price-feeder
+wget -O $HOME/ojo_price-feeder/price-feeder.toml "https://raw.githubusercontent.com/ojo-network/price-feeder/main/price-feeder.example.toml"
 ```
 ```bash
 # Create separate wallet
-ojod keys add feeder_wallet
+ojod keys add OJO_FEEDER_ADDR --keyring-backend os
 ```
 ```bash
-#Set the variables
-export GRPC_ENDPOINT="localhost:${PORT_OJO}90"
-export WEBSOCKET_ENDPOINT="ws://localhost:${PORT_OJO}657/websocket"
-export EXCHANGE_SYMBOLS_MAP='{ "bitfinex": { "ubtc:uusd": "tBTCUSD", "ueth:uusd": "tETHUSD", "uusdt:uusd": "tUSTUSD" }, "binance": { "ubtc:uusd": "BTCUSD", "ueth:uusd": "ETHUSD", "uusdt:uusd": "USDTUSD", "uusdc:uusd": "USDCUSD", "uatom:uusd": "ATOMUSD", "ubnb:uusd": "BNBUSD", "uavax:uusd": "AVAXUSD", "usol:uusd": "SOLUSD", "uada:uusd": "ADAUSD", "ubtc:unusd": "BTCUSD", "ueth:unusd": "ETHUSD", "uusdt:unusd": "USDTUSD", "uusdc:unusd": "USDCUSD", "uatom:unusd": "ATOMUSD", "ubnb:unusd": "BNBUSD", "uavax:unusd": "AVAXUSD", "usol:unusd": "SOLUSD", "uada:unusd": "ADAUSD" } }'
-
-# Save seed phrase
-# Change <your_feeder_mnemonic> to the mnemonic of feeder_wallet
-FEEDER_MNEMONIC="<your_feeder_mnemonic>"
-
-# Change <your_feeder_address> to the address of feeder_wallet
-FEEDER_ADDRESS="<your_feeder_address>"
-
-echo "export FEEDER_MNEMONIC=$FEEDER_MNEMONIC" >> $HOME/.bash_profile
-echo "export FEEDER_ADDRESS=$FEEDER_ADDRESS" >> $HOME/.bash_profile
-source $HOME/.bash_profile
+#Enter dependency
+PASS=<your_password>
+OJO_FEEDER_ADDR=<ojo1jkg...>
+```
+```bash
+#Add PASS to config
+sed -i '/^dir *=.*/a pass = ""' $HOME/ojo_price-feeder/price-feeder.toml
+```
+```bash
+#Set the config
+sed -i "s/^address *=.*/address= \"$WALLET_OJO\"/;\
+s/^chain_id *=.*/chain_id= \"$CHAIN_ID_OJO\"/;\
+s/^validator *=.*/validator = \"$VALOPER_OJO\"/;\
+s/^backend *=.*/backend = \"os\"/;\
+s|^dir *=.*|dir = \"$HOME/.ojo\"|;\
+s|^pass *=.*|pass = \"$PASS\"|;\
+s|^grpc_endpoint *=.*|grpc_endpoint = \"localhost:${PORT_OJO}90\"|;\
+s|^tmrpc_endpoint *=.*|tmrpc_endpoint = \"http://localhost:${PORT_OJO}657\"|;" $HOME/ojo_price-feeder/price-feeder.toml
 ```
 ```bash
 # Send tokens for fees (around 1000 tokens)
-ojod tx bank send wallet $FEEDER_ADDRESS 100000000uojo --fees 7500uojo -y
+ojod tx bank send wallet $OJO_FEEDER_ADDR 100000000uojo --fees 7500uojo -y
 ```
 ```bash
 # Check balance
-nibid q bank balances $FEEDER_ADDRESS
+nibid q bank balances $OJO_FEEDER_ADDR
 ```
 ```bash
 # Create service file
-sudo tee /etc/systemd/system/pricefeeder.service<<EOF
+tee /etc/systemd/system/price-feeder.service > /dev/null <<EOF
 [Unit]
-Description=Ojo Pricefeeder
-Requires=network-online.target
-After=network-online.target
-
+Description=OJO PFD
+After=network.target
 [Service]
-Type=exec
 User=$USER
-Group=$USER
-ExecStart=/usr/local/bin/pricefeeder
+Environment="PRICE_FEEDER_PASS=$PASS"
+Type=simple
+ExecStart=$(which price-feeder) $HOME/ojo_price-feeder/price-feeder.toml --log-level debug
+RestartSec=10
 Restart=on-failure
-ExecReload=/bin/kill -HUP $MAINPID
-KillSignal=SIGTERM
-PermissionsStartOnly=true
 LimitNOFILE=65535
-Environment=CHAIN_ID='$CHAIN_ID_OJO'
-Environment=GRPC_ENDPOINT='$GRPC_ENDPOINT'
-Environment=WEBSOCKET_ENDPOINT='$WEBSOCKET_ENDPOINT'
-Environment=EXCHANGE_SYMBOLS_MAP='$EXCHANGE_SYMBOLS_MAP'
-Environment=FEEDER_MNEMONIC='$FEEDER_MNEMONIC'
-Environment=VALIDATOR_ADDRESS='$VALOPER_OJO'
-
 [Install]
 WantedBy=multi-user.target
 EOF
 ```
 ```bash
-ojod tx oracle set-feeder $FEEDER_ADDRESS --from wallet --fees 5000unibi -y
-systemctl daemon-reload && \
-systemctl enable pricefeeder && \
-systemctl restart pricefeeder && journalctl -u pricefeeder -f -o cat
+ojod tx oracle delegate-feed-consent $WALLET_OJO $OJO_FEEDER_ADDR --fees 40000uojo -y
+sed -i "s/^address *=.*/address= \"$OJO_FEEDER_ADDR\"/" $HOME/ojo_price-feeder/price-feeder.toml
+systemctl daemon-reload
+systemctl enable price-feeder
+systemctl restart price-feeder && journalctl -u price-feeder -f -o cat
 
 # Exit from logs ctrl+c
 ```
