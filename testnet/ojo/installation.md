@@ -301,7 +301,7 @@ ojod tx bank send wallet $OJO_FEEDER_ADDR 100000000uojo --fees 7500uojo -y
 ```
 ```bash
 # Check balance
-nibid q bank balances $OJO_FEEDER_ADDR
+ojod q bank balances $OJO_FEEDER_ADDR
 ```
 ```bash
 # Create service file
