@@ -253,3 +253,74 @@ ojod tx staking edit-validator \
   --from=wallet
 ```
 !!! Save priv_validator_key.json which located in /root/.ojo/config
+
+**Price Feeder**
+```bash
+cd && curl -s https://github.com/ojo-network/price-feeder! | bash
+```
+```bash
+# Create separate wallet
+ojod keys add feeder_wallet
+```
+```bash
+#Set the variables
+export GRPC_ENDPOINT="localhost:${PORT_OJO}90"
+export WEBSOCKET_ENDPOINT="ws://localhost:${PORT_OJO}657/websocket"
+export EXCHANGE_SYMBOLS_MAP='{ "bitfinex": { "ubtc:uusd": "tBTCUSD", "ueth:uusd": "tETHUSD", "uusdt:uusd": "tUSTUSD" }, "binance": { "ubtc:uusd": "BTCUSD", "ueth:uusd": "ETHUSD", "uusdt:uusd": "USDTUSD", "uusdc:uusd": "USDCUSD", "uatom:uusd": "ATOMUSD", "ubnb:uusd": "BNBUSD", "uavax:uusd": "AVAXUSD", "usol:uusd": "SOLUSD", "uada:uusd": "ADAUSD", "ubtc:unusd": "BTCUSD", "ueth:unusd": "ETHUSD", "uusdt:unusd": "USDTUSD", "uusdc:unusd": "USDCUSD", "uatom:unusd": "ATOMUSD", "ubnb:unusd": "BNBUSD", "uavax:unusd": "AVAXUSD", "usol:unusd": "SOLUSD", "uada:unusd": "ADAUSD" } }'
+
+# Save seed phrase
+# Change <your_feeder_mnemonic> to the mnemonic of feeder_wallet
+FEEDER_MNEMONIC="<your_feeder_mnemonic>"
+
+# Change <your_feeder_address> to the address of feeder_wallet
+FEEDER_ADDRESS="<your_feeder_address>"
+
+echo "export FEEDER_MNEMONIC=$FEEDER_MNEMONIC" >> $HOME/.bash_profile
+echo "export FEEDER_ADDRESS=$FEEDER_ADDRESS" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
+```bash
+# Send tokens for fees (around 1000 tokens)
+ojod tx bank send wallet $FEEDER_ADDRESS 100000000uojo --fees 7500uojo -y
+```
+```bash
+# Check balance
+nibid q bank balances $FEEDER_ADDRESS
+```
+```bash
+# Create service file
+sudo tee /etc/systemd/system/pricefeeder.service<<EOF
+[Unit]
+Description=Ojo Pricefeeder
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=exec
+User=$USER
+Group=$USER
+ExecStart=/usr/local/bin/pricefeeder
+Restart=on-failure
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+PermissionsStartOnly=true
+LimitNOFILE=65535
+Environment=CHAIN_ID='$CHAIN_ID_OJO'
+Environment=GRPC_ENDPOINT='$GRPC_ENDPOINT'
+Environment=WEBSOCKET_ENDPOINT='$WEBSOCKET_ENDPOINT'
+Environment=EXCHANGE_SYMBOLS_MAP='$EXCHANGE_SYMBOLS_MAP'
+Environment=FEEDER_MNEMONIC='$FEEDER_MNEMONIC'
+Environment=VALIDATOR_ADDRESS='$VALOPER_OJO'
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+```bash
+ojod tx oracle set-feeder $FEEDER_ADDRESS --from wallet --fees 5000unibi -y
+systemctl daemon-reload && \
+systemctl enable pricefeeder && \
+systemctl restart pricefeeder && journalctl -u pricefeeder -f -o cat
+
+# Exit from logs ctrl+c
+```
