@@ -33,11 +33,9 @@ mkdir $HOME/.sui
 ```bash
 # Clone GitHub SUI repository
 cd $HOME
-git clone https://github.com/MystenLabs/sui.git
-cd sui
-git remote add upstream https://github.com/MystenLabs/sui
-git fetch upstream
-git checkout --track upstream/testnet
+cd $HOME && git clone https://github.com/MystenLabs/sui.git
+cd sui && git pull
+git checkout testnet-0.33.1
 ```
 
 ```bash
