@@ -2,7 +2,7 @@
 
 ```bash
 # Restart and the node
-sudo systemctl restart subspaced
+sudo systemctl restart subspaced && sudo journalctl -fu subspaced --no-hostname -o cat
 ```
 
 ```bash
