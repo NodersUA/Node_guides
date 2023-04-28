@@ -187,7 +187,7 @@ curl localhost:${CASCADIA_PORT}657/status
 cascadiad keys add wallet
 ```
 
-Create a password for the wallet and write it down so you don't forget it. The wallet has been created. In the last line there will be a phrase that must be written down
+The wallet has been created. In the last line there will be a phrase that must be written down
 
 ```bash
 # If the wallet was already there, restore it
