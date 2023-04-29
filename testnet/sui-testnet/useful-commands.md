@@ -11,6 +11,11 @@ sudo systemctl restart suid
 ```
 
 ```bash
+# Stop (Linux)
+sudo systemctl stop suid
+```
+
+```bash
 # Delete DB (Linux)
 sudo systemctl stop suid
 sudo rm -rf $HOME/.sui/db
