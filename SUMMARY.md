@@ -13,6 +13,8 @@
   * [Update](testnet/andromeda/update.md)
   * [Snapshot/StateSync/AddrBook](testnet/andromeda/snapshot-statesync-addrbook.md)
   * [Useful Commands](testnet/andromeda/useful-commands.md)
+* [Bundlr](testnet/bundlr/README.md)
+  * [Installation](testnet/bundlr/installation.md)
 * [Cascadia](testnet/cascadia/README.md)
   * [Installation](testnet/cascadia/installation.md)
   * [Useful Commands](testnet/cascadia/useful-commands.md)

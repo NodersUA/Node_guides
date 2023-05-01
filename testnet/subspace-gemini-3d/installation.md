@@ -113,7 +113,7 @@ sudo systemctl restart subspaced
 sudo journalctl -fu subspaced --no-hostname -o cat
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Check your node in [telemetry](https://telemetry.subspace.network/#/0x7f489750cfe91e17fc19b42a5acaba41d1975cedd3440075d4a4b4171ad0ac20)
 
