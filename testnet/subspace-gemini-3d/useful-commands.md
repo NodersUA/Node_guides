@@ -24,3 +24,8 @@ subspace wipe && rm -Rvf $HOME/.local/share/subspace-cli/node/chains/*
 # Edit config
 nano $HOME/.config/subspace-cli/settings.toml
 ```
+
+```bash
+# Delete log files
+rm $HOME/.local/share/subspace-cli/logs/*
+```
