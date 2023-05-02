@@ -3,7 +3,7 @@
 _**Automatic Installation**_
 
 ```bash
-Soon...
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/bundlr/bundlr)
 ```
 
 **Manual Installation**
