@@ -95,3 +95,8 @@ npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
 # Register Validator and Stake
 npx @bundlr-network/testnet-cli@latest join $GW_CONTRACT -w $HOME/bundlr/wallet.json -u http://$(wget -qO- eth0.me):$BUNDLER_PORT -s <stake-tokens>
 ```
+
+```bash
+# Check validator is active
+npx @bundlr-network/testnet-cli@latest check $GW_CONTRACT $BUNDLR_ADDRESS
+```
