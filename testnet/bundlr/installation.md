@@ -93,7 +93,7 @@ npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
 ```
 ```bash
 # Register Validator and Stake
-npx @bundlr-network/testnet-cli@latest join $GW_CONTRACT -w $HOME/bundlr/wallet.json -u http://$(wget -qO- eth0.me):$BUNDLER_PORT -s <stake-tokens>
+npx @bundlr-network/testnet-cli@latest join $GW_CONTRACT -w $HOME/bundlr/wallet.json -u http://$(wget -qO- eth0.me):$BUNDLER_PORT
 ```
 
 ```bash
