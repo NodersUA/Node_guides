@@ -64,6 +64,7 @@ BUNDLER_URL=https://testnet1.bundlr.network
 GW_CONTRACT="RkinCLBlY4L5GZFv8gCFcrygTyd5Xm91CzKlR6qxhKA"
 GW_ARWEAVE=https://arweave.testnet1.bundlr.network
 GW_STATE_ENDPOINT=https://faucet.testnet1.bundlr.network
+source ~/.bash_profile
 
 tee .env > /dev/null <<EOF
 PORT=$BUNDLER_PORT
