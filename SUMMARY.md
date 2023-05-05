@@ -15,6 +15,7 @@
   * [Useful Commands](testnet/andromeda/useful-commands.md)
 * [Bundlr](testnet/bundlr/README.md)
   * [Installation](testnet/bundlr/installation.md)
+  * [Useful Commands](testnet/bundlr/useful-commands.md)
 * [Cascadia](testnet/cascadia/README.md)
   * [Installation](testnet/cascadia/installation.md)
   * [Useful Commands](testnet/cascadia/useful-commands.md)
