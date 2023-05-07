@@ -45,6 +45,7 @@ source "$HOME/.cargo/env"
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
 source ~/.bashrc
 nvm install node
+nvm install 16.18.0
 ```
 
 ## Download Repository and Set-up
@@ -84,19 +85,19 @@ sudo docker-compose up -d
 
 ## Register Validator and Stake
 ```bash
-sudo npm i -g @bundlr-network/testnet-cli@latest
+nvm use 16.18.0 && sudo npm i -g @bundlr-network/testnet-cli@latest
 ```
 You can claim Testnet tokens [here](https://bundlr.network/faucet), you will need a valid twitter account and the Arweave wallet address created earlier.
 ```bash
 # Check ballance
-npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
+nvm use 16.18.0 && npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
 ```
 ```bash
 # Register Validator and Stake
-npx @bundlr-network/testnet-cli@latest join $GW_CONTRACT -w $HOME/bundlr/wallet.json -u http://$(wget -qO- eth0.me):$BUNDLER_PORT
+nvm use 16.18.0 && npx @bundlr-network/testnet-cli@latest join $GW_CONTRACT -w $HOME/bundlr/wallet.json -u http://$(wget -qO- eth0.me):$BUNDLER_PORT
 ```
 
 ```bash
 # Check validator is active
-npx @bundlr-network/testnet-cli@latest check $GW_CONTRACT $BUNDLR_ADDRESS
+nvm use 16.18.0 && npx @bundlr-network/testnet-cli@latest check $GW_CONTRACT $BUNDLR_ADDRESS
 ```
