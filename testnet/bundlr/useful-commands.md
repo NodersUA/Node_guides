@@ -18,5 +18,5 @@ npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
 
 ```bash
 # Check validator is active
-npx @bundlr-network/testnet-cli@latest check $GW_CONTRACT $BUNDLR_ADDRESS
+nvm use 16.18.0 && npx @bundlr-network/testnet-cli@latest check $GW_CONTRACT $BUNDLR_ADDRESS
 ```
