@@ -13,7 +13,7 @@ nvm use 16.18.0
 
 ```bash
 # Check ballance
-npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
+nvm use 16.18.0 && && npx @bundlr-network/testnet-cli@latest balance $BUNDLR_ADDRESS
 ```
 
 ```bash
