@@ -18,6 +18,7 @@
   * [Useful Commands](testnet/bundlr/useful-commands.md)
 * [Cascadia](testnet/cascadia/README.md)
   * [Installation](testnet/cascadia/installation.md)
+  * [Update](testnet/cascadia/update.md)
   * [Useful Commands](testnet/cascadia/useful-commands.md)
 * [DeFund](testnet/defund/README.md)
   * [Installation](testnet/defund/installation.md)

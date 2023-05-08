@@ -15,6 +15,3 @@ defundd version --long | grep -e version -e commit
 
 systemctl restart defundd && journalctl -u defundd -f -o cat
 ```
-
-```
-```
