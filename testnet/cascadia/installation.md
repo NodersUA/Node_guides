@@ -52,7 +52,7 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/cascadiafoundation/cascadia && cd cascadia
-git checkout v0.1.1
+git checkout v0.1.2
 make install
 
 cascadiad version --long | grep -e version -e commit
