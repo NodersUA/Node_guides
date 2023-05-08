@@ -56,8 +56,8 @@ git checkout v0.1.2
 make install
 
 cascadiad version --long | grep -e version -e commit
-# 0.1.1
-# commit: 5f5bb104a13407a7312b9c5b780cbfd16d4bd6ef
+# 0.1.2
+# commit: bde803072f5f52884a372c02d2249e743de9538d
 ```
 
 ```bash
