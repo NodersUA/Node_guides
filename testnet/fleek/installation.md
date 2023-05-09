@@ -16,7 +16,7 @@ sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-
 ```
 2. Clone repository and build:
 ```shell
-git clone https://github.com/fleek-network/ursa && \
+cd $HOME && git clone https://github.com/fleek-network/ursa && \
 cd ursa && \
 make install
 ```
