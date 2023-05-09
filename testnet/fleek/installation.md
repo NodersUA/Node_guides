@@ -46,12 +46,12 @@ sudo journalctl -u fleekd -f -o cat
 ```
 5. Set an identity:
 ```shell
-IDENTITY="nickname"
+MONIKER="nickname"
 ```
 6. Replace default identity:
 ```shell
 systemctl stop fleekd && \
-sed -i.bak -e "s/^identity *=.*/identity = \"${IDENTITY}\"/" $HOME/.ursa/config.toml && \
+sed -i.bak -e "s/^identity *=.*/identity = \"${MONIKER}\"/" $HOME/.ursa/config.toml && \
 rm $HOME/.ursa/keystore/*; \
 sudo systemctl restart fleekd && \
 sudo journalctl -u fleekd -f -o cat
