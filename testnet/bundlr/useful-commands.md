@@ -3,6 +3,9 @@
 **Use NVM to install Node**
 
 ```bash
+# Install NVM on Ubuntu
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+source ~/.bashrc
 nvm install node
 nvm install 16.18.0
 ```
