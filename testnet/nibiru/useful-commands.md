@@ -98,11 +98,11 @@ nibid q gov proposals
 ```
 ```bash
 # Check voting result
-nibid query gov vote 538 $NIBIRU_ADRESS
+nibid query gov vote 538 $NIBIRU_ADDRESS
 ```
 ```bash
 # Vote 
-nibid tx gov vote 1 yes --from $NIBIRU_ADRESS
+nibid tx gov vote 538 yes --from wallet --chain-id nibiru-itn-1 --fees 5000unibi -y
 ```
 
 ***Peers and RPC***
