@@ -236,7 +236,7 @@ source $HOME/.bash_profile
 ```
 
 ```bash
-bash# Check the ballance
+# Check the ballance
 defundd q bank balances $DEFUND_ADDRESS
 ```
 
