@@ -98,7 +98,7 @@ nibid q gov proposals
 ```
 ```bash
 # Check voting result
-nibid q gov proposals --voter $NIBIRU_VALOPER
+nibid query gov vote 538 $NIBIRU_ADRESS
 ```
 ```bash
 # Vote 
