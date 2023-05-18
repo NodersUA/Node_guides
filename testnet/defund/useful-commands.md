@@ -89,7 +89,7 @@ defundd q gov proposals
 defundd q gov proposals --voter $DEFUND_VALOPER
 
 # Vote 
-defundd tx gov vote 1 yes --from $DEFUND_ADRESS
+defundd tx gov vote 2 yes --from wallet
 ```
 
 **Peers and RPC**
