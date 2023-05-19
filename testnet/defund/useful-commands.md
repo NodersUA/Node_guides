@@ -6,6 +6,9 @@
 # Check the blocks
 defundd status 2>&1 | jq ."SyncInfo"."latest_block_height"
 
+# Restart
+systemctl restart defundd && journalctl -u defundd -f -o cat
+
 # Check logs
 journalctl -u defundd -f -o cat
 
