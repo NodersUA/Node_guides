@@ -30,11 +30,11 @@ nibid q staking validators --limit 1000000 -o json | jq '.validators[] | select(
 ```
 ```bash
 # Check information of TX_HASH
-nibidd q tx <TX_HASH>
+nibid q tx <TX_HASH>
 ```
 ```bash
 # Check how many blocks were passed by the validator and from which block the asset
-nibidd q slashing signing-info $(nibid tendermint show-validator)
+nibid q slashing signing-info $(nibid tendermint show-validator)
 ```
 
 ***Transactions***
@@ -98,11 +98,11 @@ nibid q gov proposals
 ```
 ```bash
 # Check voting result
-nibid query gov vote 538 $NIBIRU_ADDRESS
+nibid query gov vote 576 $NIBIRU_ADDRESS
 ```
 ```bash
 # Vote 
-nibid tx gov vote 538 yes --from wallet --chain-id nibiru-itn-1 --fees 5000unibi -y
+nibid tx gov vote 576 yes --from wallet --chain-id nibiru-itn-1 --fees 5000unibi -y
 ```
 
 ***Peers and RPC***
