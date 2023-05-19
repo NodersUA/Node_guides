@@ -28,8 +28,6 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [OJO](../testnet/ojo/)
 
-[Realio](../testnet/realio/)
-
 [SAO](../testnet/sao/)
 
 [Shardeum](../testnet/shardeum/)
