@@ -280,7 +280,7 @@ gitopiad tx staking edit-validator \
   --details="" \
   --chain-id=$GITOPIA_CHAIN_ID \
   --fees=5000ulore \
-  --from=$GITOPIA_WALLET_NAME
+  --from=wallet
 ```
 
 !!! Save priv\_validator\_key.json which is located in /root/.gitopiad/config
