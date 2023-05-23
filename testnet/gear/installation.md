@@ -35,7 +35,7 @@ cd $HOME && rm -rf gear
 ```
 
 ```bash
-$HOME/gear/gear --version
+/usr/bin/gear --version
 
 # gear 0.1.4-05c9f71328b
 ```
