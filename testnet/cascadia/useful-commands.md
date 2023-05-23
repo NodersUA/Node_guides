@@ -15,6 +15,9 @@ cascadiad status 2>&1 | jq .SyncInfo
 # Check balance
 cascadiad q bank balances $CASCADIA_ADDRESS
 
+# Check EVM address
+cascadiad address-converter $(cascadiad keys show wallet -a)
+
 # Check pubkey of validator
 cascadiad tendermint show-validator
 
