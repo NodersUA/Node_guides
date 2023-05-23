@@ -35,7 +35,7 @@ cd $HOME && rm -rf gear
 ```
 
 ```bash
-./gear --version
+$HOME/gear/gear --version
 
 # gear 0.1.0-hashcode
 ```
