@@ -2,9 +2,10 @@
 
 ### Node
 
-<pre class="language-bash"><code class="lang-bash"># Update the repositories
-<strong>apt update &#x26;&#x26; apt upgrade -y
-</strong></code></pre>
+```bash
+# Update the repositories
+apt update && apt upgrade -y
+```
 
 ```bash
 # Install developer packages (One command)
