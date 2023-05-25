@@ -15,6 +15,7 @@ apt update && apt upgrade -y
 
 ```bash
 # Install Docker
+sudo apt install snap
 sudo snap install docker
 ```
 
