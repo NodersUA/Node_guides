@@ -2,12 +2,12 @@
 
 ```bash
 # Check logs
-sudo docker logs -f pathfinder
+sudo docker logs pathfinder -fn100
 ```
 
 ```bash
 # Restart
-sudo docker restart pathfinder && sudo docker logs -f pathfinder
+sudo docker restart pathfinder && sudo docker logs pathfinder -fn100
 ```
 
 ```bash
