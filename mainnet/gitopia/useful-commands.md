@@ -121,12 +121,12 @@ gitopiad q gov proposals --voter $GITOPIA_VALOPER
 
 ```bash
 # Vote 
-gitopiad tx gov vote 1 yes --from $GITOPIA_WALLET_NAME
+gitopiad tx gov vote 1 yes --from wallet --fees 5000ulore -y
 ```
 
 ```bash
 # Make a deposit in the proposal
-gitopiad tx gov deposit 1 1000000ulore --from $GITOPIA_WALLET_NAME
+gitopiad tx gov deposit 1 1000000ulore --from wallet
 ```
 
 **Peers and RPC**
