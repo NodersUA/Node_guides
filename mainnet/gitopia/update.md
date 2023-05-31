@@ -1,6 +1,8 @@
 # Update
 
 ```bash
+# Update to v2.1.0
+
 cd $HOME && rm -rf gitopia
 curl https://get.gitopia.com | bash
 git clone -b v2.1.0 gitopia://gitopia/gitopia
