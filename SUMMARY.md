@@ -30,7 +30,7 @@
   * [Useful Commands](testnet/defund/useful-commands.md)
 * [Fleek](testnet/fleek/README.md)
   * [Installation](testnet/fleek/installation.md)
-  * [Update](testnet/fleek/auto-upgrade.md)
+  * [Update](testnet/fleek/update.md)
 * [Gear](testnet/gear/README.md)
   * [Installation](testnet/gear/installation.md)
   * [Update](testnet/gear/update.md)
