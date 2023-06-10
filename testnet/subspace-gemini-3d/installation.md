@@ -15,7 +15,7 @@ libopencl-clang-dev libgomp1 ocl-icd-libopencl1 -y
 
 ```bash
 # Create a folder
-mkdir $HOME/subspace >/dev/null 2>&1
+mkdir ~/subspace >/dev/null 2>&1
 ```
 
 ```bash
@@ -37,14 +37,14 @@ If your version **CPU supports x86-64-v2**
 
 ```bash
 VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v[0-9]+\.[0-9]+\.[0-9]+.*$" | sed 's/.$//' | head -n 1) && \
-cd $HOME/subspace && wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v2-${VER} -qO subspace
+cd ~/subspace && wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v2-${VER} -qO subspace
 ```
 
 If your version **CPU supports x86-64-v3**
 
 ```bash
 VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v[0-9]+\.[0-9]+\.[0-9]+.*$" | sed 's/.$//' | head -n 1) && \
-cd $HOME/subspace && wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v3-${VER} -qO subspace
+cd ~/subspace && wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v3-${VER} -qO subspace
 ```
 
 ```bash
