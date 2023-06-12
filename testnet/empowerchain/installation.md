@@ -202,7 +202,7 @@ source $HOME/.bash_profile
 ```
 
 ```bash
-bash# Check the ballance
+# Check the ballance
 empowerd query bank balances $EMPOWER_ADDRESS
 ```
 
