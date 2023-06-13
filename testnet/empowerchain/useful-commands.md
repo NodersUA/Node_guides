@@ -9,6 +9,9 @@ empowerd status 2>&1 | jq ."SyncInfo"."latest_block_height"
 # Check logs
 journalctl -u empowerd -f -o cat
 
+# Restart
+systemctl restart empowerd && journalctl -u empowerd -f -o cat
+
 # Check status
 empowerd status 2>&1 | jq .SyncInfo
 
