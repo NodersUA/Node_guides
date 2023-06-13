@@ -68,7 +68,7 @@ empowerd init $EMPOWER_MONIKER --chain-id $EMPOWER_CHAIN_ID
 
 ```bash
 # Download Genesis
-wget -O ~/.empowerchain/config/genesis.json "https://github.com/EmpowerPlastic/empowerchain/blob/main/testnets/circulus-1/genesis.json"
+wget -O ~/.empowerchain/config/genesis.json "https://raw.githubusercontent.com/EmpowerPlastic/empowerchain/main/testnets/circulus-1/genesis.json"
 
 # Check Genesis
 sha256sum $HOME/.empowerchain/config/genesis.json
