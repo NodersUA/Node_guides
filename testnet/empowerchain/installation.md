@@ -226,7 +226,7 @@ empowerd tx staking create-validator \
     --pubkey=$(empowerd tendermint show-validator) \
     --gas-prices 0.025umpwr \
     --from wallet \
-    --y
+    -y
 ```
 
 Check yourself in the list [explorer](https://empower.explorers.guru/validators)
