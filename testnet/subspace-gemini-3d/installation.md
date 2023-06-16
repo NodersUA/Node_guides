@@ -49,7 +49,7 @@ cd ~/subspace && wget https://github.com/subspace/subspace-cli/releases/download
 
 ```bash
 # Next step..
-cd ~/subspace \
+cd ~/subspace
 sudo chmod +x * && \
 sudo mv * /usr/local/bin/ && \
 echo -e "\n\nrelease >> ${VER}.\n\n" && \
