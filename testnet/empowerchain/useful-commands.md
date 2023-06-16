@@ -95,7 +95,7 @@ empowerd q gov proposals
 empowerd q gov proposals --voter $EMPOWER_VALOPER
 
 # Vote 
-empowerd tx gov vote 1 yes --from $EMPOWER_ADRESS
+empowerd tx gov vote 1 yes --from wallet --fees 5000umpwr -y
 ```
 
 **Peers and RPC**
