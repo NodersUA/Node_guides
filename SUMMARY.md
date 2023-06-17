@@ -31,6 +31,7 @@
 * [EmpowerChain](testnet/empowerchain/README.md)
   * [Installation](testnet/empowerchain/installation.md)
   * [Useful Commands](testnet/empowerchain/useful-commands.md)
+  * [Task](testnet/empowerchain/task.md)
 * [Fleek](testnet/fleek/README.md)
   * [Installation](testnet/fleek/installation.md)
   * [Update](testnet/fleek/update.md)
