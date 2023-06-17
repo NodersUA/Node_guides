@@ -1,6 +1,6 @@
 ***Automatic Installation***
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nibiru/nibi)
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nibiru/nibiru)
 ```
 ***Manual Installation***
 ```bash
