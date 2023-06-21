@@ -45,20 +45,19 @@ echo 'export EMPOWER_MONIKER='$EMPOWER_MONIKER >> $HOME/.bash_profile
 echo "export EMPOWER_CHAIN_ID=circulus-1" >> $HOME/.bash_profile
 echo "export EMPOWER_PORT=20" >> $HOME/.bash_profile
 source $HOME/.bash_profile
-# check whether the last command was executed
 ```
 
 ```bash
 # Download binary files
 cd $HOME
 git clone https://github.com/EmpowerPlastic/empowerchain.git && cd empowerchain
-git checkout v1.0.0-rc2
+git checkout v1.0.0-rc3
 cd chain
 make install
 
 empowerd version --long | grep -e version -e commit
-# 1.0.0-rc1
-# commit: 1ff234c3069ffd9b32099b3b679eca895c3aae2e
+# 1.0.0-rc3
+# commit: b0de742c7ea925b0190cfd6fac72f4b443860283
 ```
 
 ```bash
