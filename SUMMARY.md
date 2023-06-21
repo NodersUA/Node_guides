@@ -30,6 +30,7 @@
   * [Useful Commands](testnet/defund/useful-commands.md)
 * [EmpowerChain](testnet/empowerchain/README.md)
   * [Installation](testnet/empowerchain/installation.md)
+  * [Update](testnet/empowerchain/update.md)
   * [Useful Commands](testnet/empowerchain/useful-commands.md)
   * [Task](testnet/empowerchain/task.md)
 * [Fleek](testnet/fleek/README.md)
