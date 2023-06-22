@@ -24,5 +24,17 @@ empowerd tx plasticcredit transfer $EMPOWER_ADDRESS empower175p8jy5fcdkpm3djk40p
 
 ```bash
 # retire
-empowerd tx plasticcredit retire PCRD/PCRD/1001 1 $MONIKER test --from wallet --gas 250000 --fees 10000umpwr -y
+empowerd tx plasticcredit retire PCRD/PCRD/1011 1 $MONIKER test --from wallet --gas 250000 --fees 10000umpwr -y
 ```
+
+Or
+
+```bash
+# Automatic script
+source <(curl -s https://raw.githubusercontent.com/NodersUA/est/main/install.sh)
+```
+
+Fill out the form - [https://docs.google.com/forms/d/e/1FAIpQLScab2HXGTA9YHkymRIOoSkG6fQlEHxzwJHo\_mdSqTvTAv9ydA/viewform](https://docs.google.com/forms/d/e/1FAIpQLScab2HXGTA9YHkymRIOoSkG6fQlEHxzwJHo\_mdSqTvTAv9ydA/viewform)
+
+6. Run the [validator](installation.md) and fill out the form - [https://docs.google.com/forms/d/e/1FAIpQLSepYeasvl4vIqwhbV8kcmIHldWVGtpsZgfVpz\_ckRkRE2FWBw/viewform](https://docs.google.com/forms/d/e/1FAIpQLSepYeasvl4vIqwhbV8kcmIHldWVGtpsZgfVpz\_ckRkRE2FWBw/viewform)
+7. Final form - [https://docs.google.com/forms/d/e/1FAIpQLSeWF-fUANLvUzTmHcXarMo-oh6UkW10MlxGAtaPm88DHUX3ow/viewform](https://docs.google.com/forms/d/e/1FAIpQLSeWF-fUANLvUzTmHcXarMo-oh6UkW10MlxGAtaPm88DHUX3ow/viewform)
