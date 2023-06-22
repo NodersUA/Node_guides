@@ -10,6 +10,19 @@
 * Retire plastic credits: [https://forms.gle/UQiyWdwatPZTJqhz9](https://forms.gle/UQiyWdwatPZTJqhz9)
 * Transfer plastic credits: [https://forms.gle/mBGXAkgruZ4sGCyn9](https://forms.gle/mBGXAkgruZ4sGCyn9)
 
-5. CLI Testing
+5. Stress testing
 
-* Proof of existence transaction: [https://forms.gle/QajitMU2D1Mo7cRU7](https://forms.gle/QajitMU2D1Mo7cRU7)
+```bash
+# buy credit
+empowerd tx wasm execute empower14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sfg4umu '{"buy_credits":{"owner":"empower10meawsx9u3lkl2p6amk87k6tye6qn6dkqx2ksj","denom":"PCRD/PCRD/1011","number_of_credits_to_buy":1}}' --amount 500000umpwr --from wallet --gas 250000 --fees 10000umpwr -y
+```
+
+```bash
+# tranfer credit
+empowerd tx plasticcredit transfer $EMPOWER_ADDRESS empower175p8jy5fcdkpm3djk40p8ucdn3lyjyd7jtf77w PCRD/PCRD/1011 1 false --gas 250000 --fees 10000umpwr -y
+```
+
+```bash
+# retire
+empowerd tx plasticcredit retire PCRD/PCRD/1001 1 $MONIKER test --from wallet --gas 250000 --fees 10000umpwr -y
+```

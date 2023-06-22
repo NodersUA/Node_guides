@@ -45,6 +45,7 @@ echo 'export EMPOWER_MONIKER='$EMPOWER_MONIKER >> $HOME/.bash_profile
 echo "export EMPOWER_CHAIN_ID=circulus-1" >> $HOME/.bash_profile
 echo "export EMPOWER_PORT=20" >> $HOME/.bash_profile
 source $HOME/.bash_profile
+# check whether the last command was executed
 ```
 
 ```bash
