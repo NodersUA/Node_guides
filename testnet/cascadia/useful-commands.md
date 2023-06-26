@@ -9,6 +9,9 @@ cascadiad status 2>&1 | jq ."SyncInfo"."latest_block_height"
 # Check logs
 journalctl -u cascadiad -f -o cat
 
+# Restart
+systemctl restart cascadiad && journalctl -u cascadiad -f -o cat
+
 # Check status
 cascadiad status 2>&1 | jq .SyncInfo
 

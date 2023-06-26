@@ -1,16 +1,23 @@
-***Automatic Installation***
+# Installation
+
+_**Automatic Installation**_
+
 ```bash
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nibiru/nibiru)
 ```
-***Manual Installation***
+
+_**Manual Installation**_
+
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
 ```
+
 ```bash
 # Install developer packages
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
+
 ```bash
 # Install Go (one command)
 if [ "$(go version)" != "go version go1.20.2 linux/amd64" ]; then \
@@ -26,6 +33,7 @@ go version
 
 # go version go1.20.1 linux/amd64
 ```
+
 ```bash
 # Set the variables
 
@@ -38,6 +46,7 @@ echo "export NIBIRU_PORT=11" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
 ```
+
 ```bash
 # Download binary files
 cd $HOME
@@ -45,15 +54,17 @@ git clone https://github.com/NibiruChain/nibiru
 cd nibiru
 git checkout v0.19.2
 make install
-sudo cp $HOME/go/bin/nibid /usr/local/bin/
 
+sudo cp $HOME/go/bin/nibid /usr/local/bin/
 nibid version --long | grep -e version -e commit
 # v0.19.2
 ```
+
 ```bash
 # Initialize the node
 nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN_ID
 ```
+
 ```bash
 # Download Genesis
 curl -s https://networks.itn.nibiru.fi/$NIBIRU_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
@@ -63,6 +74,7 @@ shasum -a 256 $HOME/.nibid/config/genesis.json
 
 # e162ace87f5cbc624aa2a4882006312ef8762a8a549cf4a22ae35bba12482c72
 ```
+
 ```bash
 # Set the ports
 
@@ -79,7 +91,8 @@ external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${NIBIRU_PORT}656\"/" $HOME/.nibid/config/config.toml
 ```
 
-***Setup config***
+_**Setup config**_
+
 ```bash
 # correct config (so we can no longer use the chain-id flag for every CLI command in client.toml)
 nibid config chain-id $NIBIRU_CHAIN_ID
@@ -119,17 +132,20 @@ sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_rec
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.nibid/config/app.toml
 ```
 
-***(OPTIONAL) Turn off indexing in config.toml***
+_**(OPTIONAL) Turn off indexing in config.toml**_
+
 ```bash
 indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.nibid/config/config.toml
 ```
 
-***Cosmovisor***
+_**Cosmovisor**_
+
 ```bash
 # Install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ```
+
 ```bash
 # Create directories
 mkdir -p ~/.nibid/cosmovisor
@@ -137,10 +153,12 @@ mkdir -p ~/.nibid/cosmovisor/genesis
 mkdir -p ~/.nibid/cosmovisor/genesis/bin
 mkdir -p ~/.nibid/cosmovisor/upgrades
 ```
+
 ```bash
 # Copy the binary file to the cosmovisor folder
 cp `which nibid` ~/.nibid/cosmovisor/genesis/bin/nibid
 ```
+
 ```bash
 # Create service file (One command)
 sudo tee /etc/systemd/system/nibid.service > /dev/null <<EOF
@@ -164,6 +182,7 @@ Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 WantedBy=multi-user.target
 EOF
 ```
+
 ```bash
 # Start the node
 systemctl daemon-reload
@@ -172,12 +191,14 @@ systemctl restart nibid && journalctl -u nibid -f -o cat
 
 # Escape from logs ctrl+c
 ```
+
 ```bash
 # Check the logs again
 journalctl -u nibid -f -o cat
 
 # Escape from logs ctrl+c
 ```
+
 ```bash
 # Check status
 nibid status 2>&1 | jq .SyncInfo
@@ -185,13 +206,15 @@ nibid status 2>&1 | jq .SyncInfo
 "catching_up": false means that the node is synchronized, we are waiting for complete synchronization
 ```
 
-***Wallets***
+_**Wallets**_
+
 ```bash
 # Create wallet
 nibid keys add wallet
 ```
 
 The wallet has been created. In the last line there will be a phrase that must be written down
+
 ```bash
 # If the wallet was already there, restore it
 nibid keys add wallet --recover
@@ -200,6 +223,7 @@ nibid keys add wallet --recover
 ```
 
 Go to the # faucet branch and request tokens
+
 ```bash
 # Save the wallet and valoper address
 NIBIRU_ADDRESS=$(nibid keys show wallet -a)
@@ -219,9 +243,10 @@ curl -X POST -d '{"address": "'"$NIBIRU_ADDRESS"'", "coins": ["110000000unibi","
 nibid q bank balances $NIBIRU_ADDRESS
 ```
 
-***Validator***
+_**Validator**_
 
 Do not forget to create a profile on https://keybase.io/ and set a profile photo there that will be imported by key and used for your validators.
+
 ```bash
 # Change <identity> to your key from keybase
 nibid tx staking create-validator \
@@ -244,9 +269,11 @@ nibid tx staking create-validator \
 Check yourself in the list [explorer](https://nibiru.explorers.guru/validators)
 
 Or by command
+
 ```bash
 nibid query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$NIBIRU_VALOPER")' | jq
 ```
+
 ```bash
 # Edit the validator
 nibidd tx staking edit-validator \
@@ -259,17 +286,20 @@ nibidd tx staking edit-validator \
   --from=wallet
 ```
 
-**!!! Save priv_validator_key.json which is located in /root/.gitopiad/config**
+**!!! Save priv\_validator\_key.json which is located in /root/.gitopiad/config**
 
-***Setup price feeder (✔️Oracle)***
+_**Setup price feeder (✔️Oracle)**_
+
 ```bash
 # Download binary files
 cd && curl -s https://get.nibiru.fi/pricefeeder! | bash
 ```
+
 ```bash
 # Create separate wallet
 nibid keys add feeder_wallet
 ```
+
 ```bash
 #Set the variables
 export GRPC_ENDPOINT="localhost:${NIBIRU_PORT}90"
@@ -287,16 +317,19 @@ echo "export FEEDER_MNEMONIC=$FEEDER_MNEMONIC" >> $HOME/.bash_profile
 echo "export FEEDER_ADDRESS=$FEEDER_ADDRESS" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
+
 ```bash
 # Send tokens for fees (around 1000 tokens)
 nibid tx bank send wallet $FEEDER_ADDRESS 100000000unibi --fees 7500unibi -y
 # Or take from faucet
 curl -X POST -d '{"address": "'"$FEEDER_ADDRESS"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' $NIBIRU_FAUCET_URL
 ```
+
 ```bash
 # Check balance
 nibid q bank balances $FEEDER_ADDRESS
 ```
+
 ```bash
 # Create service file
 sudo tee /etc/systemd/system/pricefeeder.service<<EOF
@@ -326,6 +359,7 @@ Environment=VALIDATOR_ADDRESS='$NIBIRU_VALOPER'
 WantedBy=multi-user.target
 EOF
 ```
+
 ```bash
 nibid tx oracle set-feeder $FEEDER_ADDRESS --from wallet --fees 5000unibi -y
 systemctl daemon-reload && \

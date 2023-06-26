@@ -56,6 +56,7 @@ git checkout v1.0.0-rc3
 cd chain
 make install
 
+sudo cp $(which empowerd) /usr/local/bin/ && cd $HOME
 empowerd version --long | grep -e version -e commit
 # 1.0.0-rc3
 # commit: b0de742c7ea925b0190cfd6fac72f4b443860283

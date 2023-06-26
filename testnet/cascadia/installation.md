@@ -55,6 +55,7 @@ git clone https://github.com/cascadiafoundation/cascadia && cd cascadia
 git checkout v0.1.2
 make install
 
+sudo cp $(which cascadiad) /usr/local/bin/ && cd $HOME
 cascadiad version --long | grep -e version -e commit
 # 0.1.2
 # commit: bde803072f5f52884a372c02d2249e743de9538d

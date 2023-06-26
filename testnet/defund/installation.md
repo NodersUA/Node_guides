@@ -53,6 +53,7 @@ cd defund
 git checkout v0.2.6
 make install
 
+sudo cp $(which defundd) /usr/local/bin/ && cd $HOME
 defundd version --long | grep -e version -e commit
 # 0.2.6
 # commit: 8f2ebe3d30efe84e013ec5fcdf21a3b99e786c3d
