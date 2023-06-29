@@ -48,6 +48,7 @@
   * [Useful Commands](testnet/nibiru/useful-commands.md)
 * [StarkNet](testnet/starknet/README.md)
   * [Installation](testnet/starknet/installation.md)
+  * [Update](testnet/starknet/update.md)
   * [Useful Commands](testnet/starknet/useful-commands.md)
 * [Subspace / Gemini-3d](testnet/subspace-gemini-3d/README.md)
   * [Installation](testnet/subspace-gemini-3d/installation.md)
