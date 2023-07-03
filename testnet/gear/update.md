@@ -1,9 +1,10 @@
 # Update
 
 ```bash
-wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
-sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C /usr/bin
-rm gear-nightly-linux-x86_64.tar.xz
+# gear 0.2.2-cc0235a33b1
+
+curl https://get.gear.rs/gear-nightly-x86_64-unknown-linux-gnu.tar.xz | sudo tar -xJC /usr/bin
 sudo systemctl restart gear-node
+/usr/bin/gear --version
 sudo journalctl -fu gear-node --no-hostname -o cat
 ```
