@@ -9,5 +9,6 @@ $HOME/.config/subspace* \
 /usr/local/bin/subspace
 
 sudo rm -v /etc/systemd/system/subspaced.service && \
-sudo systemctl daemon-reloads
+sudo systemctl daemon-reload
+
 ```
