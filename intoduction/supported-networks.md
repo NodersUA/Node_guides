@@ -18,7 +18,7 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Starknet](../testnet/starknet/)
 
-[Subspace](../testnet/subspace-gemini-3d/)
+[Subspace](../testnet/subspace-gemini-3e/)
 
 Sui [(Testnet)](../testnet/sui-testnet/) [( Devnet)](../archive/sui-devnet/)
 {% endtab %}

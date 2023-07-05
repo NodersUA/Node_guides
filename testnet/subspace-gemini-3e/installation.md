@@ -14,11 +14,6 @@ libopencl-clang-dev libgomp1 ocl-icd-libopencl1 -y
 ```
 
 ```bash
-# Create a folder
-mkdir ~/subspace >/dev/null 2>&1
-```
-
-```bash
 # Check your cpu version
 echo 'BEGIN {
     while (!/flags/) if (getline < "/proc/cpuinfo" != 1) exit 1
@@ -53,7 +48,7 @@ sudo chmod +x subspace && cd
 echo -e "\n\nrelease >> ${VER}.\n\n"
 ```
 
-Create your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) wallet or import wallet from gemini 2
+Create your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) wallet or [subwallet](https://www.subwallet.app/) or use the wallet from previous episodes
 
 ```bash
 subspace init
@@ -61,7 +56,7 @@ subspace init
 
 Follow the terminal instructions
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 # Fix journal (One command)
@@ -109,6 +104,6 @@ sudo journalctl -fu subspaced --no-hostname -o cat
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Check your node in [telemetry](https://telemetry.subspace.network/#/0x7f489750cfe91e17fc19b42a5acaba41d1975cedd3440075d4a4b4171ad0ac20)
+Check your node in [telemetry](https://telemetry.subspace.network/#list/0xa3cd4b592d93f79943fbc58fc90ca8f516106699c9cf4d7ada98ca22877bc1ae)
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>

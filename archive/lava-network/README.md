@@ -12,4 +12,3 @@ Lava Network is a centralized RPC node dependency solution built on top of Cosmo
 
 This solution will allow Web3 companies to eliminate dependence on centralized RPC nodes, which will reduce vulnerability and the likelihood of being compromised.
 
-***

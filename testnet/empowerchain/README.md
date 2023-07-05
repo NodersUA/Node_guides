@@ -18,7 +18,7 @@ EmpowerChain consists of a series of interconnected applications and tools that 
 2. Plastic Credits – Incentives for collection organizations, sorting facilities, and recyclers to efficiently collect and process waste materials.
 3. Collection incentive schemes – Establishing bespoke deposit systems for organizations or individuals to collect and recycle waste materials or products.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### The EmpowerChain Ecosystem[​](https://docs.empowerchain.io/introduction/what-is-empowerchain#the-empowerchain-ecosystem) <a href="#the-empowerchain-ecosystem" id="the-empowerchain-ecosystem"></a>
 
