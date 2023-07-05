@@ -1,6 +1,12 @@
 # Installation
 
-### Node
+_**Automatic Installation**_
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/subspace)
+```
+
+_**Manual Installation**_
 
 ```bash
 # Update the repositories
