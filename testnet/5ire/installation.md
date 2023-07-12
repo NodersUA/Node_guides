@@ -1,6 +1,12 @@
 # Installation
 
-### Manual Installation
+_**Automatic Installation**_
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/5ire)
+```
+
+_**Manual Installation**_
 
 ```bash
 # Update the repositories
