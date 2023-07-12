@@ -8,14 +8,13 @@
 
 ## Testnet
 
+* [5ire](testnet/5ire/README.md)
+  * [Installation](testnet/5ire/installation.md)
 * [Andromeda](testnet/andromeda/README.md)
   * [Installation](testnet/andromeda/installation.md)
   * [Update](testnet/andromeda/update.md)
   * [Snapshot/StateSync/AddrBook](testnet/andromeda/snapshot-statesync-addrbook.md)
   * [Useful Commands](testnet/andromeda/useful-commands.md)
-* [Bundlr](testnet/bundlr/README.md)
-  * [Installation](testnet/bundlr/installation.md)
-  * [Useful Commands](testnet/bundlr/useful-commands.md)
 * [Cascadia](testnet/cascadia/README.md)
   * [Installation](testnet/cascadia/installation.md)
   * [Update](testnet/cascadia/update.md)
@@ -28,11 +27,6 @@
   * [Update](testnet/defund/update.md)
   * [StateSync/Snapshot/AddrBook](testnet/defund/statesync-snapshot-addrbook.md)
   * [Useful Commands](testnet/defund/useful-commands.md)
-* [EmpowerChain](testnet/empowerchain/README.md)
-  * [Installation](testnet/empowerchain/installation.md)
-  * [Update](testnet/empowerchain/update.md)
-  * [Useful Commands](testnet/empowerchain/useful-commands.md)
-  * [Task](testnet/empowerchain/task.md)
 * [Fleek](testnet/fleek/README.md)
   * [Installation](testnet/fleek/installation.md)
   * [Update](testnet/fleek/update.md)
@@ -72,11 +66,19 @@
 
 ## Archive
 
+* [Bundlr](archive/bundlr/README.md)
+  * [Installation](archive/bundlr/installation.md)
+  * [Useful Commands](archive/bundlr/useful-commands.md)
 * [Dymension](archive/dimension/README.md)
   * [Installation](archive/dimension/installation.md)
   * [Update](archive/dimension/update.md)
   * [Snapshot/StateSync/AddrBook](archive/dimension/snapshot-statesync-addrbook.md)
   * [Useful Commands](archive/dimension/useful-commands.md)
+* [EmpowerChain](archive/empowerchain/README.md)
+  * [Installation](archive/empowerchain/installation.md)
+  * [Update](archive/empowerchain/update.md)
+  * [Useful Commands](archive/empowerchain/useful-commands.md)
+  * [Task](archive/empowerchain/task.md)
 * [Gitopia](archive/gitopia/README.md)
   * [Installation](archive/gitopia/installation.md)
   * [Update](archive/gitopia/update.md)
