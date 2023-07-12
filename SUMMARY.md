@@ -10,6 +10,7 @@
 
 * [5ire](testnet/5ire/README.md)
   * [Installation](testnet/5ire/installation.md)
+  * [Useful Commands](testnet/5ire/useful-commands.md)
 * [Andromeda](testnet/andromeda/README.md)
   * [Installation](testnet/andromeda/installation.md)
   * [Update](testnet/andromeda/update.md)
