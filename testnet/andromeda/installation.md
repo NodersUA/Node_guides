@@ -1,16 +1,23 @@
-***Automatic Installation***
+# Installation
+
+_**Automatic Installation**_
+
 ```bash
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/Andromeda)
 ```
+
 **Manual Installation**
+
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
 ```
+
 ```bash
 # Install developer packages
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
+
 ```bash
 # Install Go (one command)
 ver="1.20.1" && \
@@ -24,6 +31,7 @@ go version
 
 # go version go1.20.1 linux/amd64
 ```
+
 ```bash
 # Set the variables
 
@@ -36,6 +44,7 @@ echo "export PORT_ANDROMEDA=15" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
 ```
+
 ```bash
 # Download binary files
 cd $HOME 
@@ -44,14 +53,16 @@ cd andromedad
 git fetch --all 
 git checkout galileo-3-v1.1.0-beta1
 make install
-sudo cp $HOME/go/bin/andromedad /usr/local/bin/andromedad
+sudo cp $(which andromedad) /usr/local/bin/andromedad && cd $HOME
 andromedad version --long | grep -e version -e commit
 # galileo-3-v1.1.0-beta1
 ```
+
 ```bash
 # Initialize the node
 andromedad init $MONIKER_ANDROMEDA --chain-id $CHAIN_ID_ANDROMEDA
 ```
+
 ```bash
 # Download Genesis
 wget -O $HOME/.andromedad/config/genesis.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/AndromedaProtocol/genesis.json"
@@ -60,6 +71,7 @@ wget -O $HOME/.andromedad/config/genesis.json "https://raw.githubusercontent.com
 sha256sum $HOME/.andromedad/config/genesis.json
 # 26cefef408b9cdc013e7427d5fb05bbd44a006d80b7e0db36aaf125edda9b4e6
 ```
+
 ```bash
 # Set the ports
 
@@ -76,7 +88,8 @@ external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${PORT_ANDROMEDA}656\"/" $HOME/.andromedad/config/config.toml
 ```
 
-***Setup config***
+_**Setup config**_
+
 ```bash
 # correct config (so we can no longer use the chain-id flag for every CLI command in client.toml)
 andromedad config chain-id galileo-3
@@ -117,17 +130,20 @@ sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.andromedad/config/app.toml
 ```
 
-***(OPTIONAL) Turn off indexing in config.toml***
+_**(OPTIONAL) Turn off indexing in config.toml**_
+
 ```bash
 indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.andromedad/config/config.toml
 ```
 
-***Cosmovisor***
+_**Cosmovisor**_
+
 ```bash
 # Install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ```
+
 ```bash
 # Create directories
 mkdir -p ~/.andromedad/cosmovisor
@@ -135,10 +151,12 @@ mkdir -p ~/.andromedad/cosmovisor/genesis
 mkdir -p ~/.andromedad/cosmovisor/genesis/bin
 mkdir -p ~/.andromedad/cosmovisor/upgrades
 ```
+
 ```bash
 # Copy the binary file to the cosmovisor folder
 cp `which andromedad` ~/.andromedad/cosmovisor/genesis/bin/andromedad
 ```
+
 ```bash
 # Create service file (One command)
 sudo tee /etc/systemd/system/andromedad.service > /dev/null <<EOF
@@ -162,6 +180,7 @@ Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 WantedBy=multi-user.target
 EOF
 ```
+
 ```bash
 # Start the node
 systemctl daemon-reload
@@ -170,6 +189,7 @@ systemctl restart andromedad && journalctl -u andromedad -f -o cat
 
 # Escape from logs ctrl+c
 ```
+
 ```bash
 # Check the logs again
 journalctl -u andromedad -f -o cat
@@ -177,18 +197,22 @@ journalctl -u andromedad -f -o cat
 # Escape from logs ctrl+c
 ```
 
-***Now all ok, Check status***
+_**Now all ok, Check status**_
+
 ```bash
 andromedad status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 "catching_up": false означає, що нода синхронізована, чекаємо повної синхронізації
 ```
 
-***Wallets***
+_**Wallets**_
+
 ```bash
 # Create wallet
 andromedad keys add wallet
 ```
+
 Create a password for the wallet and write it down so you don't forget it. The wallet has been created. In the last line there will be a phrase that must be written down
+
 ```bash
 # If the wallet was already there, restore it
 andromedad keys add wallet --recover
@@ -196,7 +220,8 @@ andromedad keys add wallet --recover
 # If everything is correct, you will see your wallet data
 ```
 
-***Go to the # faucet branch and request tokens***
+_**Go to the # faucet branch and request tokens**_
+
 ```bash
 # Save the wallet address
 # Replace <your_address> with your wallet address
@@ -204,6 +229,7 @@ WALLET_ANDROMEDA=<your_address>
 echo "export WALLET_ANDROMEDA="${WALLET_ANDROMEDA}"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
+
 ```bash
 # Check the ballance
 andromedad q bank balances $WALLET_ANDROMEDA
@@ -212,6 +238,7 @@ andromedad q bank balances $WALLET_ANDROMEDA
 **Validator**
 
 Do not forget to create a profile on https://keybase.io/ and set a profile photo there that will be imported by key and used for your validators.
+
 ```bash
 # Change <identity> to your key from keybase
 andromedad tx staking create-validator \
@@ -234,9 +261,11 @@ andromedad tx staking create-validator \
 Check yourself in the list explorer
 
 Or by command
+
 ```bash
 andromedad query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$MONIKER_ANDROMEDA")' | jq
 ```
+
 ```bash
 # Edit the validator
 andromedad tx staking edit-validator \
@@ -248,12 +277,13 @@ andromedad tx staking edit-validator \
   --fees=1000uandr \
   --from=wallet
 ```
-```bash  
+
+```bash
 # Save valoper_address in bash
 # Change <your_valoper_address> to the address of the validator, starting with andrvaloper...
 VALOPER_ANDROMEDA=<your_valoper_address>
 echo "export VALOPER_ANDROMEDA="${VALOPER_ANDROMEDA}"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
-***!!! Сохраняем priv_validator_key.json который находится в /root/.andromedad/config***
 
+_**!!! Сохраняем priv\_validator\_key.json который находится в /root/.andromedad/config**_

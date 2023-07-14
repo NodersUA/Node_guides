@@ -55,7 +55,7 @@ cd nibiru
 git checkout v0.19.2
 make install
 
-sudo cp $HOME/go/bin/nibid /usr/local/bin/
+sudo cp $(which nibid) /usr/local/bin/ && cd $HOME
 nibid version --long | grep -e version -e commit
 # v0.19.2
 ```
