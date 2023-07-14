@@ -8,9 +8,6 @@
 
 ## Testnet
 
-* [5ire](testnet/5ire/README.md)
-  * [Installation](testnet/5ire/installation.md)
-  * [Useful Commands](testnet/5ire/useful-commands.md)
 * [Andromeda](testnet/andromeda/README.md)
   * [Installation](testnet/andromeda/installation.md)
   * [Update](testnet/andromeda/update.md)
@@ -67,6 +64,9 @@
 
 ## Archive
 
+* [5ire](archive/5ire/README.md)
+  * [Installation](archive/5ire/installation.md)
+  * [Useful Commands](archive/5ire/useful-commands.md)
 * [Bundlr](archive/bundlr/README.md)
   * [Installation](archive/bundlr/installation.md)
   * [Useful Commands](archive/bundlr/useful-commands.md)
