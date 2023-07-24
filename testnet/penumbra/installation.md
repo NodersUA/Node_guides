@@ -1,5 +1,13 @@
 # Installation
 
+_**Automatic Installation**_
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/penumbra)
+```
+
+_**Manual Installation**_
+
 1. Install node
 
 ```bash
@@ -75,6 +83,7 @@ cd $HOME
 git clone https://github.com/tendermint/tendermint.git
 cd tendermint
 git checkout v0.34.23
+make install
 cp $(which tendermint) /usr/local/bin/ && cd $HOME
 tendermint version
 
@@ -106,11 +115,11 @@ Description=Penumbra pd
 Wants=tendermint.service
 
 [Service]
-ExecStart=/usr/local/bin/pd start --home ~/.penumbra/testnet_data/node0/pd
+ExecStart=/usr/local/bin/pd start --home $HOME/.penumbra/testnet_data/node0/pd
 Restart=on-failure
 RestartSec=5
 User=$USER
-Environment=RUST_LOG=info,pd=debug,penumbra=debug,jmt=debug
+Environment=RUST_LOG=info
 
 [Install]
 WantedBy=default.target
@@ -124,7 +133,7 @@ sudo tee /etc/systemd/system/tendermint.service > /dev/null <<EOF
 Description=Tendermint for Penumbra
 
 [Service]
-ExecStart=/usr/local/bin/tendermint start --home /root/.penumbra/testnet_data/node0/tendermint
+ExecStart=/usr/local/bin/tendermint start --home $HOME/.penumbra/testnet_data/node0/tendermint
 Restart=on-failure
 RestartSec=5
 User=root
