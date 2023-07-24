@@ -1,6 +1,6 @@
 # Holograph
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Holograph is a smart contract protocol that enables fungible and non-fungible tokens to move across Ethereum Virtual Machine (EVM) compatible blockchains, while maintaining a persistent smart contract address, token ID, and underlying data. In one particular embodiment, an exact bit-to-bit version of a digital assets is passed onto an EVM blockchain and combined with a specific set of rules and restrictions, enabling the asset to _beam_ freely among blockchains, while still maintaining its token attributes.
 
