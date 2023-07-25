@@ -79,7 +79,42 @@ holograph operator:bond
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-Service file
+### Service File <a href="#operating" id="operating"></a>
 
+```bash
+# Enter your wallet password
+pass=<your_password>
+
+sudo tee /etc/default/holographd > /dev/null <<EOF
+HOLOGRAPH_PASSWORD=$pass
+EOF
 ```
+
+```bash
+sudo tee /etc/systemd/system/holographd.service > /dev/null <<EOF
+[Unit]
+Description=Holograph
+After=network.target
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/default/holographd
+ExecStart=$(which node) $(which holograph) operator --mode=auto --unsafePassword=\$HOLOGRAPH_PASSWORD --sync
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+```bash
+systemctl daemon-reload
+systemctl enable holographd
+systemctl restart holographd
+```
+
+```bash
+# Check logs
+journalctl -u holographd -f -o cat
 ```
