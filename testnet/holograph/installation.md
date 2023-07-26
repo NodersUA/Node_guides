@@ -99,7 +99,7 @@ After=network.target
 Type=simple
 User=root
 EnvironmentFile=/etc/default/holographd
-ExecStart=$(which node) $(which holograph) operator --mode=auto --unsafePassword=\$HOLOGRAPH_PASSWORD --sync
+ExecStart=/bin/bash -c '$(which node) $(which holograph) operator --mode=auto --unsafePassword=\$HOLOGRAPH_PASSWORD --sync'
 Restart=on-failure
 RestartSec=10
 LimitNOFILE=65535
