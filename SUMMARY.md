@@ -32,6 +32,7 @@
   * [Installation](testnet/gear/installation.md)
   * [Update](testnet/gear/update.md)
   * [Useful Commands](testnet/gear/useful-commands.md)
+  * [Remove](testnet/gear/remove.md)
 * [Holograph](testnet/holograph/README.md)
   * [Installation](testnet/holograph/installation.md)
 * [Nibiru](testnet/nibiru/README.md)
