@@ -276,12 +276,12 @@ nibid query staking validators --limit 1000000 -o json | jq '.validators[] | sel
 
 ```bash
 # Edit the validator
-nibidd tx staking edit-validator \
+nibid tx staking edit-validator \
   --new-moniker=$NIBIRU_MONIKER \
   --website="" \
   --identity=<identity> \
   --details="" \
-  --chain-id=$NIBIEU_CHAIN_ID \
+  --chain-id=$NIBIRU_CHAIN_ID \
   --fees=5000unibi \
   --from=wallet
 ```
