@@ -168,7 +168,7 @@ pcli view sync
 
 ```bash
 # Create validator
-pcli validator definition template \
+cd ~/penumbra && pcli validator definition template \
     --tendermint-validator-keyfile ~/.penumbra/testnet_data/node0/tendermint/config/priv_validator_key.json \
     --file validator.toml
     
@@ -185,3 +185,26 @@ echo "export PENUMBRA_ADDRESS="${PENUMBRA_ADDRESS} >> $HOME/.bash_profile
 echo "export PENUMBRA_VALIDATOR="${PENUMBRA_VALIDATOR} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
+
+```bash
+# upload validator to the chain
+cargo run --release --bin pcli -- validator definition upload --file validator.toml
+```
+
+```bash
+# Verify that it’s known to the chain
+cargo run --release --bin pcli -- query validator list -i
+```
+
+Delegating to your validator
+
+```bash
+cargo run --release --bin pcli -- tx delegate 1penumbra --to $PENUMBRA_VALIDATOR
+```
+
+```bash
+# Check balance
+cargo run --release --bin pcli view balance
+```
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
