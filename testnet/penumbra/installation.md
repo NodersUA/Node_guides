@@ -25,6 +25,7 @@ sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-
 git clone https://github.com/penumbra-zone/penumbra
 cd penumbra && git fetch && git checkout v0.57.0
 cargo build --release --bin pcli
+cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
 
 2. Create wallet
@@ -33,7 +34,13 @@ cargo build --release --bin pcli
 cargo run --quiet --release --bin pcli keys generate
 ```
 
-Save your private seed phrase and beckup file!!!
+Save your private seed phrase and beckup file `/root/.local/share/pcli/custody.json`!!!
+
+Or recovery wallet
+
+```bash
+pcli keys import phrase
+```
 
 ```bash
 # Check your address
@@ -53,7 +60,7 @@ cargo run --quiet --release --bin pcli view balance
 
 ```bash
 cargo build --release --bin pd
-cp ~/penumbra/target/release/{pcli,pd} /usr/local/bin
+cp ~/penumbra/target/release/pd /usr/local/bin
 ```
 
 4. Install Tendermint
