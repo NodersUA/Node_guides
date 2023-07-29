@@ -44,7 +44,7 @@ pcli keys import phrase
 
 ```bash
 # Check your address
-cargo run --quiet --release --bin pcli view address 0
+pcli view address 0
 ```
 
 Join the [Discord](https://discord.gg/hKvkrqa3zC) server and post your address in the `#testnet-faucet` channel.
@@ -53,7 +53,7 @@ Once you’ve received your first tokens, you can scan the chain to import them 
 
 ```bash
 # Check balance
-cargo run --quiet --release --bin pcli view balance
+pcli view balance
 ```
 
 3. Using pd
