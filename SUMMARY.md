@@ -44,6 +44,7 @@
 * [Penumbra](testnet/penumbra/README.md)
   * [Installation](testnet/penumbra/installation.md)
   * [Update](testnet/penumbra/update.md)
+  * [Delete](testnet/penumbra/delete.md)
 * [StarkNet](testnet/starknet/README.md)
   * [Installation](testnet/starknet/installation.md)
   * [Update](testnet/starknet/update.md)
