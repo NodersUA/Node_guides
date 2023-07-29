@@ -145,6 +145,7 @@ EOF
 
 ```bash
 sudo systemctl daemon-reload
+sudo systemctl enable penumbra tendermint
 sudo systemctl restart penumbra tendermint
 ```
 

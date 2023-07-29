@@ -43,6 +43,7 @@
   * [Useful Commands](testnet/nibiru/useful-commands.md)
 * [Penumbra](testnet/penumbra/README.md)
   * [Installation](testnet/penumbra/installation.md)
+  * [Update](testnet/penumbra/update.md)
 * [StarkNet](testnet/starknet/README.md)
   * [Installation](testnet/starknet/installation.md)
   * [Update](testnet/starknet/update.md)
