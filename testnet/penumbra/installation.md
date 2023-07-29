@@ -188,23 +188,22 @@ source $HOME/.bash_profile
 
 ```bash
 # upload validator to the chain
-cargo run --release --bin pcli -- validator definition upload --file validator.toml
+pcli validator definition upload --file ~/penumbra/validator.toml
 ```
 
 ```bash
 # Verify that it’s known to the chain
-cargo run --release --bin pcli -- query validator list -i
+pcli query validator list -i
 ```
 
 Delegating to your validator
 
 ```bash
-cargo run --release --bin pcli -- tx delegate 1penumbra --to $PENUMBRA_VALIDATOR
+pcli tx delegate 1penumbra --to $PENUMBRA_VALIDATOR
 ```
 
-```bash
-# Check balance
-cargo run --release --bin pcli view balance
-```
+<pre class="language-bash"><code class="lang-bash"># Check balance
+<strong>pcli view balance
+</strong></code></pre>
 
 <figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
