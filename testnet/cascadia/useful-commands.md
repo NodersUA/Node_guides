@@ -92,10 +92,10 @@ Governance
 cascadiad q gov proposals
 
 # Check voting result
-cascadiad q gov proposals --voter $CASCADIA_VALOPER
+cascadiad q gov proposals --voter $CASCADIA_ADDRESS
 
 # Vote 
-cascadiad tx gov vote 1 yes --from $CASCADIA_ADRESS
+cascadiad tx gov vote 19 yes --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
 ```
 
 **Peers and RPC**
