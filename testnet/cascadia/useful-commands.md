@@ -95,7 +95,7 @@ cascadiad q gov proposals
 cascadiad q gov proposals --voter $CASCADIA_ADDRESS
 
 # Vote 
-cascadiad tx gov vote 19 yes --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
+cascadiad tx gov vote 19 yes --from wallet --gas auto --gas-adjustment=1.4 --gas-prices=17aCC -y
 ```
 
 **Peers and RPC**
