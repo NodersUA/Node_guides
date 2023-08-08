@@ -23,7 +23,7 @@ sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.57.0
+cd penumbra && git fetch && git checkout v0.58.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
