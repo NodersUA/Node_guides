@@ -209,8 +209,9 @@ Delegating to your validator
 pcli tx delegate 1penumbra --to $PENUMBRA_VALIDATOR
 ```
 
-<pre class="language-bash"><code class="lang-bash"># Check balance
-<strong>pcli view balance
-</strong></code></pre>
+```bash
+# Check balance
+pcli view balance
+```
 
 <figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
