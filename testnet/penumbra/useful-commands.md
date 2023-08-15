@@ -24,3 +24,13 @@ pcli view sync
 # Restart
 sudo systemctl restart penumbra tendermint
 ```
+
+```bash
+# Verify that it’s known to the chain
+pcli query validator list -i
+```
+
+```bash
+# Delegate
+pcli tx delegate 1penumbra --to $PENUMBRA_VALIDATOR
+```
