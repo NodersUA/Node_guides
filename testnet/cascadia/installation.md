@@ -232,8 +232,8 @@ cascadiad tx staking create-validator \
 --identity=<identity> \
 --details="" \
 --website="" \
---gas auto \
---gas-adjustment=1.2 \
+--gas 300000 \
+--gas-adjustment=1.4 \
 --gas-prices=7aCC \
 --broadcast-mode block
 -y
@@ -255,8 +255,8 @@ cascadiad tx staking edit-validator \
   --identity=<identity> \
   --details="" \
   --chain-id=$CASCADIA_CHAIN_ID \
-  --gas auto \
-  --gas-adjustment=1.2 \
+  --gas 300000 \
+  --gas-adjustment=1.4 \
   --gas-prices=7aCC \
   --from=wallet
 ```
