@@ -39,25 +39,25 @@ cascadiad q slashing signing-info $(cascadiad tendermint show-validator)
 Transactions
 
 # Collect rewards from all validators delegated to them (without commission)
-cascadiad tx distribution withdraw-all-rewards --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
+cascadiad tx distribution withdraw-all-rewards --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 
 # Collect rewards from a separate validator or rewards + commission from your own validator
-cascadiad tx distribution withdraw-rewards $CASCADIA_VALOPER --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC --commission -y
+cascadiad tx distribution withdraw-rewards $CASCADIA_VALOPER --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC --commission -y
 
 # Delegate yourself (this is how 1 coin is sent)
-cascadiad tx staking delegate $CASCADIA_VALOPER 1000000000000000000aCC --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
+cascadiad tx staking delegate $CASCADIA_VALOPER 1000000000000000000aCC --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 
 # Redelegate to other validator
-cascadiad tx staking redelegate $CASCADIA_VALOPER <dst-validator-addr> 1000000000000000000aCC --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
+cascadiad tx staking redelegate $CASCADIA_VALOPER <dst-validator-addr> 1000000000000000000aCC --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 
 # unbond 
-cascadiad tx staking unbond $CASCADIA_VALOPER 1000000000000000000aCC --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
+cascadiad tx staking unbond $CASCADIA_VALOPER 1000000000000000000aCC --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 
 # Send tokens to other adress
-cascadiad tx bank send wallet <address> 1000000000000000000aCC --gas auto --gas-adjustment=1.2 --gas-prices=7aCC -y
+cascadiad tx bank send wallet <address> 1000000000000000000aCC --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 
 # Escape from jail
-cascadiad tx slashing unjail --from wallet --gas auto --gas-adjustment=1.2 --gas-prices=7aCC
+cascadiad tx slashing unjail --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC
 ```
 
 ! If the transactions are not sent with the error account sequence mismatch, expected 18, got 17: incorrect account sequence, then add the flag -s 18 to the command (replace the number with the one that is waiting for the sequence)
@@ -95,7 +95,7 @@ cascadiad q gov proposals
 cascadiad q gov proposals --voter $CASCADIA_ADDRESS
 
 # Vote 
-cascadiad tx gov vote 19 yes --from wallet --gas auto --gas-adjustment=1.4 --gas-prices=17aCC -y
+cascadiad tx gov vote 20 yes --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 ```
 
 **Peers and RPC**
