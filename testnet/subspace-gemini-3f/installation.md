@@ -38,20 +38,21 @@ If your version **CPU supports x86-64-v2**
 
 ```bash
 VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v[0-9]+\.[0-9]+\.[0-9]+.*$" | sed 's/.$//' | head -n 1) && \
-cd /usr/local/bin/ && wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-v2-${VER} -qO subspace
+cd /usr/local/bin/ && wget https://github.com/subspace/pulsar/releases/download/${VER}/pulsar-ubuntu-x86_64-v2-${VER} -qO subspace
 ```
 
 If your version **CPU supports x86-64-v3**
 
 ```bash
 VER=$(wget -qO- https://api.github.com/repos/subspace/subspace-cli/releases | jq '.[] | select(.prerelease==false) | select(.draft==false) | .html_url' | grep -Eo "v[0-9]+\.[0-9]+\.[0-9]+.*$" | sed 's/.$//' | head -n 1) && \
-cd /usr/local/bin/ && wget https://github.com/subspace/subspace-cli/releases/download/${VER}/subspace-cli-ubuntu-x86_64-skylake-${VER} -qO subspace
+cd /usr/local/bin/ && wget https://github.com/subspace/pulsar/releases/download/${VER}/pulsar-ubuntu-x86_64-skylake-${VER} -qO subspace
 ```
 
 ```bash
 # Next step..
 sudo chmod +x subspace && cd
-echo -e "\n\nrelease >> ${VER}.\n\n"
+echo -e "\n\nrelease  >> ${VER}."
+echo -e "instaled >> $(subspace -V)\n\n"
 ```
 
 Create your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) wallet or [subwallet](https://www.subwallet.app/) or use the wallet from previous episodes
@@ -62,7 +63,7 @@ subspace init
 
 Follow the terminal instructions
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 # Fix journal (One command)
@@ -110,6 +111,6 @@ sudo journalctl -fu subspaced --no-hostname -o cat
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Check your node in [telemetry](https://telemetry.subspace.network/#list/0xa3cd4b592d93f79943fbc58fc90ca8f516106699c9cf4d7ada98ca22877bc1ae)
+Check your node in [telemetry](https://telemetry.subspace.network/#list/0x92e91e657747c41eeabed5129ff51689d2e935b9f6abfbd5dfcb2e1d0d035095)
 
-<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

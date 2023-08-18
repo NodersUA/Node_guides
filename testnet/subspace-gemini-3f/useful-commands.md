@@ -17,15 +17,20 @@ sudo journalctl -fu subspaced --no-hostname -o cat
 
 ```bash
 # Clean the database
-subspace wipe && rm -Rvf $HOME/.local/share/subspace-cli/node/chains/*
+subspace wipe && rm -Rvf $HOME/.local/share/pulsar/node/chains/*
 ```
 
 ```bash
 # Edit config
-nano $HOME/.config/subspace-cli/settings.toml
+nano $HOME/.config/pulsar/settings.toml
 ```
 
 ```bash
 # Delete log files
-rm $HOME/.local/share/subspace-cli/logs/*
+rm $HOME/.local/share/pulsar/logs/*
+```
+
+```bash
+# Check version
+subspace -V
 ```
