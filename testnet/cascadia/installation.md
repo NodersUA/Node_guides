@@ -235,7 +235,7 @@ cascadiad tx staking create-validator \
 --gas 300000 \
 --gas-adjustment=1.4 \
 --gas-prices=7aCC \
---broadcast-mode block
+--broadcast-mode block \
 -y
 ```
 
