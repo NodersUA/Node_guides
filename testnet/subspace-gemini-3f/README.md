@@ -2,7 +2,7 @@
 description: Farmer installation guide
 ---
 
-# Subspace / Gemini-3e
+# Subspace / Gemini-3f
 
 <figure><img src="../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -14,6 +14,6 @@ Subspace Network is a network that allows developers to very easily and quickly 
 
 [Twitter](https://twitter.com/NetworkSubspace)
 
-[Telemetry](https://telemetry.subspace.network/#list/0xa3cd4b592d93f79943fbc58fc90ca8f516106699c9cf4d7ada98ca22877bc1ae)
+[Telemetry](https://telemetry.subspace.network/#map/0x92e91e657747c41eeabed5129ff51689d2e935b9f6abfbd5dfcb2e1d0d035095)
 
 [Docs](https://docs.subspace.network/)
