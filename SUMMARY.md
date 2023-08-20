@@ -29,6 +29,7 @@
   * [Installation](testnet/fleek/installation.md)
   * [Update](testnet/fleek/update.md)
   * [Delete](testnet/fleek/delete.md)
+  * [Useful Commands](testnet/fleek/useful-commands.md)
 * [Gear](testnet/gear/README.md)
   * [Installation](testnet/gear/installation.md)
   * [Update](testnet/gear/update.md)
