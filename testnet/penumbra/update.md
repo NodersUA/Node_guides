@@ -29,3 +29,5 @@ journalctl -u tendermint -f -o cat
 # Check actual block heigth
 pcli view sync
 ```
+
+After synchronization, re-create the validator
