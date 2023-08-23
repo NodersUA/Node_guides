@@ -1,7 +1,7 @@
 # Useful commands
 
 ```bash
-# Restart and the node
+# Restart the node and check logs
 sudo systemctl restart subspaced && sudo journalctl -fu subspaced --no-hostname -o cat
 ```
 
