@@ -51,8 +51,7 @@ cd /usr/local/bin/ && wget https://github.com/subspace/pulsar/releases/download/
 ```bash
 # Next step..
 sudo chmod +x subspace && cd
-echo -e "\n\nrelease  >> ${VER}."
-echo -e "instaled >> $(subspace -V)\n\n"
+echo -e "\n\nrelease  >> ${VER}." && echo -e "instaled >> $(subspace -V)\n\n"
 ```
 
 Create your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) wallet or [subwallet](https://www.subwallet.app/) or use the wallet from previous episodes
@@ -63,7 +62,7 @@ subspace init
 
 Follow the terminal instructions
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 # Fix journal (One command)
@@ -109,8 +108,8 @@ sudo systemctl restart subspaced
 sudo journalctl -fu subspaced --no-hostname -o cat
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Check your node in [telemetry](https://telemetry.subspace.network/#list/0x92e91e657747c41eeabed5129ff51689d2e935b9f6abfbd5dfcb2e1d0d035095)
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

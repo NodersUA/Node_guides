@@ -1,6 +1,6 @@
 # EmpowerChain
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 [Website](https://www.empowerchain.io/) | [Discord](https://discord.gg/UTxEzFzHVX) | [Twitter](https://twitter.com/empowerchain\_io) | [Explorer](https://empower.explorers.guru/) | [Documentation](https://docs.empowerchain.io/)
 
