@@ -6,6 +6,11 @@ pcli view balance
 ```
 
 ```bash
+# Check your address
+pcli view address 0
+```
+
+```bash
 # Check logs Penumbra
 journalctl -u penumbra -f -o cat
 ```
