@@ -6,7 +6,7 @@ sudo systemctl stop subspaced
 
 ```bash
 # If your version v0.6.0 - Press `subspace wipe`
-# If your version v0.6.2 - Skip `subspace wipe`
+# If your version v0.6.2+ - Skip `subspace wipe`
 subspace wipe
 ```
 
