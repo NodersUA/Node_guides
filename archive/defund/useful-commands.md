@@ -66,22 +66,7 @@ defundd tx slashing unjail --from wallet --fees 500ufetf
 defundd keys list
 
 # Delete wallet
-defundd keys delete <name_wallet>
-```
-
-**Delete Node**
-
-```bash
-sudo systemctl stop defundd df_defund && \
-sudo systemctl disable defundd df_defund && \
-rm /etc/systemd/system/defundd.service && \
-rm /etc/systemd/system/df_defund.service && \
-sudo systemctl daemon-reload && \
-cd $HOME && \
-rm -rf defund && \
-rm -rf .defundd && \
-rm -rf df_defund && \
-rm -rf $(which defundd)
+defundd keys delete wallet
 ```
 
 Governance
