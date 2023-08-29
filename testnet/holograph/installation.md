@@ -31,7 +31,7 @@ This command must be run before all other `holograph` commands. The `holograph c
 1. `Which networks do you want to operate?` - Choose a network in which you can take test tokens, for example goerli and mumbai
 2. `Enter the provider url for fuji. Leave blank to use https://api.avax-test.network/ext/bc/C/rpc:` - press enter or copy and paste an RPC url
 3. `Default private key to use when sending all transactions (will be password encrypted)` - Enter the private key for the wallet. Input is hidden for security reasons.
-4. `Please enter the password to encrypt the private key with` - Enter some password for your wallet
+4. `Please enter the password to encrypt the private key with` - Enter some password for your wallet or press `enter` to create a passwordless wallet
 
 ```bash
 holograph config
@@ -81,6 +81,8 @@ holograph operator:bond
 
 ### Service File <a href="#operating" id="operating"></a>
 
+If you have created a wallet password:
+
 ```bash
 # Enter your wallet password
 pass=<your_password>
@@ -108,6 +110,27 @@ WantedBy=multi-user.target
 EOF
 ```
 
+If the wallet was created without a password:
+
+```bash
+sudo tee /etc/systemd/system/holographd.service > /dev/null <<EOF
+[Unit]
+Description=Holograph
+After=network.target
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/bash -c '$(which node) $(which holograph) operator --mode=auto --sync'
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+Next step...
+
 ```bash
 systemctl daemon-reload
 systemctl enable holographd
@@ -118,3 +141,4 @@ systemctl restart holographd
 # Check logs
 journalctl -u holographd -f -o cat
 ```
+
