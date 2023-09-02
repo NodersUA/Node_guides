@@ -26,18 +26,13 @@ source $HOME/.bash_profile
 ```
 
 ```bash
-cd $HOME && mkdir -p gear && cd $HOME/gear && \
-wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
-tar xvf gear-nightly-linux-x86_64.tar.xz && \
-rm gear-nightly-linux-x86_64.tar.xz && \
-sudo cp gear /usr/bin && \
-cd $HOME && rm -rf gear
+curl https://get.gear.rs/gear-v0.3.1-x86_64-unknown-linux-gnu.tar.xz | sudo tar -xJC /usr/bin
 ```
 
 ```bash
 /usr/bin/gear --version
 
-# gear 0.1.4-05c9f71328b
+# gear 0.3.1-5d8fb07221d
 ```
 
 ```bash
