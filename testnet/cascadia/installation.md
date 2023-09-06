@@ -52,13 +52,13 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/cascadiafoundation/cascadia && cd cascadia
-git checkout v0.1.4
+git checkout v0.1.5
 make install
 
 sudo cp $(which cascadiad) /usr/local/bin/ && cd $HOME
 cascadiad version --long | grep -e version -e commit
-# 0.1.4
-# commit: b794758c07ab77669877e9a11aa8dd14f4372657
+# 0.1.5
+# commit: 3e834a69b0c477daa00b95f9331f6b06c5fd3472
 ```
 
 ```bash
@@ -144,7 +144,7 @@ After=network.target
 Type=simple
 User=$USER
 WorkingDirectory=$HOME/go/bin
-ExecStart=/usr/local/bin/cascadiad start --trace --log_level info --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable
+ExecStart=/usr/local/bin/cascadiad start --trace --log_level info --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable --chain-id $CASCADIA_CHAIN_ID
 Restart=on-failure
 StartLimitInterval=0
 RestartSec=3
