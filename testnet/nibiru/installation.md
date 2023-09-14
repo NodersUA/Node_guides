@@ -41,7 +41,7 @@ go version
 NIBIRU_MONIKER=<your_moniker>
 
 echo 'export NIBIRU_MONIKER='$NIBIRU_MONIKER >> $HOME/.bash_profile
-echo "export NIBIRU_CHAIN_ID=nibiru-itn-1" >> $HOME/.bash_profile
+echo "export NIBIRU_CHAIN_ID=nibiru-itn-2" >> $HOME/.bash_profile
 echo "export NIBIRU_PORT=11" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
@@ -52,12 +52,12 @@ source $HOME/.bash_profile
 cd $HOME
 git clone https://github.com/NibiruChain/nibiru
 cd nibiru
-git checkout v0.19.2
+git checkout v0.21.9
 make install
 
 sudo cp $(which nibid) /usr/local/bin/ && cd $HOME
 nibid version --long | grep -e version -e commit
-# v0.19.2
+# v0.21.9
 ```
 
 ```bash
@@ -67,12 +67,12 @@ nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN_ID
 
 ```bash
 # Download Genesis
-curl -s https://networks.itn.nibiru.fi/$NIBIRU_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
+curl -s https://networks.itn2.nibiru.fi/$NIBIRU_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
 
 # Check Genesis
 shasum -a 256 $HOME/.nibid/config/genesis.json
 
-# e162ace87f5cbc624aa2a4882006312ef8762a8a549cf4a22ae35bba12482c72
+# a4f2574b7fc308fcb3010e6597e46cbc88c30ad4d094a35293ce4ac31ce342ee
 ```
 
 ```bash
@@ -130,6 +130,12 @@ pruning_interval="10"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.nibid/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.nibid/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.nibid/config/app.toml
+
+config_file="$HOME/.nibid/config/config.toml"
+sed -i "s|enable =.*|enable = true|g" "$config_file"
+sed -i "s|rpc_servers =.*|rpc_servers = \"$(curl -s https://networks.itn2.nibiru.fi/$NIBIRU_CHAIN_ID/rpc_servers)\"|g" "$config_file"
+sed -i "s|trust_height =.*|trust_height = \"$(curl -s https://networks.itn2.nibiru.fi/$NIBIRU_CHAIN_ID/trust_height)\"|g" "$config_file"
+sed -i "s|trust_hash =.*|trust_hash = \"$(curl -s https://networks.itn2.nibiru.fi/$NIBIRU_CHAIN_ID/trust_hash)\"|g" "$config_file"
 ```
 
 _**(OPTIONAL) Turn off indexing in config.toml**_
@@ -235,7 +241,7 @@ source $HOME/.bash_profile
 
 ```bash
 # Request tokens
-curl -X POST -d '{"address": "'"$NIBIRU_ADDRESS"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' "https://faucet.itn-1.nibiru.fi/"
+curl -X POST -d '{"address": "'"$NIBIRU_ADDRESS"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' "https://faucet.itn-2.nibiru.fi/"
 ```
 
 ```bash
