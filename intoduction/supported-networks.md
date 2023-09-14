@@ -14,6 +14,8 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Gear](../testnet/gear/)
 
+[Fleek](../testnet/fleek-lightning/)
+
 [Holograph](../testnet/holograph/)
 
 [Penumbra](../testnet/penumbra/)
@@ -40,7 +42,7 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Bundlr](../archive/bundlr/)
 
-[Fleek](../archive/fleek/)
+[Fleek](../archive/fleek-ursa/)
 
 [Shardeum](../archive/shardeum/)
 

@@ -54,7 +54,7 @@ sudo chmod +x subspace && cd
 echo -e "\n\nrelease  >> ${VER}." && echo -e "instaled >> $(subspace -V)\n\n"
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Create your [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Feu-0.gemini-3c.subspace.network%2Fws#/accounts) wallet or [subwallet](https://www.subwallet.app/) or use the wallet from previous episodes
 
@@ -64,7 +64,7 @@ subspace init
 
 Follow the terminal instructions
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 sudo systemctl restart subspaced
