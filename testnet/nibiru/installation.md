@@ -109,8 +109,8 @@ sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.025unibi\"/;"
 peers=""
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.nibid/config/config.toml
 
-seeds=""
-sed -i 's|seeds =.*|seeds = "'$(curl -s https://networks.itn.nibiru.fi/$NIBIRU_CHAIN_ID/seeds)'"|g' $HOME/.nibid/config/config.toml
+seeds="$(echo $(curl -s https://networks.itn2.nibiru.fi/$NIBIRU_CHAIN_ID/seeds))"
+sed -i "s|seeds =.*|seeds = \"$seeds\"|g" $HOME/.nibid/config/config.toml
 
 # Set up filter for "bad peers
 sed -i -e "s/^filter_peers *=.*/filter_peers = \"true\"/" $HOME/.nibid/config/config.toml
