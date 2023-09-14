@@ -16,8 +16,8 @@ sudo apt-get update && \
 sudo apt-get upgrade -y && \
 sudo curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 source "$HOME/.cargo/env" && \
-cargo install sccache && \
-sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-compiler git-lfs -y
+sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-compiler git-lfs g++ -y && \
+cargo install sccache
 ```
 
 ```bash
