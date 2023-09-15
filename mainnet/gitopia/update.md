@@ -1,10 +1,11 @@
 # Update
 
 ```bash
-# Update to v2.1.0
+# Update to v3.0.1
 
 cd $HOME && rm -rf gitopia
 git clone https://github.com/gitopia/gitopia.git
+git checkout v3.0.1
 cd gitopia && make build
 
 systemctl stop gitopiad
