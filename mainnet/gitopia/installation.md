@@ -52,13 +52,13 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/gitopia/gitopia && cd gitopia
-git checkout v2.0.0
+git checkout v3.0.1
 make install
 sudo cp $HOME/go/bin/gitopiad /usr/local/bin/gitopiad
 
 gitopiad version --long | grep -e version -e commit
 
-# version: 2.0.0 # commit: b707fc1bf6c5661549fbc84b0f3593bb2c8456e6
+# version: 3.0.1
 ```
 
 ```bash
