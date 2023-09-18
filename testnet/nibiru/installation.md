@@ -298,7 +298,7 @@ _**Setup price feeder (✔️Oracle)**_
 
 ```bash
 # Download binary files
-cd && curl -s https://get.nibiru.fi/pricefeeder! | bash
+cd && curl -s https://get.nibiru.fi/pricefeeder@v0.21.3! | bash
 ```
 
 ```bash
@@ -308,40 +308,38 @@ nibid keys add feeder_wallet
 
 ```bash
 #Set the variables
-export GRPC_ENDPOINT="localhost:${NIBIRU_PORT}90"
-export WEBSOCKET_ENDPOINT="ws://localhost:${NIBIRU_PORT}657/websocket"
-export EXCHANGE_SYMBOLS_MAP='{ "bitfinex": { "ubtc:uusd": "tBTCUSD", "ueth:uusd": "tETHUSD", "uusdt:uusd": "tUSTUSD" }, "binance": { "ubtc:uusd": "BTCUSD", "ueth:uusd": "ETHUSD", "uusdt:uusd": "USDTUSD", "uusdc:uusd": "USDCUSD", "uatom:uusd": "ATOMUSD", "ubnb:uusd": "BNBUSD", "uavax:uusd": "AVAXUSD", "usol:uusd": "SOLUSD", "uada:uusd": "ADAUSD", "ubtc:unusd": "BTCUSD", "ueth:unusd": "ETHUSD", "uusdt:unusd": "USDTUSD", "uusdc:unusd": "USDCUSD", "uatom:unusd": "ATOMUSD", "ubnb:unusd": "BNBUSD", "uavax:unusd": "AVAXUSD", "usol:unusd": "SOLUSD", "uada:unusd": "ADAUSD" } }'
+export RPC=$(cat $HOME/.nibid/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
+export GRPC=$(cat $HOME/.nibid/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
+
+export GRPC_ENDPOINT="localhost:$GRPC"
+export WEBSOCKET_ENDPOINT="ws://$(wget -qO- eth0.me):$RPC/websocket"
+export EXCHANGE_SYMBOLS_MAP='{"bitfinex":{"ubtc:unusd":"tBTCUSD","ubtc:uusd":"tBTCUSD","ueth:unusd":"tETHUSD","ueth:uusd":"tETHUSD","uusdc:uusd":"tUDCUSD","uusdc:unusd":"tUDCUSD"},"coingecko":{"ubtc:uusd":"bitcoin","ubtc:unusd":"bitcoin","ueth:uusd":"ethereum","ueth:unusd":"ethereum","uusdt:uusd":"tether","uusdt:unusd":"tether","uusdc:uusd":"usd-coin","uusdc:unusd":"usd-coin","uatom:uusd":"cosmos","uatom:unusd":"cosmos","ubnb:uusd":"binancecoin","ubnb:unusd":"binancecoin","uavax:uusd":"avalanche-2","uavax:unusd":"avalanche-2","usol:uusd":"solana","usol:unusd":"solana","uada:uusd":"cardano","uada:unusd":"cardano"}}'
 
 # Save seed phrase
 # Change <your_feeder_mnemonic> to the mnemonic of feeder_wallet
-FEEDER_MNEMONIC="<your_feeder_mnemonic>"
+export FEEDER_MNEMONIC="<your_feeder_mnemonic>"
 
-# Change <your_feeder_address> to the address of feeder_wallet
-FEEDER_ADDRESS="<your_feeder_address>"
-
-echo "export FEEDER_MNEMONIC=$FEEDER_MNEMONIC" >> $HOME/.bash_profile
-echo "export FEEDER_ADDRESS=$FEEDER_ADDRESS" >> $HOME/.bash_profile
-source $HOME/.bash_profile
+# Check variable
+echo "MNEMONIC:"${FEEDER_MNEMONIC},"RPC:"${RPC},"GRPC:"${GRPC} | tr "," "\n" | nl
 ```
 
 ```bash
 # Send tokens for fees (around 1000 tokens)
-nibid tx bank send wallet $FEEDER_ADDRESS 100000000unibi --fees 7500unibi -y
+nibid tx bank send wallet $(nibid keys show feeder_wallet -a) 100000000unibi --from wallet --chain-id nibiru-itn-2 --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
 # Or take from faucet
-curl -X POST -d '{"address": "'"$FEEDER_ADDRESS"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' $NIBIRU_FAUCET_URL
+curl -X POST -d '{"address": "'"$(nibid keys show feeder_wallet -a)"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' "https://faucet.itn-2.nibiru.fi/"
 ```
 
 ```bash
 # Check balance
-nibid q bank balances $FEEDER_ADDRESS
+nibid q bank balances $(nibid keys show feeder_wallet -a)
 ```
 
 ```bash
 # Create service file
-sudo tee /etc/systemd/system/pricefeeder.service<<EOF
+sudo tee /etc/systemd/system/pricefeeder.service<< EOF
 [Unit]
 Description=Nibiru Pricefeeder
-Requires=network-online.target
 After=network-online.target
 
 [Service]
@@ -367,10 +365,11 @@ EOF
 ```
 
 ```bash
-nibid tx oracle set-feeder $FEEDER_ADDRESS --from wallet --fees 5000unibi -y
+nibid tx oracle set-feeder $(nibid keys show feeder_wallet -a) --from wallet --fees 5000unibi -y
+```
+
+```bash
 systemctl daemon-reload && \
 systemctl enable pricefeeder && \
 systemctl restart pricefeeder && journalctl -u pricefeeder -f -o cat
-
-# Exit from logs ctrl+c
 ```
