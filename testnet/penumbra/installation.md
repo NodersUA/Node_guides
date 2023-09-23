@@ -203,6 +203,11 @@ pcli validator definition upload --file ~/penumbra/validator.toml
 pcli query validator list -i
 ```
 
+```bash
+# Check your validator
+pcli query validator list -i | grep $PENUMBRA_VALIDATOR
+```
+
 Delegating to your validator
 
 ```bash
