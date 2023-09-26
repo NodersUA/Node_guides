@@ -23,7 +23,7 @@ cargo install sccache
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.60.0
+cd penumbra && git fetch && git checkout v0.61.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
@@ -87,14 +87,14 @@ source ~/.bash_profile
 
 ```bash
 cd $HOME
-git clone https://github.com/tendermint/tendermint.git
-cd tendermint
-git checkout v0.34.23
+git clone https://github.com/cometbft/cometbft.git
+cd cometbft
+git checkout v0.34.27
 make install
-cp $(which tendermint) /usr/local/bin/ && cd $HOME
-tendermint version
+cp $(which cometbft) /usr/local/bin/ && cd $HOME
+cometbft version
 
-# v0.34.23
+# v0.34.27
 ```
 
 5. Joining as a fullnode
@@ -135,12 +135,12 @@ EOF
 
 ```bash
 # Create service file for Tendermint
-sudo tee /etc/systemd/system/tendermint.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/cometbft.service > /dev/null <<EOF
 [Unit]
-Description=Tendermint for Penumbra
+Description=Cometbft for Penumbra
 
 [Service]
-ExecStart=/usr/local/bin/tendermint start --home $HOME/.penumbra/testnet_data/node0/tendermint
+ExecStart=/usr/local/bin/cometbft start --home $HOME/.penumbra/testnet_data/node0/cometbft
 Restart=on-failure
 RestartSec=5
 User=root
@@ -152,8 +152,8 @@ EOF
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable penumbra tendermint
-sudo systemctl restart penumbra tendermint
+sudo systemctl enable penumbra cometbft
+sudo systemctl restart penumbra cometbft
 ```
 
 ```bash
@@ -163,7 +163,7 @@ journalctl -u penumbra -f -o cat
 
 ```bash
 # Check logs Tendermint
-journalctl -u tendermint -f -o cat
+journalctl -u cometbft -f -o cat
 ```
 
 ```bash
