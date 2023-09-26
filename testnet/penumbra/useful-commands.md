@@ -16,8 +16,8 @@ journalctl -u penumbra -f -o cat
 ```
 
 ```bash
-# Check logs Tendermint
-journalctl -u tendermint -f -o cat
+# Check logs CometBFT
+journalctl -u cometbft -f -o cat
 ```
 
 ```bash
@@ -27,7 +27,7 @@ pcli view sync
 
 ```bash
 # Restart
-sudo systemctl restart penumbra tendermint
+sudo systemctl restart penumbra cometbft
 ```
 
 ```bash

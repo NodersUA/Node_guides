@@ -3,6 +3,9 @@
 ```bash
 cd ~/penumbra && pcli validator definition fetch --file validator.toml
 sudo systemctl stop penumbra tendermint
+sudo systemctl disable tendermint
+rm /etc/systemd/system/tendermint.service
+rm -rf ~/tendermint
 cd ~/penumbra && git fetch && git checkout v0.61.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
@@ -12,6 +15,18 @@ cargo run --quiet --release --bin pcli view reset
 cargo run --bin pd --release -- testnet unsafe-reset-all
 cargo run --bin pd --release -- testnet join
 mv ~/penumbra/validator.toml ~/penumbra/validator60.toml
+```
+
+```bash
+cd $HOME
+git clone https://github.com/cometbft/cometbft.git
+cd cometbft
+git checkout v0.34.27
+make install
+cp $(which cometbft) /usr/local/bin/ && cd $HOME
+cometbft version
+
+# v0.34.27
 ```
 
 ```bash
