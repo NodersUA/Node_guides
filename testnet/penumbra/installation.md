@@ -176,7 +176,7 @@ pcli view sync
 ```bash
 # Create validator
 cd ~/penumbra && pcli validator definition template \
-    --tendermint-validator-keyfile ~/.penumbra/testnet_data/node0/tendermint/config/priv_validator_key.json \
+    --tendermint-validator-keyfile ~/.penumbra/testnet_data/node0/cometbft/config/priv_validator_key.json \
     --file validator.toml
     
 sed -i "s/^name *=.*/name = \"$MONIKER\"/" ~/penumbra/validator.toml
