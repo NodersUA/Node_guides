@@ -134,10 +134,10 @@ EOF
 ```
 
 ```bash
-# Create service file for Tendermint
+# Create service file for CometBFT
 sudo tee /etc/systemd/system/cometbft.service > /dev/null <<EOF
 [Unit]
-Description=Cometbft for Penumbra
+Description=CometBFT for Penumbra
 
 [Service]
 ExecStart=/usr/local/bin/cometbft start --home $HOME/.penumbra/testnet_data/node0/cometbft
@@ -162,7 +162,7 @@ journalctl -u penumbra -f -o cat
 ```
 
 ```bash
-# Check logs Tendermint
+# Check logs CometBFT
 journalctl -u cometbft -f -o cat
 ```
 
