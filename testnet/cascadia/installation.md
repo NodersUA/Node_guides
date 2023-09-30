@@ -232,10 +232,9 @@ cascadiad tx staking create-validator \
 --identity=<identity> \
 --details="" \
 --website="" \
---gas 300000 \
+--gas=300000 \
 --gas-adjustment=1.4 \
 --gas-prices=7aCC \
---broadcast-mode block \
 -y
 ```
 
