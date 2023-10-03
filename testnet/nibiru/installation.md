@@ -41,7 +41,7 @@ go version
 NIBIRU_MONIKER=<your_moniker>
 
 echo 'export NIBIRU_MONIKER='$NIBIRU_MONIKER >> $HOME/.bash_profile
-echo "export NIBIRU_CHAIN_ID=nibiru-itn-2" >> $HOME/.bash_profile
+echo "export NIBIRU_CHAIN_ID=nibiru-itn-3" >> $HOME/.bash_profile
 echo "export NIBIRU_PORT=11" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
@@ -52,12 +52,12 @@ source $HOME/.bash_profile
 cd $HOME
 git clone https://github.com/NibiruChain/nibiru
 cd nibiru
-git checkout v0.21.9
+git checkout v0.21.11
 make install
 
 sudo cp $(which nibid) /usr/local/bin/ && cd $HOME
 nibid version --long | grep -e version -e commit
-# v0.21.9
+# v0.21.11
 ```
 
 ```bash
@@ -67,12 +67,12 @@ nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN_ID
 
 ```bash
 # Download Genesis
-curl -s https://networks.itn2.nibiru.fi/$NIBIRU_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
+curl -s https://networks.itn.nibiru.fi/$NODE_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
 
 # Check Genesis
 shasum -a 256 $HOME/.nibid/config/genesis.json
 
-# a4f2574b7fc308fcb3010e6597e46cbc88c30ad4d094a35293ce4ac31ce342ee
+# 112ca8b452ca0369e0f225b9befe26dff9cfa3879af4c7f334a7a15cb8f12619
 ```
 
 ```bash
