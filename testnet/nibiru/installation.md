@@ -325,9 +325,9 @@ echo "MNEMONIC:"${FEEDER_MNEMONIC},"RPC:"${RPC},"GRPC:"${GRPC} | tr "," "\n" | n
 
 ```bash
 # Send tokens for fees (around 1000 tokens)
-nibid tx bank send wallet $(nibid keys show feeder_wallet -a) 100000000unibi --from wallet --chain-id nibiru-itn-2 --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
+nibid tx bank send wallet $(nibid keys show feeder_wallet -a) 100000000unibi --from wallet --fees 5000unibi -y
 # Or take from faucet
-curl -X POST -d '{"address": "'"$(nibid keys show feeder_wallet -a)"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' "https://faucet.itn-2.nibiru.fi/"
+curl -X POST -d '{"address": "'"$(nibid keys show feeder_wallet -a)"'", "coins": ["110000000unibi","100000000unusd","100000000uusdt"]}' "https://faucet.itn-3.nibiru.fi/"
 ```
 
 ```bash
