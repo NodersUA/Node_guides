@@ -26,7 +26,10 @@ endpoint = https://cbf011119e7864a873158d83f3304e27.r2.cloudflarestorage.com
 acl = private
 EOF
 
-cd pathfinder/ && rclone copy -P pathfinder-snapshots:pathfinder-snapshots/mainnet_0.9.0_309113.sqlite.zst .
+rclone copy -P pathfinder-snapshots:pathfinder-snapshots/mainnet_0.9.0_309113.sqlite.zst .
+sudo apt install zstd
+zstd -T0 -d mainnet_0.9.0_309113.sqlite.zst -o ~/pathfinder/mainnet.sqlite
+
 
 # This command re-creates the container instance with the latest version
 sudo docker run \
