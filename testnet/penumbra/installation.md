@@ -23,7 +23,7 @@ cargo install sccache
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.61.0
+cd penumbra && git fetch && git checkout v0.62.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
@@ -89,12 +89,12 @@ source ~/.bash_profile
 cd $HOME
 git clone https://github.com/cometbft/cometbft.git
 cd cometbft
-git checkout v0.34.27
+git checkout v0.37.2
 make install
 cp $(which cometbft) /usr/local/bin/ && cd $HOME
 cometbft version
 
-# v0.34.27
+# v0.37.2
 ```
 
 5. Joining as a fullnode

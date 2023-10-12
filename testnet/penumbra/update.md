@@ -2,11 +2,13 @@
 
 ```bash
 cd ~/penumbra && pcli validator definition fetch --file validator.toml
-sudo systemctl stop penumbra tendermint
-sudo systemctl disable tendermint
-rm /etc/systemd/system/tendermint.service
-rm -rf ~/tendermint
-cd ~/penumbra && git fetch && git checkout v0.61.0
+sudo systemctl stop penumbra cometbft
+
+cd ~/cometbft && git checkout v0.37.2
+make install
+cp ~/go/bin/cometbft /usr/local/bin/cometbft
+
+cd ~/penumbra && git fetch && git checkout v0.62.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 cargo build --release --bin pd
@@ -14,41 +16,10 @@ cp ~/penumbra/target/release/pd /usr/local/bin
 cargo run --quiet --release --bin pcli view reset
 cargo run --bin pd --release -- testnet unsafe-reset-all
 cargo run --bin pd --release -- testnet join
-mv ~/penumbra/validator.toml ~/penumbra/validator60.toml
+mv ~/penumbra/validator.toml ~/penumbra/validator61.toml
 ```
 
 ```bash
-cd $HOME
-git clone https://github.com/cometbft/cometbft.git
-cd cometbft
-git checkout v0.34.27
-make install
-cp $(which cometbft) /usr/local/bin/ && cd $HOME
-cometbft version
-
-# v0.34.27
-```
-
-```bash
-# Create service file for CometBFT
-sudo tee /etc/systemd/system/cometbft.service > /dev/null <<EOF
-[Unit]
-Description=CometBFT for Penumbra
-
-[Service]
-ExecStart=/usr/local/bin/cometbft start --home $HOME/.penumbra/testnet_data/node0/cometbft
-Restart=on-failure
-RestartSec=5
-User=root
-
-[Install]
-WantedBy=default.target
-EOF
-```
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable cometbft
 sudo systemctl restart penumbra cometbft
 ```
 
