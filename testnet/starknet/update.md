@@ -29,7 +29,7 @@ EOF
 rclone copy -P pathfinder-snapshots:pathfinder-snapshots/mainnet_0.9.0_309113.sqlite.zst .
 sudo apt install zstd
 zstd -T0 -d mainnet_0.9.0_309113.sqlite.zst -o ~/pathfinder/mainnet.sqlite
-
+sudo rm mainnet_0.9.0_309113.sqlite.zst
 
 # This command re-creates the container instance with the latest version
 sudo docker run \
