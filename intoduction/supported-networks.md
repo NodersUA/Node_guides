@@ -44,7 +44,7 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Fleek](../archive/fleek-ursa/)
 
-[Shardeum](../archive/shardeum/)
+[Shardeum](../testnet/shardeum/)
 
 Sui [(Testnet)](../archive/sui-testnet/) [( Devnet)](../archive/sui-devnet/)
 {% endtab %}
