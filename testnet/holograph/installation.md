@@ -18,7 +18,7 @@ source ~/.bash_profile
 
 ```bash
 # Install NodeJS
-nvm install node
+nvm install v20.8.0
 ```
 
 ```bash
@@ -141,4 +141,3 @@ systemctl restart holographd
 # Check logs
 journalctl -u holographd -f -o cat
 ```
-
