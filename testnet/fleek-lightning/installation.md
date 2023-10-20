@@ -3,7 +3,7 @@
 ### Automatic Installation
 
 ```bash
-Soon...
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/fleek-lightning)
 ```
 
 ### Manual Installation
