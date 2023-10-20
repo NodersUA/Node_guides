@@ -1,13 +1,5 @@
 # Installation
 
-### Automatic Installation
-
-```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/fleek-lightning)
-```
-
-### Manual Installation
-
 #### **Prepare the server**
 
 ```bash
@@ -18,16 +10,19 @@ adduser lgtn
 ```bash
 # Add user to sudo group
 usermod -aG sudo lgtn
-```
 
-```bash
 # Switch to the new user by using the command:
 su lgtn
-```
-
-```bash
 cd /home/lgtn
 ```
+
+### Automatic Installation
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/fleek-lightning)
+```
+
+### Manual Installation
 
 #### Update, upgrade and install requirements:
 
