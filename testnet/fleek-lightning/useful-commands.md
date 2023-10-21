@@ -10,3 +10,18 @@ tail -fn100 /var/log/lightning/diagnostic.log
 # Restart
 sudo systemctl restart lightning
 ```
+
+```bash
+# Check node details
+curl https://get.fleek.network/node_details | bash
+```
+
+```bash
+# Check node health
+curl -sS https://get.fleek.network/healthcheck | bash
+```
+
+```bash
+# Quick health check
+curl -w "\p" localhost:4230/health
+```

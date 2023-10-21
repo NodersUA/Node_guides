@@ -144,12 +144,6 @@ You can get the details quickly by running the **node details** script in the te
 curl https://get.fleek.network/node_details | bash
 ```
 
-If IP is not displayed run this:
-
-```bash
-wget -qO- eth0.me
-```
-
 #### Restart the service:
 
 ```shell
@@ -167,4 +161,3 @@ sudo systemctl restart lightning.service
 tail -fn100 /var/log/lightning/output.log
 tail -fn100 /var/log/lightning/diagnostic.log
 ```
-
