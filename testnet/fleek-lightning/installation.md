@@ -47,6 +47,9 @@ tail -fn100 /var/log/lightning/diagnostic.log
 ```bash
 # Open ports
 sudo ufw allow 4200:4299/tcp
+```
+
+```bash
 sudo ufw allow 4300:4399/udp
 ```
 
@@ -57,14 +60,17 @@ sudo apt-get update && \
 sudo apt-get upgrade -y && \
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # press 1) Proceed with installation (default)
+```
 
+```bash
 source "$HOME/.cargo/env"
+```
 
+```bash
 rustup default stable-x86_64-unknown-linux-gnu && \
 sudo apt-get install build-essential -y && \
 sudo apt-get install cmake clang pkg-config libssl-dev gcc-multilib -y && \
-sudo apt-get install protobuf-compiler
-
+sudo apt-get install protobuf-compile
 ```
 
 #### Clone repository and build:
@@ -72,7 +78,10 @@ sudo apt-get install protobuf-compiler
 ```shell
 git clone -b testnet-alpha-1 https://github.com/fleek-network/lightning.git ~/fleek-network/lightning && \
 cd ~/fleek-network/lightning && \
-cargo clean && cargo update && cargo build && \
+cargo clean && cargo update && cargo +stable build --release
+```
+
+```bash
 sudo ln -s ~/fleek-network/lightning/target/debug/lightning-node /usr/local/bin/lgtn
 ```
 
@@ -98,7 +107,6 @@ sudo tee /etc/systemd/system/lightning.service > /dev/null <<EOF
 Description=Fleek Network Node lightning service
 
 [Service]
-User=lgtn
 Type=simple
 MemoryHigh=32G
 RestartSec=15s

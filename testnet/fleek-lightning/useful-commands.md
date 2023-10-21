@@ -23,5 +23,5 @@ curl -sS https://get.fleek.network/healthcheck | bash
 
 ```bash
 # Quick health check
-curl -w "\p" localhost:4230/health
+curl -w "\n" localhost:4230/health
 ```
