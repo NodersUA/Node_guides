@@ -46,16 +46,8 @@ tail -fn100 /var/log/lightning/diagnostic.log
 
 ```bash
 # Open ports
-sudo ufw allow 4300/udp
-sudo ufw allow 4210/tcp
-sudo ufw allow 4310/udp
-sudo ufw allow 4311/udp
-sudo ufw allow 4220/tcp
-sudo ufw allow 4221/tcp
-sudo ufw allow 4320/udp
-sudo ufw allow 4321/udp
-sudo ufw allow 4230/tcp
-sudo ufw allow 4340/udp
+sudo ufw allow 4200:4299/tcp
+sudo ufw allow 4300:4399/udp
 ```
 
 #### Update, upgrade and install requirements:
