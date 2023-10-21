@@ -82,7 +82,7 @@ cargo clean && cargo update && cargo +stable build --release
 ```
 
 ```bash
-sudo ln -s ~/fleek-network/lightning/target/debug/lightning-node /usr/local/bin/lgtn
+sudo ln -s ~/fleek-network/lightning/target/release/lightning-node /usr/local/bin/lgtn
 ```
 
 #### Key generator
