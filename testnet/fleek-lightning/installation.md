@@ -3,20 +3,6 @@
 #### **Prepare the server**
 
 ```bash
-# Open ports
-sudo ufw allow 4300/udp
-sudo ufw allow 4210/tcp
-sudo ufw allow 4310/udp
-sudo ufw allow 4311/udp
-sudo ufw allow 4220/tcp
-sudo ufw allow 4221/tcp
-sudo ufw allow 4320/udp
-sudo ufw allow 4321/udp
-sudo ufw allow 4230/tcp
-sudo ufw allow 4340/udp
-```
-
-```bash
 # Add superuser
 adduser lgtn
 ```
@@ -36,7 +22,7 @@ cd /home/lgtn
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/fleek-lightning)
 ```
 
-After the coin stack, start the node
+After staking, start the node:
 
 ```shell
 sudo systemctl daemon-reload && \
@@ -55,6 +41,22 @@ tail -fn100 /var/log/lightning/diagnostic.log
 ```
 
 ### Manual Installation
+
+#### Open ports:
+
+```bash
+# Open ports
+sudo ufw allow 4300/udp
+sudo ufw allow 4210/tcp
+sudo ufw allow 4310/udp
+sudo ufw allow 4311/udp
+sudo ufw allow 4220/tcp
+sudo ufw allow 4221/tcp
+sudo ufw allow 4320/udp
+sudo ufw allow 4321/udp
+sudo ufw allow 4230/tcp
+sudo ufw allow 4340/udp
+```
 
 #### Update, upgrade and install requirements:
 
