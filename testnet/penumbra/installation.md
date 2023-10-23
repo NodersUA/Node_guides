@@ -211,7 +211,7 @@ pcli query validator list -i | grep $PENUMBRA_VALIDATOR
 Delegating to your validator
 
 ```bash
-pcli tx delegate 1penumbra --to $PENUMBRA_VALIDATOR
+pcli tx delegate 100penumbra --to $PENUMBRA_VALIDATOR
 ```
 
 ```bash
