@@ -22,6 +22,7 @@
   * [Useful Commands](testnet/composible/useful-commands.md)
 * [Fleek (Lightning)](testnet/fleek-lightning/README.md)
   * [Installation](testnet/fleek-lightning/installation.md)
+  * [Update](testnet/fleek-lightning/update.md)
   * [Useful Commands](testnet/fleek-lightning/useful-commands.md)
 * [Gear](testnet/gear/README.md)
   * [Installation](testnet/gear/installation.md)
