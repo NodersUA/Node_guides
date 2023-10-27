@@ -165,3 +165,28 @@ journalctl -u lavad -f -o cat
 
 # Escape from logs ctrl+c
 ```
+
+**Wallet**
+
+```bash
+# Create wallet
+lavad keys add wallet
+```
+
+The wallet has been created. In the last line there will be a phrase that must be written down
+
+```bash
+# If the wallet was already there, restore it
+lavad keys add wallet --recover
+# Insert the seed phrase from your wallet
+# If everything is correct, you will see your wallet data
+```
+
+```bash
+# Save the wallet address
+LAVA_ADDRESS=$(lavad keys show wallet -a)
+echo "export LAVA_ADDRESS="${LAVA_ADDRESS} >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
+
+Fill out the [form](https://lavanet.typeform.com/to/iW8rynWg?utm\_source=providers-guide-to-axelar-iprpc\&utm\_medium=blog\&utm\_campaign=axelar-iprpc-provider\&typeform-source=www.lavanet.xyz)

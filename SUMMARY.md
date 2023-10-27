@@ -22,6 +22,7 @@
 * [Lava](testnet/lava/README.md)
   * [Installation (Lava-testnet)](testnet/lava/installation-lava-testnet.md)
   * [Installation (Axelar-testnet+mainnet)](testnet/lava/installation-axelar-testnet+mainnet.md)
+  * [Useful Commands](testnet/lava/useful-commands.md)
 * [Nibiru](testnet/nibiru/README.md)
   * [Installation](testnet/nibiru/installation.md)
   * [Update](testnet/nibiru/update.md)
