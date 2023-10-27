@@ -75,7 +75,7 @@ curl -Ls http://snapshots.stakevillage.net/snapshots/lava-testnet-2/genesis.json
 sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${LAVA_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${LAVA_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${LAVA_PORT}061\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${LAVA_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${LAVA_PORT}660\"%" $HOME/.lava/config/config.toml
 
 # app.toml
-sed -i.bak -e "s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${LAVA_PORT}90\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${LAVA_PORT}91\"%; s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:1${LAVA_PORT}7\"%" $HOME/.lava/config/app.toml
+sed -i.bak -e "s%^address = \"localhost:9090\"%address = \"localhost:${LAVA_PORT}90\"%; s%^address = \"localhost:9091\"%address = \"localhost:${LAVA_PORT}91\"%; s%^address = \"tcp://localhost:1317\"%address = \"tcp://localhost:1${LAVA_PORT}7\"%" $HOME/.lava/config/app.toml
 
 # client.toml
 sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${LAVA_PORT}657\"%" $HOME/.lava/config/client.toml
