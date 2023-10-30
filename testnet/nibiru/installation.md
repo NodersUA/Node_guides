@@ -38,9 +38,9 @@ go version
 # Set the variables
 
 # Come up with the name of your node and replace it instead <your_moniker>
-NIBIRU_MONIKER=<your_moniker>
+MONIKER=<your_moniker>
 
-echo 'export NIBIRU_MONIKER='$NIBIRU_MONIKER >> $HOME/.bash_profile
+echo 'export MONIKER='$MONIKER >> $HOME/.bash_profile
 echo "export NIBIRU_CHAIN_ID=nibiru-itn-3" >> $HOME/.bash_profile
 echo "export NIBIRU_PORT=11" >> $HOME/.bash_profile
 source $HOME/.bash_profile
@@ -62,7 +62,7 @@ nibid version --long | grep -e version -e commit
 
 ```bash
 # Initialize the node
-nibid init $NIBIRU_MONIKER --chain-id $NIBIRU_CHAIN_ID
+nibid init $MONIKER --chain-id $NIBIRU_CHAIN_ID
 ```
 
 ```bash
@@ -263,7 +263,7 @@ nibid tx staking create-validator \
 --commission-max-change-rate "0.1" \
 --min-self-delegation "1" \
 --pubkey=$(nibid tendermint show-validator) \
---moniker=$NIBIRU_MONIKER \
+--moniker=$MONIKER \
 --chain-id=$NIBIRU_CHAIN_ID \
 --fees=5000unibi \
 --identity=<identity> \
@@ -283,7 +283,7 @@ nibid query staking validators --limit 1000000 -o json | jq '.validators[] | sel
 ```bash
 # Edit the validator
 nibid tx staking edit-validator \
-  --new-moniker=$NIBIRU_MONIKER \
+  --new-moniker=$MONIKER \
   --website="" \
   --identity=<identity> \
   --details="" \
