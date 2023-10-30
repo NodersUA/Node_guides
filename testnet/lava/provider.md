@@ -38,8 +38,8 @@ server_name $DOMEN;
     error_log /var/log/nginx/debug.log debug;
 
     location / {
-        proxy_pass http://$(wget -qO- eth0.me):2223;
-        grpc_pass $(wget -qO- eth0.me):2223;
+        proxy_pass http://127.0.0.1:2223;
+        grpc_pass 127.0.0.1:2223;
     }
 }
 EOF
@@ -51,11 +51,21 @@ sudo systemctl restart nginx
 
 ```bash
 # Create a provider config
-RPC=$(cat $HOME/.lava/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
-GRPC=$(cat $HOME/.lava/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
-API=$(cat $HOME/.lava/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
+LAVA_RPC=$(cat $HOME/.lava/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
+LAVA_GRPC=$(cat $HOME/.lava/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
+LAVA_API=$(cat $HOME/.lava/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
 
-echo "RPC:"$RPC "GRPC:"$GRPC "API:"$API
+AXELART_RPC=$(cat $HOME/.axelar_testnet/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
+AXELART_GRPC=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
+AXELART_API=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
+
+AXELAR_RPC=$(cat $HOME/.axelar_testnet/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
+AXELAR_GRPC=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
+AXELAR_API=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
+
+echo "LAVA_RPC:"$LAVA_RPC "LAVA_GRPC:"$LAVA_GRPC "LAVA_API:"$LAVA_API
+echo "AXELART_RPC:"$AXELART_RPC "AXELART_GRPC:"$AXELART_GRPC "AXELART_API:"$AXELART_API
+echo "AXELAR_RPC:"$AXELAR_RPC "AXELAR_GRPC:"$AXELAR_GRPC "AXELAR_API:"$AXELAR_API
 ```
 
 ```bash
@@ -68,30 +78,82 @@ endpoints:
       address: 0.0.0.0:2223
       disable-tls: true
     node-urls:
-      - url: ws://127.0.0.1:$RPC/websocket
-      - url: http://127.0.0.1:$RPC
+      - url: ws://127.0.0.1:$LAVA_RPC/websocket
+      - url: http://127.0.0.1:$LAVA_RPC
   - api-interface: grpc
     chain-id: LAV1
     network-address:
       address: 0.0.0.0:2223
       disable-tls: true
     node-urls:
-      url: 127.0.0.1:$GRPC
+      url: 127.0.0.1:$LAVA_GRPC
   - api-interface: rest
     chain-id: LAV1
     network-address:
       address: 0.0.0.0:2223
       disable-tls: true
     node-urls:
-      url: http://127.0.0.1:$API
+      url: http://127.0.0.1:$LAVA_API
+  - api-interface: tendermintrpc
+    chain-id: AXELAR
+    network-address:
+      address: 0.0.0.0:2223
+      disable-tls: true
+    node-urls:
+      - url: ws://127.0.0.1:$AXELAR_RPC/websocket
+      - url: http://127.0.0.1:$AXELAR_RPC
+  - api-interface: grpc
+    chain-id: AXELAR
+    network-address:
+      address: 0.0.0.0:2223
+      disable-tls: true
+    node-urls:
+      url: 127.0.0.1:$AXELAR_GRPC
+  - api-interface: rest
+    chain-id: AXELAR
+    network-address:
+      address: 0.0.0.0:2223
+      disable-tls: true
+    node-urls:
+      url: http://127.0.0.1:$AXELAR_API
+  - api-interface: tendermintrpc
+    chain-id: AXELAR
+    network-address:
+      address: 0.0.0.0:2223
+      disable-tls: true
+    node-urls:
+      - url: ws://127.0.0.1:$AXELART_RPC/websocket
+      - url: http://127.0.0.1:$AXELART_RPC
+  - api-interface: grpc
+    chain-id: AXELAR
+    network-address:
+      address: 0.0.0.0:2223
+      disable-tls: true
+    node-urls:
+      url: 127.0.0.1:$AXELART_GRPC
+  - api-interface: rest
+    chain-id: AXELAR
+    network-address:
+      address: 0.0.0.0:2223
+      disable-tls: true
+    node-urls:
+      url: http://127.0.0.1:$AXELART_API
 EOF
 ```
 
 ```bash
 # Open ports
-ufw allow $RPC
-ufw allow $GRPC
-ufw allow $API
+ufw allow $LAVA_RPC
+ufw allow $LAVA_GRPC
+ufw allow $LAVA_API
+
+ufw allow $AXELAR_RPC
+ufw allow $AXELAR_GRPC
+ufw allow $AXELAR_API
+
+ufw allow $AXELART_RPC
+ufw allow $AXELART_GRPC
+ufw allow $AXELART_API
 ```
 
 ```bash
@@ -119,4 +181,16 @@ EOF
 sudo systemctl daemon-reload
 systemctl enable lavap
 sudo systemctl restart lavap && sudo journalctl -u lavap -f --no-hostname -o cat
+```
+
+```bash
+# Stake
+lavap tx pairing stake-provider LAV1 "1000000000ulava" "$DOMEN:443,2" 2 -y --from wallet --provider-moniker "$MONIKER" --gas-prices 0.1ulava --gas-adjustment 1.5 --gas auto -y
+lavap tx pairing stake-provider AXELAR "50000000000ulava" "$DOMEN:443,2" 2 -y --from wallet --provider-moniker "$MONIKER" --gas-prices 0.1ulava --gas-adjustment 1.5 --gas auto -y
+lavap tx pairing stake-provider AXELART "50000000000ulava" "$DOMEN:443,2" 2 -y --from wallet --provider-moniker "$MONIKER" --gas-prices 0.1ulava --gas-adjustment 1.5 --gas auto -y
+```
+
+```bash
+# Check provider
+lavap test rpcprovider --from wallet
 ```

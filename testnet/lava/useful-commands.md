@@ -56,3 +56,15 @@ m_axelar status 2>&1 | jq .SyncInfo
 # Check balance
 m_axelar q bank balances $AXELAR_MAINNET_ADDRESS
 ```
+
+## Provider
+
+```bash
+# Restart
+sudo systemctl restart lavap && sudo journalctl -u lavap -f --no-hostname -o cat
+```
+
+```bash
+# Check provider
+lavap test rpcprovider --from wallet
+```

@@ -101,9 +101,6 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 # app.toml
 sed -i.bak -e "s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${AXELAR_TESTNET_PORT}90\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${AXELAR_TESTNET_PORT}91\"%; s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:1${AXELAR_TESTNET_PORT}7\"%" $HOME/.axelar_testnet/config/app.toml
 
-# client.toml
-sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${AXELAR_TESTNET_PORT}657\"%" $HOME/.axelar_testnet/config/client.toml
-
 external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${AXELAR_TESTNET_PORT}656\"/" $HOME/.axelar_testnet/config/config.toml
 
@@ -228,9 +225,6 @@ sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.
 
 # app.toml
 sed -i.bak -e "s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${AXELAR_MAINNET_PORT}90\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${AXELAR_MAINNET_PORT}91\"%; s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:1${AXELAR_MAINNET_PORT}7\"%" $HOME/.axelar_mainnet/config/app.toml
-
-# client.toml
-sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${AXELAR_MAINNET_PORT}657\"%" $HOME/.axelar_mainnet/config/client.toml
 
 external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${AXELAR_MAINNET_PORT}656\"/" $HOME/.axelar_mainnet/config/config.toml
