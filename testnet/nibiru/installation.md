@@ -67,7 +67,7 @@ nibid init $MONIKER --chain-id $NIBIRU_CHAIN_ID
 
 ```bash
 # Download Genesis
-curl -s https://networks.itn.nibiru.fi/$NODE_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
+curl -s https://networks.itn.nibiru.fi/$NIBIRU_CHAIN_ID/genesis > $HOME/.nibid/config/genesis.json
 
 # Check Genesis
 shasum -a 256 $HOME/.nibid/config/genesis.json
