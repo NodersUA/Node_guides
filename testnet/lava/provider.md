@@ -59,9 +59,9 @@ AXELART_RPC=$(cat $HOME/.axelar_testnet/config/config.toml | sed -n '/TCP or UNI
 AXELART_GRPC=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
 AXELART_API=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
 
-AXELAR_RPC=$(cat $HOME/.axelar_testnet/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
-AXELAR_GRPC=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
-AXELAR_API=$(cat $HOME/.axelar_testnet/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
+AXELAR_RPC=$(cat $HOME/.axelar_mainnet/config/config.toml | sed -n '/TCP or UNIX socket address for the RPC server to listen on/{n;p;}' | sed 's/.*://; s/".*//')
+AXELAR_GRPC=$(cat $HOME/.axelar_mainnet/config/app.toml | sed -n '/Address defines the gRPC server address to bind to/{n;p;}' | sed 's/.*://; s/".*//')
+AXELAR_API=$(cat $HOME/.axelar_mainnet/config/app.toml | sed -n '/Address defines the API server to listen on./{n;p;}' | sed 's/.*://; s/".*//')
 
 echo "LAVA_RPC:"$LAVA_RPC "LAVA_GRPC:"$LAVA_GRPC "LAVA_API:"$LAVA_API
 echo "AXELART_RPC:"$AXELART_RPC "AXELART_GRPC:"$AXELART_GRPC "AXELART_API:"$AXELART_API
@@ -117,7 +117,7 @@ endpoints:
     node-urls:
       url: http://127.0.0.1:$AXELAR_API
   - api-interface: tendermintrpc
-    chain-id: AXELAR
+    chain-id: AXELART
     network-address:
       address: 0.0.0.0:2223
       disable-tls: true
@@ -125,14 +125,14 @@ endpoints:
       - url: ws://127.0.0.1:$AXELART_RPC/websocket
       - url: http://127.0.0.1:$AXELART_RPC
   - api-interface: grpc
-    chain-id: AXELAR
+    chain-id: AXELART
     network-address:
       address: 0.0.0.0:2223
       disable-tls: true
     node-urls:
       url: 127.0.0.1:$AXELART_GRPC
   - api-interface: rest
-    chain-id: AXELAR
+    chain-id: AXELART
     network-address:
       address: 0.0.0.0:2223
       disable-tls: true

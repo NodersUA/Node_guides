@@ -23,7 +23,7 @@ cargo install sccache
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.62.0
+cd penumbra && git fetch && git checkout v0.63.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
@@ -31,15 +31,15 @@ cp ~/penumbra/target/release/pcli /usr/local/bin
 2. Create wallet
 
 ```bash
-cargo run --quiet --release --bin pcli keys generate
+pcli init soft-kms generate
 ```
 
-Save your private seed phrase and beckup file `/root/.local/share/pcli/custody.json`!!!
+Save your private seed phrase and beckup file `/root/.local/share/pcli/config.toml` !!!
 
 Or recovery wallet
 
 ```bash
-pcli keys import phrase
+pcli init soft-kms import-phrase
 ```
 
 ```bash

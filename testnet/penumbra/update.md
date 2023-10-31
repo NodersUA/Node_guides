@@ -4,11 +4,8 @@
 cd ~/penumbra && pcli validator definition fetch --file validator.toml
 sudo systemctl stop penumbra cometbft
 
-cd ~/cometbft && git checkout v0.37.2
-make install
-cp ~/go/bin/cometbft /usr/local/bin/cometbft
-
-cd ~/penumbra && git fetch && git checkout v0.62.0
+cd ~/penumbra && git fetch && git checkout v0.63.0
+rustup update
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 cargo build --release --bin pd
@@ -16,7 +13,14 @@ cp ~/penumbra/target/release/pd /usr/local/bin
 cargo run --quiet --release --bin pcli view reset
 cargo run --bin pd --release -- testnet unsafe-reset-all
 cargo run --bin pd --release -- testnet join
-mv ~/penumbra/validator.toml ~/penumbra/validator61.toml
+```
+
+```bash
+rm /root/.local/share/pcli/custody.json
+```
+
+```bash
+pcli init soft-kms import-phrase
 ```
 
 ```bash
