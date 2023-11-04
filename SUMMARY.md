@@ -48,11 +48,11 @@
   * [Update](testnet/subspace-gemini-3f/update.md)
   * [Useful commands](testnet/subspace-gemini-3f/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3f/delete.md)
-* [Subspace / Gemini-3f (Advanced CLI)](testnet/subspace-gemini-3f-1/README.md)
-  * [Installation](testnet/subspace-gemini-3f-1/installation.md)
-  * [Update](testnet/subspace-gemini-3f-1/update.md)
-  * [Useful commands](testnet/subspace-gemini-3f-1/useful-commands.md)
-  * [Delete](testnet/subspace-gemini-3f-1/delete.md)
+* [Subspace / Gemini-3g (Advanced CLI)](testnet/subspace-gemini-3g/README.md)
+  * [Installation](testnet/subspace-gemini-3g/installation.md)
+  * [Update](testnet/subspace-gemini-3g/update.md)
+  * [Useful commands](testnet/subspace-gemini-3g/useful-commands.md)
+  * [Delete](testnet/subspace-gemini-3g/delete.md)
 
 ## Mainnet
 
