@@ -43,11 +43,16 @@
   * [Installation](testnet/starknet/installation.md)
   * [Update](testnet/starknet/update.md)
   * [Useful Commands](testnet/starknet/useful-commands.md)
-* [Subspace / Gemini-3f](testnet/subspace-gemini-3f/README.md)
+* [Subspace / Gemini-3f (Pulsar)](testnet/subspace-gemini-3f/README.md)
   * [Installation](testnet/subspace-gemini-3f/installation.md)
   * [Update](testnet/subspace-gemini-3f/update.md)
   * [Useful commands](testnet/subspace-gemini-3f/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3f/delete.md)
+* [Subspace / Gemini-3f (Advanced CLI)](testnet/subspace-gemini-3f-1/README.md)
+  * [Installation](testnet/subspace-gemini-3f-1/installation.md)
+  * [Update](testnet/subspace-gemini-3f-1/update.md)
+  * [Useful commands](testnet/subspace-gemini-3f-1/useful-commands.md)
+  * [Delete](testnet/subspace-gemini-3f-1/delete.md)
 
 ## Mainnet
 
