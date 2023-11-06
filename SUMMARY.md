@@ -19,11 +19,6 @@
 * [Holograph](testnet/holograph/README.md)
   * [Installation](testnet/holograph/installation.md)
   * [Useful Commands](testnet/holograph/useful-commands.md)
-* [Lava](testnet/lava/README.md)
-  * [Installation (Lava-testnet)](testnet/lava/installation-lava-testnet.md)
-  * [Installation (Axelar-testnet+mainnet)](testnet/lava/installation-axelar-testnet+mainnet.md)
-  * [Provider](testnet/lava/provider.md)
-  * [Useful Commands](testnet/lava/useful-commands.md)
 * [Nibiru](testnet/nibiru/README.md)
   * [Installation](testnet/nibiru/installation.md)
   * [Update](testnet/nibiru/update.md)
@@ -53,6 +48,9 @@
   * [Update](testnet/subspace-gemini-3g/update.md)
   * [Useful commands](testnet/subspace-gemini-3g/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3g/delete.md)
+* [Tangle](testnet/tangle/README.md)
+  * [Installation](testnet/tangle/installation.md)
+  * [Useful Commands](testnet/tangle/useful-commands.md)
 
 ## Mainnet
 
@@ -115,6 +113,11 @@
   * [Wallet](archive/iron-fish/wallet.md)
   * [Update](archive/iron-fish/update.md)
   * [Useful Commands](archive/iron-fish/useful-commands.md)
+* [Lava](archive/lava/README.md)
+  * [Installation (Lava-testnet)](archive/lava/installation-lava-testnet.md)
+  * [Installation (Axelar-testnet+mainnet)](archive/lava/installation-axelar-testnet+mainnet.md)
+  * [Provider](archive/lava/provider.md)
+  * [Useful Commands](archive/lava/useful-commands.md)
 * [Lava Network](archive/lava-network/README.md)
   * [Installation](archive/lava-network/installation.md)
   * [Update](archive/lava-network/update.md)
