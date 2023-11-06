@@ -67,3 +67,8 @@ systemctl daemon-reload
 systemctl enable tangle
 systemctl restart tangle && journalctl -u tangle -f -o cat
 ```
+
+Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da8699520af7fb540470d63e48eccb33f7273d2e21a935685bf1320)
+
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
