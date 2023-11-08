@@ -47,7 +47,3 @@ operator-cli start
 ```bash
 operator-cli status | grep "state"
 ```
-
-```
-cd
-```
