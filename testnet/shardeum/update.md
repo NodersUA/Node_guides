@@ -19,11 +19,11 @@ operator-cli status | grep "state"
 If state is "waiting-for-network" or "standby":
 
 ```bash
-exit && ed $HOME
+exit
 ```
 
 ```bash
-curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
+cd $HOME && curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
 ```
 
 Go to folder .shardeum
@@ -46,4 +46,8 @@ operator-cli start
 
 ```bash
 operator-cli status | grep "state"
+```
+
+```
+cd
 ```
