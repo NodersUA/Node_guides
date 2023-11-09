@@ -51,6 +51,9 @@
 * [Tangle](testnet/tangle/README.md)
   * [Installation](testnet/tangle/installation.md)
   * [Useful Commands](testnet/tangle/useful-commands.md)
+* [Avail](testnet/avail/README.md)
+  * [Installation](testnet/avail/installation.md)
+  * [Useful Commands](testnet/avail/useful-commands.md)
 
 ## Mainnet
 
