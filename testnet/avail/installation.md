@@ -31,7 +31,7 @@ avail --version
 
 ```bash
 # Open ports
-ufw allow 44333
+ufw allow 45333
 ufw allow 9944
 ```
 
@@ -55,8 +55,8 @@ RestartSec=120
 ExecStart=$(which avail) \
   --base-path $HOME/.avail/data/ \
   --node-key-file "$HOME/.avail/node-key" \
-  --port 44333 \
-  --rpc-port 9944 \
+  --port 45333 \
+  --rpc-port 9945 \
   --chain goldberg \
   --validator \
   --name $MONIKER \
@@ -79,6 +79,35 @@ Check your node in [telemetry](https://telemetry.avail.tools/#list/0x6f09966420b
 
 ## Validator
 
+* Create [polkadot.js](https://goldberg.avail.tools/#/accounts) account
+* Join to [discord](https://discord.gg/6Uy9jK8r)&#x20;
+* Go to [#goldberg-faucet](https://discord.com/channels/1065831819154563132/1171414018028740698) channel and send message with your address (5Cyi4FQ........) for request tokens
+
+```bash
+/deposit <address>
 ```
-Soon...
+
+*   Go to **Network - Staking - Accounts** and add stash\
+
+
+    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+*   Connect your stash account with your node\
+
+
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+# Check your session-key
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9945
 ```
+
+Paste key from terminal to browser
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Submit google [form](https://docs.google.com/forms/d/e/1FAIpQLScvgXjSUmwPpUxf1s-MR2C2o5V79TSoud1dLPKVgeLiLFuyGQ/viewform) and wait for the letter

@@ -37,7 +37,7 @@ This command must be run before all other `holograph` commands. The `holograph c
 holograph config
 ```
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Request test tokens from the faucet \[ [goerly](https://goerli-faucet.pk910.de/) | [mumbai](https://faucet.polygon.technology/) ]
 
@@ -55,7 +55,7 @@ The CLI will send a transaction and you will receive testnet HLG.
 holograph faucet
 ```
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Operator <a href="#operating" id="operating"></a>
 
@@ -77,7 +77,7 @@ It is very important to keep the CLI running at all times. When jobs are created
 holograph operator:bond
 ```
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Service File <a href="#operating" id="operating"></a>
 

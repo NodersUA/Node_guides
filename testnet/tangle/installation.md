@@ -83,4 +83,19 @@ Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da
 1. Create [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%253A%252F%252Frpc.tangle.tools\&ref=blog.webb.tools#/accounts) account or connect your subwallet
 2. Join to [discord](https://discord.gg/gvGRQj5b)&#x20;
 3. Go to [#validators](https://discord.com/channels/833784453251596298/1106624706813112351) channel and send message with your address (5Cyi4FQ........) for request tokens
-4.
+
+*   Go to **Network - Staking - Accounts** and add stash\
+
+
+    <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+*   Connect your stash account with your node\
+
+
+    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+# Check your session-key
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9943
+```
+
+Paste key from terminal to browser
