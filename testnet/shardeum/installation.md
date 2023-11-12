@@ -1,8 +1,9 @@
 # Installation
 
 ### Automatic Installation
+
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/shardeum.sh)
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/shardeum)
 ```
 
 ### Node
