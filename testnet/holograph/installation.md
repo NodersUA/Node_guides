@@ -55,7 +55,7 @@ The CLI will send a transaction and you will receive testnet HLG.
 holograph faucet
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Operator <a href="#operating" id="operating"></a>
 

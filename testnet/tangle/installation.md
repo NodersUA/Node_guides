@@ -81,8 +81,14 @@ Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da
 ## Validator
 
 1. Create [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%253A%252F%252Frpc.tangle.tools\&ref=blog.webb.tools#/accounts) account or connect your subwallet
-2. Join to [discord](https://discord.gg/gvGRQj5b)&#x20;
-3. Go to [#validators](https://discord.com/channels/833784453251596298/1106624706813112351) channel and send message with your address (5Cyi4FQ........) for request tokens
+2.  Set on-chain identity\
+
+
+    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+3. Join to [discord](https://discord.gg/gvGRQj5b)&#x20;
+4. Go to [#validators](https://discord.com/channels/833784453251596298/1106624706813112351) channel and send message with your address (5Cyi4FQ........) for request tokens
 
 *   Go to **Network - Staking - Accounts** and add stash\
 
@@ -99,3 +105,12 @@ curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":
 ```
 
 Paste key from terminal to browser
+
+*   Active validator\
+
+
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+*   Check your validator\
+
+
+    <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
