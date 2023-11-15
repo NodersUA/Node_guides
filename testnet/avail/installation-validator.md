@@ -1,4 +1,4 @@
-# Installation
+# Installation (Validator)
 
 ## _**Automatic Installation**_
 
@@ -12,10 +12,12 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/avail)
 # Update the repositories
 sudo apt update
 sudo apt install make clang pkg-config libssl-dev build-essential -y
+if [ "$(rustc --version)" != "rustc 1.73.0 (cc66ad468 2023-10-03)" ]; then
 curl https://sh.rustup.rs -sSf | sh
 source $HOME/.cargo/env
 rustup update nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly ;
+fi
 rustc --version # Verify Rust installation by displaying the version
 ```
 
