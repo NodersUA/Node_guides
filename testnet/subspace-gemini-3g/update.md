@@ -4,8 +4,8 @@
 sudo systemctl stop subspaced subspacefarm
 mkdir $HOME/subspace
 cd $HOME/subspace
-wget https://github.com/subspace/subspace/releases/download/gemini-3g-2023-nov-17/subspace-farmer-ubuntu-x86_64-skylake-gemini-3g-2023-nov-17 -O farmer
-wget https://github.com/subspace/subspace/releases/download/gemini-3g-2023-nov-17/subspace-node-ubuntu-x86_64-skylake-gemini-3g-2023-nov-17 -O subspace
+wget https://github.com/subspace/subspace/releases/download/gemini-3g-2023-dec-01/subspace-farmer-ubuntu-x86_64-skylake-gemini-3g-2023-dec-01 -O farmer
+wget https://github.com/subspace/subspace/releases/download/gemini-3g-2023-dec-01/subspace-node-ubuntu-x86_64-skylake-gemini-3g-2023-dec-01 -O subspace
 sudo chmod +x *
 rm /usr/local/bin/farmer
 rm /usr/local/bin/subspace
