@@ -39,9 +39,9 @@ go version
 # Set the variables
 
 # Come up with the name of your node and replace it instead <your_moniker>
-CASCADIA_MONIKER=<your_moniker>
+MONIKER=<your_moniker>
 
-echo 'export CASCADIA_MONIKER='$CASCADIA_MONIKER >> $HOME/.bash_profile
+echo 'export MONIKER='$MONIKER >> $HOME/.bash_profile
 echo "export CASCADIA_CHAIN_ID=cascadia_11029-1" >> $HOME/.bash_profile
 echo "export CASCADIA_PORT=18" >> $HOME/.bash_profile
 source $HOME/.bash_profile
@@ -70,7 +70,6 @@ cascadiad init $CASCADIA_MONIKER --chain-id $CASCADIA_CHAIN_ID
 curl -LO https://github.com/CascadiaFoundation/chain-configuration/raw/master/testnet/genesis.json.gz
 gunzip genesis.json.gz
 cp genesis.json ~/.cascadiad/config/
-#wget -O $HOME/.cascadiad/config/genesis.json "https://anode.team/Cascadia/test/genesis.json"
 
 # Check Genesis
 sha256sum $HOME/.cascadiad/config/genesis.json

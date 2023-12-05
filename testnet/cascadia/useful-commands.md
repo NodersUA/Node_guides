@@ -1,6 +1,6 @@
 # Useful Commands
 
-### Information
+## Information
 
 ```bash
 # Check the blocks
@@ -62,7 +62,7 @@ cascadiad tx slashing unjail --from wallet --gas 300000 --gas-adjustment=1.4 --g
 
 ! If the transactions are not sent with the error account sequence mismatch, expected 18, got 17: incorrect account sequence, then add the flag -s 18 to the command (replace the number with the one that is waiting for the sequence)
 
-**Work with wallets**
+## **Work with wallets**
 
 ```bash
 # Chech the wallets list
@@ -72,7 +72,7 @@ cascadiad keys list
 cascadiad keys delete <name_wallet>
 ```
 
-**Delete Node**
+## **Delete Node**
 
 ```bash
 sudo systemctl stop cascadiad && \
@@ -85,7 +85,7 @@ rm -rf .cascadiad && \
 rm -rf $(which cascadiad)
 ```
 
-Governance
+## Governance
 
 ```bash
 # List proposals
@@ -98,7 +98,7 @@ cascadiad q gov proposals --voter $CASCADIA_ADDRESS
 cascadiad tx gov vote 20 yes --from wallet --gas 300000 --gas-adjustment=1.4 --gas-prices=7aCC -y
 ```
 
-**Peers and RPC**
+## **Peers and RPC**
 
 ```bash
 FOLDER=.cascadiad
