@@ -21,7 +21,7 @@ apt install curl iptables build-essential git wget jq make gcc nano tmux htop nv
 ```bash
 # Install Go (one command)
 if [ "$(go version)" != "go version go1.20.2 linux/amd64" ]; then \
-ver="1.20.2" && \
+ver="1.21.3" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
@@ -32,7 +32,7 @@ fi
 
 go version
 
-# go version go1.20.2 linux/amd64
+# go version go1.21.3 linux/amd64
 ```
 
 ```bash
@@ -62,19 +62,17 @@ cascadiad version --long | grep -e version -e commit
 
 ```bash
 # Initialize the node
-cascadiad init $CASCADIA_MONIKER --chain-id $CASCADIA_CHAIN_ID
+cascadiad init $MONIKER --chain-id $CASCADIA_CHAIN_ID
 ```
 
 ```bash
 # Download Genesis
-curl -LO https://github.com/CascadiaFoundation/chain-configuration/raw/master/testnet/genesis.json.gz
-gunzip genesis.json.gz
-cp genesis.json ~/.cascadiad/config/
+wget -O $HOME/.cascadiad/config/genesis.json https://raw.githubusercontent.com/CascadiaFoundation/chain-configuration/master/testnet/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.cascadiad/config/genesis.json
 
-# 74ea3c84182028300d0c101c5cf017a055782c595ed91e4be3638380f0169582
+# 9e7a698f532042cb966c4cda3ed6eb0aab5ce4882ebfb8d334b27dd84fa497bd
 ```
 
 ```bash
