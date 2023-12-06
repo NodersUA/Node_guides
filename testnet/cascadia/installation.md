@@ -208,7 +208,7 @@ source $HOME/.bash_profile
 ```
 
 ```bash
-bash# Check the ballance
+# Check the ballance
 cascadiad query bank balances $CASCADIA_ADDRESS
 ```
 
