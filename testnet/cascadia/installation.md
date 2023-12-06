@@ -231,7 +231,7 @@ cascadiad tx staking create-validator \
 --identity=<identity> \
 --details="" \
 --website="" \
---gas auto \
+--gas 300000 \
 --gas-adjustment=1.2 \
 --gas-prices=7aCC \
 --broadcast-mode sync \
