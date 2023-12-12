@@ -1,13 +1,11 @@
 # Update
 
 ```bash
-cd ~/penumbra && pcli validator definition fetch --file validator.toml
 sudo systemctl stop penumbra cometbft
 
 cd ~/penumbra 
 git reset --hard HEAD
-git fetch && git checkout v0.63.2
-rustup update
+git fetch && git checkout v0.64.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 cargo build --release --bin pd
