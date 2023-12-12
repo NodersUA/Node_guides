@@ -11,7 +11,7 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/avail)
 ```bash
 # Update the repositories
 sudo apt update
-sudo apt install make clang pkg-config libssl-dev build-essential -y
+sudo apt install make clang pkg-config libssl-dev build-essential protobuf-compiler -y
 if [ "$(rustc --version)" != "rustc 1.73.0 (cc66ad468 2023-10-03)" ]; then
 curl https://sh.rustup.rs -sSf | sh
 source $HOME/.cargo/env
@@ -28,7 +28,6 @@ cd avail/
 cargo build --release -p data-avail
 cp target/release/data-avail /usr/local/bin/avail
 avail --version
-# avail 1.8.0-316437486e1
 ```
 
 ```bash
