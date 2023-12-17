@@ -23,6 +23,8 @@
 * [Holograph](testnet/holograph/README.md)
   * [Installation](testnet/holograph/installation.md)
   * [Useful Commands](testnet/holograph/useful-commands.md)
+* [Masa](testnet/masa/README.md)
+  * [Installation](testnet/masa/installation.md)
 * [Nibiru](testnet/nibiru/README.md)
   * [Installation](testnet/nibiru/installation.md)
   * [Update](testnet/nibiru/update.md)
