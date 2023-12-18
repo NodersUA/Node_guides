@@ -24,6 +24,7 @@ go version
 
 ```bash
 git clone https://github.com/masa-finance/masa-oracle-go-testnet.git masa
+cd masa
 go build -v -o masa-node ./cmd/masa-node
 
 sudo cp masa-node /usr/local/bin/ && cd $HOME
