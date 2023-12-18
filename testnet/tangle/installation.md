@@ -84,9 +84,9 @@ Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da
 2.  Set on-chain identity\
 
 
-    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
     <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 3. Join to [discord](https://discord.com/invite/cv8EfJu3Tn)&#x20;
 4. Go to [#validators](https://discord.com/channels/833784453251596298/1106624706813112351) channel and send message with your address (5Cyi4FQ........) for request tokens
 

@@ -93,7 +93,7 @@ Check your node in [telemetry](https://telemetry.avail.tools/#list/0x6f09966420b
 
     <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 *   Connect your stash account with your node\
 

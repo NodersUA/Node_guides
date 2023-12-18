@@ -51,6 +51,7 @@
   * [Delete](testnet/subspace-gemini-3f/delete.md)
 * [Subspace / Gemini-3g (Advanced CLI)](testnet/subspace-gemini-3g/README.md)
   * [Installation](testnet/subspace-gemini-3g/installation.md)
+  * [Operators guide](testnet/subspace-gemini-3g/operators-guide.md)
   * [Update](testnet/subspace-gemini-3g/update.md)
   * [Useful commands](testnet/subspace-gemini-3g/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3g/delete.md)
