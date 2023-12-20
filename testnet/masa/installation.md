@@ -7,8 +7,8 @@ apt update && apt upgrade -y
 
 ```bash
 # Install Go (one command)
-if [ "$(go version)" != "go version go1.20.2 linux/amd64" ]; then \
 ver="1.21.3" && \
+if [ "$(go version)" != "go version go$ver linux/amd64" ]; then \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
