@@ -44,6 +44,8 @@
   * [Installation](testnet/starknet/installation.md)
   * [Update](testnet/starknet/update.md)
   * [Useful Commands](testnet/starknet/useful-commands.md)
+* [Streamr](testnet/streamr/README.md)
+  * [Installation](testnet/streamr/installation.md)
 * [Subspace / Gemini-3f (Pulsar)](testnet/subspace-gemini-3f/README.md)
   * [Installation](testnet/subspace-gemini-3f/installation.md)
   * [Update](testnet/subspace-gemini-3f/update.md)
