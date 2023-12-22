@@ -80,3 +80,12 @@ sudo docker restart streamr
 4.  #### Fund your Operator <a href="#step-5-fund-your-operator" id="step-5-fund-your-operator"></a>
 
     <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+
+5.  #### Join sponsorships <a href="#step-7-join-sponsorships" id="step-7-join-sponsorships"></a>
+
+    Visit the [Sponsorships page](https://mumbai.streamr.network/hub/network/sponsorships?tab=all) and find a Sponsorship you want your Operator to start working on. Click the **"Join as Operator"** button and select your stake. Note there is a minimum stake of 5000 `DATA` tokens for each Sponsorship that you join. Joining Sponsorships may lock your tokens for a period of time, defined in the Sponsorship contract.
