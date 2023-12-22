@@ -1,6 +1,6 @@
 # Bundlr
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Bundlr is a data layer for the internet. We are a foundation upon which developers can solve complex data integrity issues, permissionlessly.\
 \

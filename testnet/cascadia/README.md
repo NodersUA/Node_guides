@@ -1,6 +1,6 @@
 # Cascadia
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Cascadia is a Layer-1 blockchain built to explore the nature of incentives on network effects, starting with ve-tokenomics.&#x20;
 

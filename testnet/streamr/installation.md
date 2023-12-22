@@ -46,6 +46,37 @@ sudo chmod -R 777 ~/.streamrDocker/
 sudo docker run -it -v $(cd ~/.streamrDocker && pwd):/home/streamr/.streamr streamr/broker-node:v100.0.0-testnet-two.2 bin/config-wizard
 ```
 
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+```bash
+# Run node
+sudo docker run -p 32200:32200 --name streamr --restart unless-stopped -d -v $(cd ~/.streamrDocker && pwd):/home/streamr/.streamr streamr/broker-node:v100.0.0-testnet-two.2
+```
+
+```bash
+# Check logs
+sudo docker logs --follow streamr
+```
+
+```bash
+# Restart
+sudo docker restart streamr
+```
+
 
 
 ## Step 3: Pair your Operator to your Streamr Node <a href="#step-3-pair-your-operator-to-your-streamr-node" id="step-3-pair-your-operator-to-your-streamr-node"></a>
+
+1. Visit your [Operator page](https://streamr.network/hub/network/operators) and find the "Operator's node addresses"
+2.  Click the _**Add node address**_ button, paste in your **node address** (the Ethereum public address, not its private key!), click the button in the dialog and remember to click the _**Save**_ button.\
+
+
+    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+
+3. Ensure sufficient MATIC wallet balance, it is required to pay fees
+4.  #### Fund your Operator <a href="#step-5-fund-your-operator" id="step-5-fund-your-operator"></a>
+
+    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
