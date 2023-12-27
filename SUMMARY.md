@@ -10,7 +10,9 @@
 
 * [Avail](testnet/avail/README.md)
   * [Installation (Validator)](testnet/avail/installation-validator.md)
+  * [Update (Validator)](testnet/avail/update-validator.md)
   * [Installation (Light node)](testnet/avail/installation-light-node.md)
+  * [Update (Light node)](testnet/avail/update-light-node.md)
   * [Useful Commands](testnet/avail/useful-commands.md)
 * [Cascadia](testnet/cascadia/README.md)
   * [Installation](testnet/cascadia/installation.md)
