@@ -9,6 +9,8 @@ cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 cargo build --release --bin pd
 cp ~/penumbra/target/release/pd /usr/local/bin
+cargo run --bin pd --release -- testnet unsafe-reset-all
+cargo run --bin pd --release -- testnet join
 ```
 
 ```bash
