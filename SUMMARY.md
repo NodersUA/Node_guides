@@ -27,6 +27,8 @@
   * [Useful Commands](testnet/holograph/useful-commands.md)
 * [Masa](testnet/masa/README.md)
   * [Installation](testnet/masa/installation.md)
+* [Namada](testnet/namada/README.md)
+  * [Installation](testnet/namada/installation.md)
 * [Nibiru](testnet/nibiru/README.md)
   * [Installation](testnet/nibiru/installation.md)
   * [Update](testnet/nibiru/update.md)
