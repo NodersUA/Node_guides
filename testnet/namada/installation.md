@@ -45,7 +45,7 @@ sudo make install
 ```
 
 ```bash
-git clone https://github.com/anoma/namada.git
+cd $HOME && git clone https://github.com/anoma/namada.git
 cd namada 
 make install
 cp ~/namada/target/release/namada* /usr/local/bin/
