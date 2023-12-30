@@ -86,15 +86,17 @@ source ~/.bash_profile
 ```
 
 ```bash
-cd $HOME
-git clone https://github.com/cometbft/cometbft.git
-cd cometbft
-git checkout v0.37.2
-make install
-cp $(which cometbft) /usr/local/bin/ && cd $HOME
-cometbft version
-
-# v0.37.2
+if command -v rustup &> /dev/null; then
+    cometbft version
+else
+    cd $HOME
+    git clone https://github.com/cometbft/cometbft.git
+    cd cometbft
+    git checkout v0.37.2
+    make install
+    cp $(which cometbft) /usr/local/bin/ && cd $HOME
+    cometbft version
+fi
 ```
 
 5. Joining as a fullnode

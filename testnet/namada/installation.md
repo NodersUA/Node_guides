@@ -1,17 +1,17 @@
 # Installation
 
-_**Automatic Installation**_
+## _**Automatic Installation**_
 
 ```bash
-source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nibiru/namada)
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/namada)
 ```
 
-_**Manual Installation**_
+## _**Manual Installation**_
 
 ```bash
 # Set the variables
 echo "export NAMADA_CHAIN_ID=public-testnet-15.0dacadb8d663" >> $HOME/.bash_profile
-echo "export NAMADA_PORT=40" >> $HOME/.bash_profile
+echo "export NAMADA_PORT=41" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
@@ -32,6 +32,20 @@ rustc --version # Verify Rust installation by displaying the version
 ```
 
 ```bash
+if command -v cometbft &> /dev/null; then
+    cometbft version
+else
+    cd $HOME
+    git clone https://github.com/cometbft/cometbft.git
+    cd cometbft
+    git checkout v0.37.2
+    make install
+    cp $(which cometbft) /usr/local/bin/ && cd $HOME
+    cometbft version
+fi
+```
+
+```bash
 # Update the repositories
 sudo apt-get install -y make git-core libssl-dev pkg-config libclang-12-dev build-essential protobuf-compiler
 rm /usr/bin/protoc
@@ -41,14 +55,15 @@ cd protobuf-3.12.0
 ./configure
 make
 sudo make install
-
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ```
 
 ```bash
 cd $HOME && git clone https://github.com/anoma/namada.git
-cd namada 
+cd namada && git checkout v0.28.2
 make install
 cp ~/namada/target/release/namada* /usr/local/bin/
+namada --version
 ```
 
 ```bash
@@ -62,6 +77,14 @@ s%:26656%:${NAMADA_PORT}656%g;
 s%:26545%:${NAMADA_PORT}545%g;
 s%:8545%:${NAMADA_PORT}545%g;
 s%:26660%:${NAMADA_PORT}660%g" ~/.local/share/namada/$NAMADA_CHAIN_ID/config.toml
+```
+
+```bash
+# Open ports
+ufw allow ${NAMADA_PORT}658
+ufw allow ${NAMADA_PORT}657
+ufw allow ${NAMADA_PORT}545
+ufw allow ${NAMADA_PORT}660
 ```
 
 ```bash
@@ -93,4 +116,26 @@ sudo systemctl restart namadad
 
 ```bash
 sudo journalctl -u namadad -f -o cat
+```
+
+### Wallet
+
+```bash
+# Create wallet
+namada wallet address gen --alias wallet
+```
+
+```bash
+# Or Recovery wallet
+namada wallet key derive --alias wallet --hd-path default
+```
+
+```bash
+# Check wallet list
+namada wallet key list
+```
+
+```bash
+# Check wallet address
+namada wallet address list
 ```
