@@ -80,7 +80,7 @@ Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da
 
 ## Validator
 
-1. Create [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%253A%252F%252Frpc.tangle.tools\&ref=blog.webb.tools#/accounts) account or connect your subwallet
+1. Create [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc-archive.tangle.tools#/staking) account or connect your subwallet
 2.  Set on-chain identity\
 
 
