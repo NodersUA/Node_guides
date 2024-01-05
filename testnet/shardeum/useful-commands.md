@@ -7,6 +7,23 @@ _**Useful Commands**_
 docker restart shardeum-dashboard
 ```
 
+```bash
+# Check docker logs
+sudo docker logs shardeum-dashboard -fn100
+```
+
+Go to folder .shardeum
+
+```bash
+cd && cd .shardeum
+```
+
+Launching a shell
+
+```bash
+./shell.sh
+```
+
 To exit the shell, use the command
 
 ```bash
@@ -22,7 +39,7 @@ operator-cli stop
 Check node status
 
 ```bash
-operator-cli gui status
+operator-cli status
 ```
 
 Change the port through the terminal if necessary
