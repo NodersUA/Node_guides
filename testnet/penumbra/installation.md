@@ -86,9 +86,9 @@ source ~/.bash_profile
 ```
 
 ```bash
-if command -v rustup &> /dev/null; then
-    cometbft version
-else
+if [ "$(cometbft version)" != "0.37.2" ]; then
+    rm -rf ~/cometbft/
+    rm /usr/local/bin/cometbft
     cd $HOME
     git clone https://github.com/cometbft/cometbft.git
     cd cometbft
