@@ -47,3 +47,17 @@ Change the port through the terminal if necessary
 ```bash
 operator-cli gui set port your_port_here
 ```
+
+Start node
+
+```
+operator-cli start
+```
+
+```bash
+operator-cli status | grep "state"
+```
+
+```bash
+operator-cli stake 10
+```
