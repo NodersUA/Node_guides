@@ -124,11 +124,15 @@ Description=Penumbra pd
 Wants=tendermint.service
 
 [Service]
-ExecStart=/usr/local/bin/pd start --home $HOME/.penumbra/testnet_data/node0/pd
+ExecStart=/usr/local/bin/pd start \
+--home $HOME/.penumbra/testnet_data/node0/pd \
+--abci-bind 127.0.0.1:42658 \
+--cometbft-addr http://127.0.0.1:42657
 Restart=on-failure
 RestartSec=5
 User=$USER
 Environment=RUST_LOG=info
+LimitNOFILE=65535
 
 [Install]
 WantedBy=default.target
@@ -142,10 +146,14 @@ sudo tee /etc/systemd/system/cometbft.service > /dev/null <<EOF
 Description=CometBFT for Penumbra
 
 [Service]
-ExecStart=/usr/local/bin/cometbft start --home $HOME/.penumbra/testnet_data/node0/cometbft
+ExecStart=/usr/local/bin/cometbft start \
+--home $HOME/.penumbra/testnet_data/node0/cometbft \
+--proxy_app tcp://127.0.0.1:42658
+--rpc.laddr tcp://127.0.0.1:42657
 Restart=on-failure
 RestartSec=5
 User=root
+LimitNOFILE=65535
 
 [Install]
 WantedBy=default.target
