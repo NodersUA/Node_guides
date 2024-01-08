@@ -148,7 +148,7 @@ Description=CometBFT for Penumbra
 [Service]
 ExecStart=/usr/local/bin/cometbft start \
 --home $HOME/.penumbra/testnet_data/node0/cometbft \
---proxy_app tcp://127.0.0.1:42658
+--proxy_app tcp://127.0.0.1:42658 \
 --rpc.laddr tcp://127.0.0.1:42657
 Restart=on-failure
 RestartSec=5
