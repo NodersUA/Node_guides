@@ -13,9 +13,15 @@ _**Manual Installation**_
 ```bash
 # Update, upgrade and install requirements
 sudo apt-get update && \
-sudo apt-get upgrade -y && \
-sudo curl https://sh.rustup.rs -sSf | sh -s -- -y && \
-source "$HOME/.cargo/env" && \
+sudo apt-get upgrade -y
+# Update or install rust
+if command -v rustup &> /dev/null; then
+    rustup update
+else
+    curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
+fi
+rustc --version
 sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-compiler git-lfs g++ -y && \
 cargo install sccache
 ```
