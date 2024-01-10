@@ -15,18 +15,24 @@ apt install curl iptables build-essential git wget jq make gcc nano tmux htop nv
 ```
 
 ```bash
-cd $HOME
-git clone https://github.com/webb-tools/tangle.git
-cd tangle/
-cargo build --release
-cp target/release/tangle-standalone /usr/local/bin/tangle
-tangle --version
+# Update or install rust
+if command -v rustup &> /dev/null; then
+    rustup update
+else
+    curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
+fi
+rustc --version
 ```
 
 ```bash
-mkdir -p $HOME/.tangle
-wget -O $HOME/.tangle/tangle-standalone.json "https://raw.githubusercontent.com/webb-tools/tangle/main/chainspecs/testnet/tangle-standalone.json"
-chmod 744 ~/.tangle/tangle-standalone.json
+cd $HOME
+git clone https://github.com/webb-tools/tangle.git
+cd tangle/
+git checkout v0.6.1
+cargo build --release
+cp target/release/tangle /usr/local/bin/
+tangle --version
 ```
 
 ```bash
@@ -54,13 +60,14 @@ RestartSec=3
 ExecStart=/usr/local/bin/tangle \
   --base-path $HOME/.tangle/data/ \
   --name $MONIKER \
-  --chain $HOME/.tangle/tangle-standalone.json \
+  --chain tangle-testnet \
   --node-key-file "$HOME/.tangle/node-key" \
   --port 43333 \
   --rpc-port 9943 \
   --validator \
   --no-mdns \
   --auto-insert-keys \
+  --rpc-cors all \
   --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
  
 [Install]
@@ -74,13 +81,13 @@ systemctl enable tangle
 systemctl restart tangle && journalctl -u tangle -f -o cat
 ```
 
-Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da8699520af7fb540470d63e48eccb33f7273d2e21a935685bf1320)
+Check your node in [telemetry](https://telemetry.polkadot.io/#list/0x3d22af97d919611e03bbcbda96f65988758865423e89b2d99547a6bb61452db3)
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 ## Validator
 
-1. Create [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc-archive.tangle.tools#/staking) account or connect your subwallet
+1. Create [polkadot.js](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.tangle.tools#/accounts) account or connect your subwallet
 2.  Set on-chain identity\
 
 
@@ -88,7 +95,10 @@ Check your node in [telemetry](https://telemetry.polkadot.io/#list/0xea63e6ac7da
 
     <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 3. Join to [discord](https://discord.com/invite/cv8EfJu3Tn)&#x20;
-4. Go to [#validators](https://discord.com/channels/833784453251596298/1106624706813112351) channel and send message with your address (5Cyi4FQ........) for request tokens
+4.  Go to [#](https://discord.com/channels/833784453251596298/1106624706813112351)[-faucet](https://discord.com/channels/833784453251596298/1183826417625075753) channel and send message with your address (!send 5FejFZ55......) for request tokens\
+
+
+    <figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 *   Go to **Network - Staking - Accounts** and add stash\
 

@@ -62,6 +62,7 @@
 * [Tangle](testnet/tangle/README.md)
   * [Installation](testnet/tangle/installation.md)
   * [Useful Commands](testnet/tangle/useful-commands.md)
+  * [Delete](testnet/tangle/delete.md)
 
 ## Mainnet
 
