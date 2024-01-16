@@ -6,20 +6,8 @@ apt update && apt upgrade -y
 ```
 
 ```bash
-# Install Go (one command)
-ver="1.21.3" && \
-if [ "$(go version)" != "go version go$ver linux/amd64" ]; then \
-wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
-sudo rm -rf /usr/local/go && \
-sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
-rm "go$ver.linux-amd64.tar.gz" && \
-echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
-source $HOME/.bash_profile ; \
-fi
-
-go version
-
-# go version go1.21.3 linux/amd64
+# Install Go
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/go)
 ```
 
 ```bash
