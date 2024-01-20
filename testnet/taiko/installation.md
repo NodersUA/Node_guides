@@ -12,6 +12,14 @@ HORSE is a dummy testnet token we deployed on Taiko (Katla). You can see all dep
 
 ## Install Node
 
+_**Automatic Installation**_
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/taiko)
+```
+
+_**Manual Installation**_
+
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
@@ -31,8 +39,8 @@ fi
 ```
 
 ```bash
-git clone https://github.com/taikoxyz/simple-taiko-node.git
-cd simple-taiko-node
+git clone https://github.com/taikoxyz/simple-taiko-node.git taiko
+cd taiko
 cp .env.sample .env
 ```
 
@@ -62,10 +70,10 @@ Check your node in dashbord - [http://\<your\_ip>:4301/d/L2ExecutionEngine/l2-ex
 
 ```bash
 # Check logs
-cd ~/simple-taiko-node && docker compose logs -fn100
+cd ~/taiko && docker compose logs -fn100
 ```
 
 ```bash
 # Restart
-cd ~/simple-taiko-node && docker compose down && docker compose up -d
+cd ~/taiko && docker compose down && docker compose up -d
 ```
