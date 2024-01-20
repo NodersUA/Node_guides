@@ -62,5 +62,10 @@ Check your node in dashbord - [http://\<your\_ip>:4301/d/L2ExecutionEngine/l2-ex
 
 ```bash
 # Check logs
-docker compose logs -f
+cd ~/simple-taiko-node && docker compose logs -fn100
+```
+
+```bash
+# Restart
+cd ~/simple-taiko-node && docker compose down && docker compose up -d
 ```
