@@ -40,7 +40,7 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/cascadiafoundation/cascadia && cd cascadia
-git checkout v0.2.0
+git checkout v0.3.0
 make install
 
 sudo cp $(which cascadiad) /usr/local/bin/ && cd $HOME

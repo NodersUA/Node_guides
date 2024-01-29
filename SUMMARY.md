@@ -60,6 +60,7 @@
 * [Taiko](testnet/taiko/README.md)
   * [Install SGX (Optionals)](testnet/taiko/install-sgx-optionals.md)
   * [Installation](testnet/taiko/installation.md)
+  * [Enable an SGX prover](testnet/taiko/enable-an-sgx-prover.md)
 * [Tangle](testnet/tangle/README.md)
   * [Installation](testnet/tangle/installation.md)
   * [Useful Commands](testnet/tangle/useful-commands.md)

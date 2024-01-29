@@ -31,7 +31,7 @@ uname -a
 
 ```bash
 # Install driver
-wget https://download.01.org/intel-sgx/latest/linux-latest/distro/ubuntu20.04-server/sgx_linux_x64_driver_2.11.54c9c4c.bin
+wget https://download.01.org/intel-sgx/latest/linux-latest/distro/ubuntu22.04-server/sgx_linux_x64_driver_2.11.54c9c4c.bin
 chmod +x sgx_linux_x64_driver_2.11.54c9c4c.bin
 ./sgx_linux_x64_driver_2.11.54c9c4c.bin
 ```

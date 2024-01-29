@@ -9,22 +9,26 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/avail)
 ## _**Manual Installation**_
 
 ```bash
-# Update the repositories
-sudo apt update
-sudo apt install make clang pkg-config libssl-dev build-essential protobuf-compiler -y
-if [ "$(rustc --version)" != "rustc 1.74.0 (79e9716c9 2023-11-13)" ]; then
-curl https://sh.rustup.rs -sSf | sh
-source $HOME/.cargo/env
-rustup update nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly ;
+# Update, upgrade and install requirements
+sudo apt-get update && \
+sudo apt-get upgrade -y
+# Update or install rust
+if command -v rustup &> /dev/null; then
+    rustup update
+else
+    curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
 fi
-rustc --version # Verify Rust installation by displaying the version
+rustc --version
+sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-compiler git-lfs g++ -y && \
+cargo install sccache
 ```
 
 ```bash
 cd $HOME
 git clone https://github.com/availproject/avail
 cd avail/
+git checkout v1.8.0.4
 cargo build --release -p data-avail
 cp target/release/data-avail /usr/local/bin/avail
 avail --version
