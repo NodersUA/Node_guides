@@ -18,63 +18,47 @@ To check version of your kernel run:
 uname -a
 ```
 
-## Update kernel
+## Update ubuntu and kernel
 
 ```bash
-# install the required tools
-sudo apt update
-sudo apt-get install flex bison libelf-dev build-essential bc build-essential libssl-dev libncurses-dev -y
-
-```
-
-```bash
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.7.1.tar.xz
-tar -xvf linux-6.7.1.tar.xz
-cd linux-6.7.1
-cp /boot/config-$(uname -r) .config
-make defconfig
-make
-```
-
-```bash
-sudo make modules_install install
-sudo update-grub
+# Update the repositories
+apt update && apt upgrade -y
 ```
 
 ```bash
 reboot
 ```
 
-
-
-
-
-
-
 ```bash
-sudo apt update
-sudo apt upgrade -y
+ufw allow 1022
 ```
 
 ```bash
-sudo apt dist-upgrade -y
-sudo update-grub
+sudo do-release-upgrade
 ```
 
 ```bash
- # Reboot system
+sudo apt install linux-image-unsigned-6.5.0-15-generic
+sudo update-initramfs -u -k 6.5.0-15-generic
+```
+
+```bash
 reboot
-```
-
-```bash
-# Check version
-uname -a
 ```
 
 ## Raiko Docker
 
 ```bash
-git clone git@github.com:taikoxyz/raiko.git
-cd raiko/docker
+git clone https://github.com/johntaiko/zeth.git
+cd zeth
+sed -i 's/sgx.edmm_enable = true/sgx.edmm_enable = false/' raiko-guest/config/raiko-guest.manifest.template
+DOCKER_BUILDKIT=0 docker build -t raiko:v1 . 
+```
 
+```bash
+cd docker
+sed -i 's/image: gcr\.io\/evmchain\/raiko:latest/image: raiko:v1/' docker-compose.yml
+sed -i 's/8080:8080/8585:8585/' docker-compose.yml
+docker compose run --rm raiko --init
+docker compose up raiko -d
 ```

@@ -58,7 +58,6 @@
   * [Useful commands](testnet/subspace-gemini-3g/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3g/delete.md)
 * [Taiko](testnet/taiko/README.md)
-  * [Install SGX (Optionals)](testnet/taiko/install-sgx-optionals.md)
   * [Installation](testnet/taiko/installation.md)
   * [Enable an SGX prover](testnet/taiko/enable-an-sgx-prover.md)
 * [Tangle](testnet/tangle/README.md)
