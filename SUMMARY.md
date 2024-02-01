@@ -34,6 +34,7 @@
 * [Namada](testnet/namada/README.md)
   * [Installation](testnet/namada/installation.md)
   * [Update](testnet/namada/update.md)
+  * [Delete](testnet/namada/delete.md)
 * [Penumbra](testnet/penumbra/README.md)
   * [Installation](testnet/penumbra/installation.md)
   * [Update](testnet/penumbra/update.md)
