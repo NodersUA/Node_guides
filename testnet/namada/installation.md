@@ -10,7 +10,7 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/namada)
 
 ```bash
 # Set the variables
-echo "export NAMADA_CHAIN_ID=public-testnet-15.0dacadb8d663" >> $HOME/.bash_profile
+echo "export NAMADA_CHAIN_ID=shielded-expedition.b40d8e9055" >> $HOME/.bash_profile
 echo "export NAMADA_PORT=41" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
@@ -48,6 +48,9 @@ fi
 ```bash
 # Update the repositories
 sudo apt-get install -y make git-core libssl-dev pkg-config libclang-12-dev build-essential protobuf-compiler
+```
+
+```bash
 rm /usr/bin/protoc
 wget https://github.com/protocolbuffers/protobuf/releases/download/v3.12.0/protobuf-all-3.12.0.tar.gz
 tar -xzvf protobuf-all-3.12.0.tar.gz
@@ -60,8 +63,11 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 ```bash
 cd $HOME && git clone https://github.com/anoma/namada.git
-cd namada && git checkout v0.28.2
+cd namada && git checkout v0.31.0
 make install
+```
+
+```
 cp ~/namada/target/release/namada* /usr/local/bin/
 namada --version
 ```

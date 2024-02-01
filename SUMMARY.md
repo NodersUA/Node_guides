@@ -33,6 +33,7 @@
   * [Installation](testnet/masa/installation.md)
 * [Namada](testnet/namada/README.md)
   * [Installation](testnet/namada/installation.md)
+  * [Update](testnet/namada/update.md)
 * [Penumbra](testnet/penumbra/README.md)
   * [Installation](testnet/penumbra/installation.md)
   * [Update](testnet/penumbra/update.md)
