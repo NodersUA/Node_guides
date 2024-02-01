@@ -1,6 +1,10 @@
 # Update
 
 ```bash
+sudo systemctl stop namadad
+```
+
+```bash
 echo "export NAMADA_CHAIN_ID=shielded-expedition.b40d8e9055" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
@@ -18,7 +22,7 @@ rustc --version # Verify Rust installation by displaying the version
 
 ```bash
 cd $HOME && git clone https://github.com/anoma/namada.git
-cd namada && git checkout v0.31.0
+cd namada && git pull && git checkout v0.31.0
 make install
 ```
 
