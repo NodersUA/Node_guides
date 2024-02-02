@@ -2,7 +2,7 @@
 description: Farmer installation guide
 ---
 
-# Subspace / Gemini-3f (Advanced CLI)
+# Subspace / Gemini-3h (Advanced CLI)
 
 <figure><img src="../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
