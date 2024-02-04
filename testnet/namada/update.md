@@ -21,6 +21,21 @@ rustc --version # Verify Rust installation by displaying the version
 ```
 
 ```bash
+if [ ! -d ~/protobuf-3.12.0 ]; then
+# Update the repositories
+sudo apt-get install -y make git-core libssl-dev pkg-config libclang-12-dev build-essential protobuf-compiler
+rm /usr/bin/protoc
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.12.0/protobuf-all-3.12.0.tar.gz
+tar -xzvf protobuf-all-3.12.0.tar.gz
+cd protobuf-3.12.0
+./configure
+make
+sudo make install
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+fi
+```
+
+```bash
 cd $HOME && git clone https://github.com/anoma/namada.git
 cd namada && git pull && git checkout v0.31.0
 make install

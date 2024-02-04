@@ -3,7 +3,7 @@
 ```bash
 systemctl stop availd
 cd ~/avail && git fetch
-git checkout v1.9.0.0
+git checkout v1.10.0.0
 cargo build --release -p data-avail
 cp target/release/data-avail /usr/local/bin/avail
 avail --version
