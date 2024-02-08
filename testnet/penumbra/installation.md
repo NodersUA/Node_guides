@@ -29,7 +29,7 @@ cargo install sccache
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.64.1
+cd penumbra && git fetch && git checkout v0.66.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
