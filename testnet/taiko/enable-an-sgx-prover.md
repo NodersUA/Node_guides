@@ -49,6 +49,17 @@ reboot
 ## Raiko Docker
 
 ```bash
+# Update or install rust
+if command -v rustup &> /dev/null; then
+    rustup update
+else
+    curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
+fi
+rustc --version # Verify Rust installation by displaying the version
+```
+
+```bash
 git clone https://github.com/johntaiko/zeth.git
 cd zeth
 sed -i 's/sgx.edmm_enable = true/sgx.edmm_enable = false/' raiko-guest/config/raiko-guest.manifest.template
