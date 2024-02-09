@@ -23,31 +23,27 @@ apt install curl iptables build-essential git wget jq make gcc nano tmux htop nv
 #### Install docker <a href="#install-docker" id="install-docker"></a>
 
 ```bash
-sudo apt install docker.io 
-```
-
-**Check version**
-
-```bash
+# Install Docker
+if ! [ -x "$(command -v docker)" ]; then
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+sudo usermod -aG docker $USER
 docker --version
+else
+echo $(docker --version)
+fi
 ```
 
-Check the version should issue 20.10.12 or higher
-
-Install docker-compose
-
 ```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && docker-compose --version
-```
-
-Checking the version should give 1.29.2 or higher
-
-It will give an error that there is no access, give access to the command below and perform the installation again
-
-Setup permissions for docker-compose:
-
-```bash
-sudo chmod +x /usr/local/bin/docker-compose
+# Install Docker Compose
+if ! [ -x "$(command -v docker-compose)" ]; then
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+sudo chmod +x /usr/local/bin/docker-compose 
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
+else
+echo $(docker-compose --version)
+fi
 ```
 
 Install apparmor
@@ -96,7 +92,7 @@ _<mark style="color:green;">**What base directory should the node use (defaults 
 
 Waiting for the installation to finish from about 10 to 30 minutes.
 
-### Running cli and validator <a href="#4ure" id="4ure"></a>
+### Running cli and validator <a href="#id-4ure" id="id-4ure"></a>
 
 Go to folder .shardeum
 
@@ -195,7 +191,7 @@ Go to your validator page and connect the Metamask wallet (Shardeum Sphinx 1.X n
 
 <figure><img src="https://img3.teletype.in/files/6a/c9/6ac99c40-355a-406d-bb01-f9385ddd923a.png" alt=""><figcaption></figcaption></figure>
 
-### Additional faucets for tokens <a href="#29st" id="29st"></a>
+### Additional faucets for tokens <a href="#id-29st" id="id-29st"></a>
 
 **Discord (once in 12 hours)**
 

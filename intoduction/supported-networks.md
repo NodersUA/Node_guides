@@ -8,7 +8,7 @@ Discover base tools contributed to the projects by NodersUA Team.
 {% tab title="TESTNET" %}
 **Cosmos:**
 
-<table><thead><tr><th>Project</th><th>Port</th><th data-type="content-ref">Explorer</th></tr></thead><tbody><tr><td><a href="../testnet/cascadia/">Cascadia</a></td><td>18</td><td><a href="https://cascadia.exploreme.pro/">https://cascadia.exploreme.pro/</a></td></tr><tr><td><a href="../testnet/babylon/">Babylon</a></td><td>45</td><td><a href="https://babylon.explorers.guru/">https://babylon.explorers.guru/</a></td></tr></tbody></table>
+<table><thead><tr><th>Project</th><th>Port</th><th data-type="content-ref">Explorer</th></tr></thead><tbody><tr><td><a href="../archive/cascadia/">Cascadia</a></td><td>18</td><td><a href="https://cascadia.exploreme.pro/">https://cascadia.exploreme.pro/</a></td></tr><tr><td><a href="../testnet/babylon/">Babylon</a></td><td>45</td><td><a href="https://babylon.explorers.guru/">https://babylon.explorers.guru/</a></td></tr></tbody></table>
 
 **Other:**
 

@@ -60,6 +60,7 @@ cp .env.sample .env
 # Set the variables
 RPC_HOLESKY=<your_holesky_rpc>
 WS_HOLESKY=<your_holesky_ws>
+L1_PROPOSER_PRIVATE_KEY=<your_private_key>
 #EVM_ADDRESS=<your_evm_address>
 
 echo 'export RPC_HOLESKY='$RPC_HOLESKY >> $HOME/.bash_profile
@@ -72,6 +73,9 @@ source $HOME/.bash_profile
 sed -i "s|^L1_ENDPOINT_HTTP=.*|L1_ENDPOINT_HTTP=$RPC_HOLESKY|" .env
 sed -i "s|^L1_ENDPOINT_WS=.*|L1_ENDPOINT_WS=$WS_HOLESKY|" .env
 sed -i 's/^PORT_GRAFANA=.*/PORT_GRAFANA=4301/' .env
+sed -i 's/^ENABLE_PROPOSER=.*/ENABLE_PROPOSER=true/' .env
+sed -i 's/^PROVER_ENDPOINTS=.*/PROVER_ENDPOINTS=http://taiko-a6-prover.zkpool.io:9876/' .env
+sed -i 's/^L1_PROPOSER_PRIVATE_KEY=.*/L1_PROPOSER_PRIVATE_KEY=$L1_PROPOSER_PRIVATE_KEY/' .env
 ```
 
 ```bash
