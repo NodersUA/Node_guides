@@ -4,7 +4,7 @@
 sudo systemctl stop penumbra cometbft
 cd ~/penumbra 
 git reset --hard HEAD
-git fetch && git checkout v0.66.0
+git fetch && git checkout v0.67.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 cargo build --release --bin pd
