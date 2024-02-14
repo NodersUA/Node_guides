@@ -14,5 +14,28 @@ rm /usr/local/bin/subspace
 sudo mv * /usr/local/bin/
 cd $HOME && \
 rm -Rvf $HOME/subspace
+
+sudo tee <<EOF >/dev/null /etc/systemd/system/subspaced.service
+[Unit]
+Description=Subspace Node
+After=network.target
+[Service]
+Type=simple
+User=$USER
+ExecStart=$(which subspace) run \\
+--base-path $HOME/.local/share/subspace-node \\
+--chain="gemini-3h" \\
+--blocks-pruning="256" \\
+--state-pruning="archive-canonical" \\
+--farmer \\
+--name="$MONIKER"
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=1024000
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
 sudo systemctl restart subspacefarm subspaced
 ```
