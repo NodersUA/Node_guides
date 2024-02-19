@@ -20,9 +20,9 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Shardeum](../testnet/shardeum/)
 
-[Starknet](../testnet/starknet/)
+[Starknet](../archive/starknet/)
 
-[Subspace](../testnet/subspace-gemini-3f/)
+[Subspace](../archive/subspace-gemini-3f/)
 {% endtab %}
 
 {% tab title="MAINNET" %}
