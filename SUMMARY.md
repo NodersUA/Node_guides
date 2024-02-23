@@ -14,6 +14,7 @@
   * [Installation (Light node)](testnet/avail/installation-light-node.md)
   * [Update (Light node)](testnet/avail/update-light-node.md)
   * [Useful Commands](testnet/avail/useful-commands.md)
+  * [Delete](testnet/avail/delete.md)
 * [Babylon](testnet/babylon/README.md)
   * [Installation](testnet/babylon/installation.md)
   * [Update](testnet/babylon/update.md)
