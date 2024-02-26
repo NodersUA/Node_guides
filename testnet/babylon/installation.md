@@ -176,14 +176,14 @@ curl localhost:${BABYLON_PORT}657/status
 
 ```bash
 # Create wallet
-babylond keys add wallet
+babylond keys add wallet --keyring-backend test
 ```
 
 The wallet has been created. In the last line there will be a phrase that must be written down
 
 ```bash
 # If the wallet was already there, restore it
-babylond keys add wallet --recover
+babylond keys add wallet --recover --keyring-backend test
 # Insert the seed phrase from your wallet
 # If everything is correct, you will see your wallet data
 ```
