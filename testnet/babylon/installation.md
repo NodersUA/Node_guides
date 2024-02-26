@@ -30,7 +30,7 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 MONIKER=<your_moniker>
 
 echo 'export MONIKER='$MONIKER >> $HOME/.bash_profile
-echo "export BABYLON_CHAIN_ID=bbn-test-2" >> $HOME/.bash_profile
+echo "export BABYLON_CHAIN_ID=bbn-test-3" >> $HOME/.bash_profile
 echo "export BABYLON_PORT=45" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
@@ -40,12 +40,12 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/babylonchain/babylon && cd babylon
-git checkout v0.7.2
+git checkout v0.8.3
 make install
 
 sudo cp $(which babylond) /usr/local/bin/ && cd $HOME
 babylond version --long | grep -e version -e commit
-# v0.7.2
+# v0.8.3
 ```
 
 ```bash
@@ -55,12 +55,14 @@ babylond init $MONIKER --chain-id $BABYLON_CHAIN_ID
 
 ```bash
 # Download Genesis
-wget -O $HOME/.babylond/config/genesis.json https://snapshots-testnet.nodejumper.io/babylon-testnet/genesis.json
+wget https://github.com/babylonchain/networks/raw/main/bbn-test-3/genesis.tar.bz2
+tar -xjf genesis.tar.bz2 && rm genesis.tar.bz2
+mv genesis.json ~/.babylond/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.babylond/config/genesis.json
 
-# 091bd1c0ec67178faae923eb3b21020d6d4b5844de31bf314d7936168b3aa18c
+# 0ac83f9ae547643635c592da44b5a6b09a35e1ef5f515267cf0141f1560e127d
 ```
 
 ```bash
@@ -83,42 +85,43 @@ sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:$
 
 ```bash
 # correct config (so we can no longer use the chain-id flag for every CLI command in client.toml)
-babylond config chain-id $BABYLON_CHAIN_ID
+# babylond config chain-id $BABYLON_CHAIN_ID
 
 # adjust if necessary keyring-backend в client.toml 
-babylond config keyring-backend test
+#babylond config keyring-backend test
 
 # Set the minimum price for gas
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00001ubbn\"/" ~/.babylond/config/app.toml
 
 # Add seeds/peers в config.toml
-peers="30191694cc7836642e7c98f63dc968dfcf453146@babylon-testnet-peer.itrocket.net:39656"
+peers=$(curl -s https://ss-t.babylon.nodestake.org/peers.txt)
 sed -i -e "s|^persistent_peers *=.*|persistent_peers = \"$peers\"|" $HOME/.babylond/config/config.toml
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.babylond/config/config.toml
 
-seeds="8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b@seed0.testnet.babylonchain.io:26656,4b1f8a774220ba1073a4e9f4881de218b8a49c99@seed1.testnet.babylonchain.io:26656,cf36fd32c32e0bb89682e8b8e82c03049a0f0121@babylon-testnet-seed.itrocket.net:32656"
+seeds="49b4685f16670e784a0fe78f37cd37d56c7aff0e@3.14.89.82:26656,9cb1974618ddd541c9a4f4562b842b96ffaf1446@3.16.63.237:26656"
 sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" $HOME/.babylond/config/config.toml
 
 # Set up filter for "bad" peers
 sed -i -e "s/^filter_peers *=.*/filter_peers = \"true\"/" $HOME/.babylond/config/config.toml
 
 # Set up pruning
-pruning="custom"
-pruning_keep_recent="1000"
-pruning_interval="50"
-sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.babylond/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.babylond/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.babylond/config/app.toml
+#pruning="custom"
+#pruning_keep_recent="1000"
+#pruning_interval="50"
+#sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.babylond/config/app.toml
+#sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.babylond/config/app.toml
+#sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.babylond/config/app.toml
 
+sed -i -e "s/^network *=.*/network = \"signet\"/" $HOME/.babylond/config/app.toml
 sed -i -e "s/^key-name *=.*/key-name = \"wallet\"/" ~/.babylond/config/app.toml
-sed -i -e "s/^timeout_commit *=.*/timeout_commit = \"10s\"/" ~/.babylond/config/config.toml
+sed -i -e "s/^timeout_commit *=.*/timeout_commit = \"30s\"/" ~/.babylond/config/config.toml
 ```
 
 **(OPTIONAL) Turn off indexing in config.toml**
 
 ```bash
-indexer="null" && \
-sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.babylond/config/config.toml
+#indexer="null" && \
+#sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.babylond/config/config.toml
 ```
 
 ```bash
