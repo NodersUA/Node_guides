@@ -4,7 +4,7 @@
 
 ```bash
 # Check the blocks
-babylond status 2>&1 | jq ."SyncInfo"."latest_block_height"
+babylond status 2>&1 | jq ."sync_info"."latest_block_height"
 
 # Check logs
 journalctl -u babylond -f -o cat
@@ -13,13 +13,10 @@ journalctl -u babylond -f -o cat
 systemctl restart babylond && journalctl -u babylond -f -o cat
 
 # Check status
-babylond status 2>&1 | jq .SyncInfo
+babylond status 2>&1 | jq .sync_info
 
 # Check balance
 babylond q bank balances $BABYLON_ADDRESS
-
-# Check EVM address
-babylond address-converter $(babylond keys show wallet -a)
 
 # Check pubkey of validator
 babylond tendermint show-validator
