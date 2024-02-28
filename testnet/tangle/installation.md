@@ -68,6 +68,7 @@ ExecStart=/usr/local/bin/tangle \
   --no-mdns \
   --auto-insert-keys \
   --rpc-cors all \
+  --pruning archive \
   --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
  
 [Install]
