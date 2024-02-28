@@ -192,8 +192,8 @@ Go to the [#faucet](https://discord.com/channels/1046686458070700112/10753710704
 
 ```bash
 # Save the wallet address
-BABYLON_ADDRESS=$(babylond keys show wallet -a)
-BABYLON_VALOPER=$(babylond keys show wallet --bech val -a)
+BABYLON_ADDRESS=$(babylond keys show wallet -a --keyring-backend test)
+BABYLON_VALOPER=$(babylond keys show wallet --bech val -a --keyring-backend test)
 echo "export BABYLON_ADDRESS="${BABYLON_ADDRESS} >> $HOME/.bash_profile
 echo "export BABYLON_VALOPER="${BABYLON_VALOPER} >> $HOME/.bash_profile
 source $HOME/.bash_profile
