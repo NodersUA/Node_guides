@@ -31,7 +31,15 @@ cd avail-light
 cargo build --release
 cp target/release/avail-light /usr/local/bin/avail_light
 avail_light --version
-# avail-light 1.7.5
+# avail-light 1.8.0
+```
+
+```bash
+nano $HOME/avail-light/target/release/identity.toml
+```
+
+```bash
+avail_secret_seed_phrase = "your_seed_phrase"
 ```
 
 ```bash
@@ -39,17 +47,9 @@ sudo bash -c "cat > $HOME/avail-light/config.yaml" <<EOF
 log_level = "info"
 http_server_host = "127.0.0.1"
 http_server_port = 7000
-
 libp2p_port = "37000"
-
-full_node_rpc = ["http://127.0.0.1:9945"]
-full_node_ws = ["ws://127.0.0.1:9945"]
-app_id = 0
-confidence = 92.0
 avail_path = "$HOME/.avail-light"
 prometheus_port = 9520
-# Set to actual bootstrap peer ID and multiaddress
-bootstraps = [["12D3KooWStAKPADXqJ7cngPYXd2mSANpdgh1xQ34aouufHA2xShz", "/ip4/127.0.0.1/tcp/39000"]]
 
 EOF
 ```
@@ -62,7 +62,9 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=$USER 
-ExecStart=$(which avail_light) --network goldberg --config $HOME/avail-light/config.yaml
+ExecStart=$(which avail_light) --network goldberg \
+--identity $HOME/avail-light/target/release/identity.toml \
+--config $HOME/avail-light/config.yaml
 Restart=always 
 RestartSec=120
 [Install] 
