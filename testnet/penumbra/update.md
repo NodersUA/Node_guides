@@ -4,14 +4,14 @@
 sudo systemctl stop penumbra cometbft
 cd ~/penumbra 
 git reset --hard HEAD
-git fetch && git checkout v0.68.0
+git fetch && git checkout v0.68.2
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 cargo build --release --bin pd
 cp ~/penumbra/target/release/pd /usr/local/bin
-pcli view reset
-cargo run --bin pd --release -- testnet unsafe-reset-all
-cargo run --bin pd --release -- testnet join
+#pcli view reset
+#cargo run --bin pd --release -- testnet unsafe-reset-all
+#cargo run --bin pd --release -- testnet join
 ```
 
 ```bash
