@@ -77,7 +77,7 @@ sed -i.bak -e "s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${BABYLON_PORT}
 # client.toml
 sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:${BABYLON_PORT}657\"%" $HOME/.babylond/config/client.toml
 
-external_address=$(wget -qO- eth0.me)
+external_address=$(curl -s https://checkip.amazonaws.com)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:${BABYLON_PORT}656\"/" $HOME/.babylond/config/config.toml
 ```
 
