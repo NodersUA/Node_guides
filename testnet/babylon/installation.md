@@ -40,12 +40,12 @@ source $HOME/.bash_profile
 # Download binary files
 cd $HOME
 git clone https://github.com/babylonchain/babylon && cd babylon
-git checkout v0.8.3
+git checkout v0.8.4
 make install
 
 sudo cp $(which babylond) /usr/local/bin/ && cd $HOME
 babylond version --long | grep -e version -e commit
-# v0.8.3
+# v0.8.4
 ```
 
 ```bash
@@ -94,7 +94,7 @@ sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:$
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00001ubbn\"/" ~/.babylond/config/app.toml
 
 # Add seeds/peers в config.toml
-peers=$(curl -s https://ss-t.babylon.nodestake.org/peers.txt)
+peers=""
 sed -i -e "s|^persistent_peers *=.*|persistent_peers = \"$peers\"|" $HOME/.babylond/config/config.toml
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.babylond/config/config.toml
 
