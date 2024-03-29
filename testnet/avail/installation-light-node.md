@@ -31,7 +31,7 @@ cd avail-light
 cargo build --release
 cp target/release/avail-light /usr/local/bin/avail_light
 avail_light --version
-# avail-light 1.8.0
+# avail-light 1.7.8
 ```
 
 ```bash
