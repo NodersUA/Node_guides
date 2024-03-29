@@ -29,7 +29,7 @@ cargo install sccache
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.69.0
+cd penumbra && git fetch && git checkout v0.71.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
@@ -83,13 +83,13 @@ source ~/.bash_profile
 ```
 
 ```bash
-if [ "$(cometbft version)" != "0.37.2" ]; then
+if [ "$(cometbft version)" != "0.37.5" ]; then
     rm -rf ~/cometbft/
     rm /usr/local/bin/cometbft
     cd $HOME
     git clone https://github.com/cometbft/cometbft.git
     cd cometbft
-    git checkout v0.37.2
+    git checkout v0.37.5
     make install
     cp $(which cometbft) /usr/local/bin/ && cd $HOME
     cometbft version
@@ -110,7 +110,8 @@ MONIKER=<your_moniker>
 
 ```bash
 # Generating configs
-pd testnet join --external-address $(wget -qO- eth0.me):26656 --moniker $MONIKER
+pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER \
+    --archive-url "https://snapshots.penumbra.zone/testnet/pd-migrated-state-70-71.tar.gz"
 ```
 
 ```bash
