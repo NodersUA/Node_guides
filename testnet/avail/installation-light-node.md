@@ -9,49 +9,31 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/avail-l
 ## _**Manual Installation**_
 
 ```bash
-# Update, upgrade and install requirements
-sudo apt-get update && \
-sudo apt-get upgrade -y
-# Update or install rust
-if command -v rustup &> /dev/null; then
-    rustup update
-else
-    curl https://sh.rustup.rs -sSf | sh
-    source $HOME/.cargo/env
-fi
-rustc --version
-sudo apt-get install build-essential cmake clang pkg-config libssl-dev protobuf-compiler git-lfs g++ -y && \
-cargo install sccache
-```
+sudo bash -c "cat > /root/.avail/availscript.sh" <<EOF
+#!/bin/bash
+# official script command of Avail script from daningyn
+COMMAND="curl -sL1 avail.sh | bash"
+# Here is script making LC restart if getting errors
+while true; do echo "Starting command: \$COMMAND"
+    # Run command in the background
+    bash -c "\$COMMAND" &
 
-```bash
-cd $HOME
-git clone https://github.com/availproject/avail-light.git
-cd avail-light
-cargo build --release
-cp target/release/avail-light /usr/local/bin/avail_light
-avail_light --version
-# avail-light 1.7.8
-```
+    PID=\$!
 
-```bash
-nano $HOME/avail-light/target/release/identity.toml
-```
+    wait \$PID; EXIT_STATUS=\$?
+    if [ \$EXIT_STATUS -eq 0 ]; then 
+        echo "Command exited successfully. Restarting..."
+    else 
+        echo "Command failed with status \$EXIT_STATUS. Restarting..."
+    fi
 
-```bash
-avail_secret_seed_phrase = "your_seed_phrase"
-```
-
-```bash
-sudo bash -c "cat > $HOME/avail-light/config.yaml" <<EOF
-log_level = "info"
-http_server_host = "127.0.0.1"
-http_server_port = 7000
-libp2p_port = "37000"
-avail_path = "$HOME/.avail-light"
-prometheus_port = 9520
-
+    sleep 10
+done
 EOF
+```
+
+```bash
+chmod +x /root/.avail/availscript.sh
 ```
 
 ```bash
@@ -62,9 +44,7 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=$USER 
-ExecStart=$(which avail_light) --network goldberg \
---identity $HOME/avail-light/target/release/identity.toml \
---config $HOME/avail-light/config.yaml
+ExecStart=/root/.avail/availscript.sh
 Restart=always 
 RestartSec=120
 [Install] 
