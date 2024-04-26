@@ -29,7 +29,7 @@ cargo install sccache
 ```bash
 # Clone repository and build
 git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.71.0
+cd penumbra && git fetch && git checkout v0.73.0
 cargo build --release --bin pcli
 cp ~/penumbra/target/release/pcli /usr/local/bin
 ```
@@ -110,8 +110,7 @@ MONIKER=<your_moniker>
 
 ```bash
 # Generating configs
-pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER \
-    --archive-url "https://snapshots.penumbra.zone/testnet/pd-migrated-state-70-71.tar.gz"
+pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER
 ```
 
 ```bash

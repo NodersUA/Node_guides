@@ -31,8 +31,7 @@ cargo run --bin pd --release -- testnet unsafe-reset-all
 ```
 
 ```bash
-pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER \
-    --archive-url "https://snapshots.penumbra.zone/testnet/pd-migrated-state-70-71.tar.gz"
+pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER
 ```
 
 ```bash
