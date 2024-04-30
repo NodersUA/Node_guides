@@ -11,11 +11,21 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 ```
 
 ```bash
-git clone https://github.com/masa-finance/masa-oracle-go-testnet.git masa
+git clone git@github.com:masa-finance/masa-oracle.git masa
 cd masa
-go build -v -o masa-node ./cmd/masa-node
+```
 
-sudo cp masa-node /usr/local/bin/
+```bash
+sudo tee $HOME/masa/.env > /dev/null <<EOF
+BOOTNODES=/ip4/35.223.224.220/udp/4001/quic-v1/p2p/16Uiu2HAmPxXXjR1XJEwckh6q1UStheMmGaGe8fyXdeRs3SejadSa
+RPC_URL=https://ethereum-sepolia.publicnode.com
+ENV=test
+FILE_PATH=.
+WRITER_NODE=false
+TWITTER_SCRAPER=false
+WEB_SCRAPER=false
+PORT=8282
+EOF
 ```
 
 ### Staking Tokens&#x20;
@@ -36,7 +46,7 @@ To participate in the network and earn rewards, you must first stake your tokens
 4.  Send Sepolia ETH and Masa testnet tokens to your address. Then stake!:
 
     ```
-    ./masa-node --stake 100
+    ./masa-node --stake 1000
     ```
 
 ```bash
