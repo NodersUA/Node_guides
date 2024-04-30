@@ -1,5 +1,13 @@
 # Installation
 
+_**Automatic Installation**_
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/masa)
+```
+
+**Manual Installation**
+
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
