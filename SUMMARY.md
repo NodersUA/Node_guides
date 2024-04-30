@@ -28,6 +28,7 @@
   * [Useful Commands](testnet/holograph/useful-commands.md)
 * [Masa](testnet/masa/README.md)
   * [Installation](testnet/masa/installation.md)
+  * [Update](testnet/masa/update.md)
   * [Delete](testnet/masa/delete.md)
 * [Namada](testnet/namada/README.md)
   * [Installation](testnet/namada/installation.md)
