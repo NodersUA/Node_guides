@@ -13,6 +13,8 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 ```bash
 git clone git@github.com:masa-finance/masa-oracle.git masa
 cd masa
+go build -v -o masa-node ./cmd/masa-node
+sudo cp masa-node /usr/local/bin/
 ```
 
 ```bash
@@ -60,7 +62,7 @@ After=network.target
 Type=simple
 User=$USER
 WorkingDirectory=$HOME/masa/
-ExecStart=/usr/local/bin/masa-node --port=8282 --udp=true --tcp=false --start=true
+ExecStart=/usr/local/bin/masa-node
 Restart=on-failure
 StartLimitInterval=0
 RestartSec=3
