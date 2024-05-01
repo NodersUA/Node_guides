@@ -51,6 +51,7 @@
   * [Delete](testnet/subspace-gemini-3h/delete.md)
 * [Taiko](testnet/taiko/README.md)
   * [Installation](testnet/taiko/installation.md)
+  * [Update](testnet/taiko/update.md)
   * [Enable an SGX prover](testnet/taiko/enable-an-sgx-prover.md)
 * [Tangle](testnet/tangle/README.md)
   * [Installation](testnet/tangle/installation.md)
