@@ -110,7 +110,7 @@ MONIKER=<your_moniker>
 
 ```bash
 # Generating configs
-pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER --archive-url "https://snapshots.penumbra.zone/testnet/pd-migrated-state-75-76.tar.gz"
+pd testnet join --external-address $(curl -s https://checkip.amazonaws.com):42656 --moniker $MONIKER --archive-url "https://snapshots.penumbra.zone/testnet/pd-migrated-state-76-77.tar.gz"
 ```
 
 ```bash
