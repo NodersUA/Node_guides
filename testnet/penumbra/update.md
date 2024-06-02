@@ -23,6 +23,10 @@ sudo systemctl restart penumbra cometbft
 ```
 
 ```bash
+pcli view reset
+```
+
+```bash
 # Check logs Penumbra
 journalctl -u penumbra -f -o cat
 ```
