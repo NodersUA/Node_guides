@@ -1,17 +1,126 @@
 # Installation
 
-_**Automatic Installation**_
+## _**Automatic Installation**_
 
 ```bash
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/babylon)
 ```
 
-**Manual Installation**
+## **Manual Installation**
+
+### Setting up a Bitcoin node
+
+#### Install node
 
 ```bash
 # Update the repositories
 apt update && apt upgrade -y
 ```
+
+```bash
+# Download Bitcoin Core binary
+mkdir bitcoin && cd bitcoin
+wget https://bitcoincore.org/bin/bitcoin-core-26.0/bitcoin-26.0-x86_64-linux-gnu.tar.gz
+
+# Extract the downloaded archive
+tar -xvf bitcoin-26.0-x86_64-linux-gnu.tar.gz
+cd bitcoin-26.0/bin
+
+# Provide execution permissions to binaries
+chmod +x bitcoind bitcoin-cli
+
+sudo cp bitcoind bitcoin-cli /usr/local/bin/ && cd ~/
+```
+
+```bash
+# Set the variables
+
+# Come up with the name of your node and replace it instead <your_moniker>
+MONIKER=<your_moniker>
+BTC_STAKER_RPC_USER=<your_rpc_username>
+BTC_STAKER_RPC_PASSWORD=<your_rpc_password>
+
+echo 'export MONIKER='$MONIKER >> $HOME/.bash_profile
+echo "export BTC_STAKER_RPC_USER=$BTC_STAKER_RPC_USER" >> $HOME/.bash_profile
+echo "export BTC_STAKER_RPC_PASSWORD=$BTC_STAKER_RPC_PASSWORD" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+# check whether the last command was executed
+```
+
+```bash
+# Create the service file
+sudo tee /etc/systemd/system/bitcoind.service >/dev/null <<EOF
+[Unit]
+Description=bitcoin signet node
+After=network.target
+
+[Service]
+User=$USER
+Type=simple
+ExecStart=/usr/local/bin/bitcoind \
+    -deprecatedrpc=create_bdb \
+    -signet \
+    -server \
+    -txindex \
+    -rpcport=38332 \
+    -rpcuser=$BTC_STAKER_RPC_USER \
+    -rpcpassword=$BTC_STAKER_RPC_PASSWORD
+Restart=on-failure
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+```bash
+# Start the service
+sudo systemctl daemon-reload
+sudo systemctl enable bitcoind
+sudo systemctl start bitcoind
+journalctl -u bitcoind -f -o cat
+```
+
+Check the last block in [explorer](https://mempool.space/signet)
+
+#### Create legacy wallet and generate address
+
+```bash
+~/bitcoin-26.0/bin/bitcoin-cli -signet \
+    -rpcuser=$BTC_STAKER_RPC_USER \
+    -rpcpassword=$BTC_STAKER_RPC_PASSWORD \
+    -rpcport=38332 \
+    -named createwallet \
+    wallet_name=btcstaker \
+    passphrase="<passphrase>" \
+    load_on_startup=true \
+    descriptors=false
+```
+
+```bash
+bitcoin-cli -signet \
+    -rpcuser=$BTC_STAKER_RPC_USER \
+    -rpcpassword=$BTC_STAKER_RPC_PASSWORD \
+    -rpcport=38332 \
+    getnewaddress
+```
+
+Go to the [#faucet-signet-btc](https://discordapp.com/channels/1046686458070700112/1212398536256393227) branch or [website](https://signetfaucet.com/) and request tokens
+
+```bash
+# Check balance
+bitcoin-cli -signet \
+  -rpcuser=$BTC_STAKER_RPC_USER \
+  -rpcpassword=$BTC_STAKER_RPC_PASSWORD \
+  -rpcport=38332 \
+  getwalletinfo
+```
+
+
+
+
+
+### Setting up a Babilon node
 
 ```bash
 # Install developer packages
