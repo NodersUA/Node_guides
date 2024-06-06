@@ -26,6 +26,7 @@
 * [Holograph](testnet/holograph/README.md)
   * [Installation](testnet/holograph/installation.md)
   * [Useful Commands](testnet/holograph/useful-commands.md)
+  * [Delete](testnet/holograph/delete.md)
 * [Masa](testnet/masa/README.md)
   * [Installation](testnet/masa/installation.md)
   * [Update](testnet/masa/update.md)

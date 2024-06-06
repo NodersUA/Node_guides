@@ -131,11 +131,10 @@ EOF
 
 Next step...
 
-```bash
-systemctl daemon-reload
-systemctl enable holographd
-systemctl restart holographd
-```
+<pre class="language-bash"><code class="lang-bash">systemctl daemon-reload
+<strong>systemctl enable holographd
+</strong>systemctl restart holographd
+</code></pre>
 
 ```bash
 # Check logs
