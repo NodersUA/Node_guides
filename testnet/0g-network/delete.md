@@ -1,9 +1,9 @@
 # Delete
 
 ```bash
-systemctl stop babylond
-systemctl disable babylond
-rm -rf babylon .babylond
-rm /usr/local/bin/babylond
-rm /etc/systemd/system/babylond.service
+systemctl stop 0gd
+systemctl disable 0gd
+rm -rf 0g-chain .0gchain
+rm /usr/local/bin/0gchaind
+rm /etc/systemd/system/0gd.service
 ```
