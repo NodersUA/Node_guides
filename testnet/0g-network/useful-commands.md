@@ -7,10 +7,10 @@
 0gchaind status 2>&1 | jq ."sync_info"."latest_block_height"
 
 # Check logs
-journalctl -u 0gd -f -o cat
+journalctl -u 0gchaind -f -o cat
 
 # Restart
-systemctl restart 0gd && journalctl -u 0gd -f -o cat
+systemctl restart 0gchaind && journalctl -u 0gchaind -f -o cat
 
 # Check your EVM Address
 echo "0x$(0gchaind debug addr $(0gchaind keys show wallet -a) | grep hex | awk '{print $3}')"

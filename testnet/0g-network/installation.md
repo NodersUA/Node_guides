@@ -137,7 +137,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.0gchain/config/config
 
 ```bash
 # Create service file (One command)
-sudo tee /etc/systemd/system/0gd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/0gchaind.service > /dev/null <<EOF
 [Unit]
 Description=0G Node
 After=network.target
@@ -161,15 +161,15 @@ EOF
 ```bash
 # Start the node
 systemctl daemon-reload
-systemctl enable 0gd
-systemctl restart 0gd && journalctl -u 0gd -f -o cat
+systemctl enable 0gchaind
+systemctl restart 0gchaind && journalctl -u 0gchaind -f -o cat
 
 # Escape from logs ctrl+c
 ```
 
 ```bash
 # Check the logs again
-journalctl -u 0gd -f -o cat
+journalctl -u 0gchaind -f -o cat
 
 # Escape from logs ctrl+c
 ```
