@@ -199,7 +199,12 @@ The wallet has been created. In the last line there will be a phrase that must b
 # If everything is correct, you will see your wallet data
 ```
 
-Go to the [faucet](https://faucet.0g.ai/) and request tokens
+Go to the [faucet](https://faucet.0g.ai/) and request tokens to your evm address
+
+```bash
+# Check your EVM Address
+echo "0x$(0gchaind debug addr $(0gchaind keys show wallet -a) | grep hex | awk '{print $3}')"
+```
 
 ```bash
 # Save the wallet address
