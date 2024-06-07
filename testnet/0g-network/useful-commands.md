@@ -12,6 +12,9 @@ journalctl -u 0gd -f -o cat
 # Restart
 systemctl restart 0gd && journalctl -u 0gd -f -o cat
 
+# Check your EVM Address
+echo "0x$(0gchaind debug addr $(0gchaind keys show wallet -a) | grep hex | awk '{print $3}')"
+
 # Check status
 0gchaind status 2>&1 | jq .sync_info
 
