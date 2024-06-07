@@ -4,57 +4,57 @@
 
 ```bash
 # Check the blocks
-babylond status 2>&1 | jq ."sync_info"."latest_block_height"
+0gchaind status 2>&1 | jq ."sync_info"."latest_block_height"
 
 # Check logs
-journalctl -u babylond -f -o cat
+journalctl -u 0gd -f -o cat
 
 # Restart
-systemctl restart babylond && journalctl -u babylond -f -o cat
+systemctl restart 0gd && journalctl -u 0gd -f -o cat
 
 # Check status
-babylond status 2>&1 | jq .sync_info
+0gchaind status 2>&1 | jq .sync_info
 
 # Check balance
-babylond q bank balances $BABYLON_ADDRESS
+0gchaind q bank balances $0G_ADDRESS
 
 # Check pubkey of validator
-babylond tendermint show-validator
+0gchaind tendermint show-validator
 
 # Check validator
-babylond q staking validator $BABYLON_VALOPER
-babylond q staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker="$BABYLON_VALOPER")' | jq
+0gchaind q staking validator $0G_VALOPER
+0gchaind q staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker="$0G_VALOPER")' | jq
 
 # Check information of TX_HASH
-babylond q tx <TX_HASH>
+0gchaind q tx <TX_HASH>
 
 # Check how many blocks were passed by the validator and from which block the asset
-babylond q slashing signing-info $(babylond tendermint show-validator)
+0gchaind q slashing signing-info $(0gchaind tendermint show-validator)
 ```
 
 ```bash
 Transactions
 
 # Collect rewards from all validators delegated to them (without commission)
-babylond tx distribution withdraw-all-rewards --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx distribution withdraw-all-rewards --from wallet --gas="auto" --gas-adjustment=1.4 -y
 
 # Collect rewards from a separate validator or rewards + commission from your own validator
-babylond tx distribution withdraw-rewards $BABYLON_VALOPER --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" --commission -y
+0gchaind tx distribution withdraw-rewards $OG_VALOPER --from wallet --gas="auto" --gas-adjustment=1.4 --commission -y
 
 # Delegate yourself (this is how 1 coin is sent)
-babylond tx staking delegate $BABYLON_VALOPER 1000000ubbn --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx staking delegate $0G_VALOPER 1000000ua0gi --from wallet --gas="auto" --gas-adjustment=1.4 -y
 
 # Redelegate to other validator
-babylond tx staking redelegate $BABYLON_VALOPER <dst-validator-addr> 1000000ubbn --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx staking redelegate $0G_VALOPER <dst-validator-addr> 1000000ua0gi --from wallet --gas="auto" --gas-adjustment=1.4 -y
 
 # unbond 
-babylond tx staking unbond $BABYLON_VALOPER 1000000ubbn --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx staking unbond $0G_VALOPER 1000000ua0gi --from wallet --gas="auto" --gas-adjustment=1.4 -y
 
 # Send tokens to other adress
-babylond tx bank send wallet <address> 1000000ubbn --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx bank send wallet <address> 1000000ua0gi --gas="auto" --gas-adjustment=1.4 -y
 
 # Escape from jail
-babylond tx slashing unjail --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx slashing unjail --from wallet --gas="auto" --gas-adjustment=1.4 -y
 ```
 
 ! If the transactions are not sent with the error account sequence mismatch, expected 18, got 17: incorrect account sequence, then add the flag -s 18 to the command (replace the number with the one that is waiting for the sequence)
@@ -63,46 +63,46 @@ babylond tx slashing unjail --from wallet --gas="auto" --gas-adjustment=1.2 --ga
 
 ```bash
 # Chech the wallets list
-babylond keys list
+0gchaind keys list
 
 # Delete wallet
-babylond keys delete <name_wallet>
+0gchaind keys delete <name_wallet>
 ```
 
 ## **Delete Node**
 
 ```bash
-sudo systemctl stop babylond && \
-sudo systemctl disable babylond && \
-rm /etc/systemd/system/babylond.service && \
+sudo systemctl stop 0gd && \
+sudo systemctl disable 0gd && \
+rm /etc/systemd/system/0gd.service && \
 sudo systemctl daemon-reload && \
 cd $HOME && \
-rm -rf babylon && \
-rm -rf .babylond && \
-rm -rf $(which babylond)
+rm -rf 0g-chain && \
+rm -rf .0gchain && \
+rm -rf $(which 0gchaind)
 ```
 
 ## Governance
 
 ```bash
 # List proposals
-babylond q gov proposals
+0gchaind q gov proposals
 
 # Check voting result
-babylond q gov proposals --voter $BABYLON_ADDRESS
+0gchaind q gov proposals --voter $0G_ADDRESS
 
 # Vote 
-babylond tx gov vote 20 yes --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ubbn" -y
+0gchaind tx gov vote 20 yes --from wallet --gas="auto" --gas-adjustment=1.2 --gas-prices="0.00001ua0gi" -y
 ```
 
 ## **Peers and RPC**
 
 ```bash
-FOLDER=.babylond
+FOLDER=.0gchain
 
 # Check your peer
 PORTR=$(grep -A 3 "\[p2p\]" ~/$FOLDER/config/config.toml | egrep -o ":[0-9]+") && \
-echo $(babylond tendermint show-node-id)@$(curl ifconfig.me)$PORTR
+echo $(0gchaind tendermint show-node-id)@$(curl ifconfig.me)$PORTR
 
 # Check port of RPC
 echo -e "\033[0;32m$(grep -A 3 "\[rpc\]" ~/$FOLDER/config/config.toml | egrep -o ":[0-9]+")\033[0m"
