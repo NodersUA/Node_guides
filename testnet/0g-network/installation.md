@@ -89,7 +89,7 @@ sed -i \
     -e "/\[grpc-web\]/,/^\[/{s/\(address = \"\)\([^:]*\):\([0-9]*\)\(\".*\)/\1\2:$GRPC_WEB_PORT\4/}" \
     $HOME/.0gchain/config/app.toml
     
-0gchaind config node tcp://localhost:${OG_PORT}657
+0gchaind config node tcp://127.0.0.1:${OG_PORT}657
 ```
 
 **Setup config**
@@ -199,7 +199,7 @@ The wallet has been created. In the last line there will be a phrase that must b
 # If everything is correct, you will see your wallet data
 ```
 
-Go to the [#faucet](https://discord.com/channels/1046686458070700112/1075371070493831259) branch and request tokens
+Go to the [faucet](https://faucet.0g.ai/) and request tokens
 
 ```bash
 # Save the wallet address
@@ -239,7 +239,7 @@ Do not forget to create a profile on [https://keybase.io/](https://keybase.io/) 
 -y
 ```
 
-Check yourself in the list [explorer](https://chainscan-newton.0g.ai/)
+Check yourself in the list [explorer](https://chainscan-newton.0g.ai/) and fill out the [form](https://docs.google.com/forms/d/e/1FAIpQLScsa1lpn43F7XAydVlKK\_ItLGOkuz2fBmQaZjecDn76kysQsw/viewform?ts=6617a343)
 
 Or by command
 
