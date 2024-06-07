@@ -14,7 +14,7 @@ Discover base tools contributed to the projects by NodersUA Team.
 
 [Fleek](../testnet/fleek-lightning/)
 
-[Holograph](../testnet/holograph/)
+[Holograph](../archive/holograph/)
 
 [Penumbra](../testnet/penumbra/)
 
