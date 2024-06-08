@@ -217,7 +217,7 @@ source $HOME/.bash_profile
 
 ```bash
 # Check the ballance
-0gchaind query bank balances $OG_ADDRESS
+0gchaind query bank balances $(0gchaind keys show wallet -a)
 ```
 
 **Validator**
