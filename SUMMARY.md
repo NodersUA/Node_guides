@@ -8,6 +8,8 @@
 
 ## Testnet
 
+* [Nubit](testnet/nubit/README.md)
+  * [Nubit](testnet/nubit/nubit.md)
 * [0G Network](testnet/0g-network/README.md)
   * [Installation](testnet/0g-network/installation.md)
   * [Useful Commands](testnet/0g-network/useful-commands.md)
