@@ -18,3 +18,6 @@ git submodule update --init
 # Build in release mode
 cargo build --release
 ```
+
+```bash
+```
