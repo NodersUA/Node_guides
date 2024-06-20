@@ -9,7 +9,8 @@
 ## Testnet
 
 * [Nubit](testnet/nubit/README.md)
-  * [Install](testnet/nubit/install.md)
+  * [Install (Light Node)](testnet/nubit/install-light-node.md)
+  * [Install (Validator Node)](testnet/nubit/install-validator-node.md)
 * [0G Network](testnet/0g-network/README.md)
   * [Installation (Validator Node)](testnet/0g-network/installation.md)
   * [Installation (Storage Node And DA Services)](testnet/0g-network/installation-storage-node-and-da-services.md)

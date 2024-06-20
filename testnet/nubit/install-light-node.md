@@ -1,4 +1,12 @@
-# Install
+# Install (Light Node)
+
+## _**Automatic Installation**_
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/nubit)
+```
+
+## **Manual Installation**
 
 ```bash
 curl -sL1 https://nubit.sh | bash
