@@ -20,4 +20,38 @@ cargo build --release
 ```
 
 ```bash
+cp run/config.toml run/config_temp.toml
+
+
+```
+
+```bash
+# Create service file (One command)
+sudo tee /etc/systemd/system/0gstorage.service > /dev/null <<EOF
+[Unit]
+Description=0G Storage Node
+After=network.target
+ 
+[Service]
+Type=simple
+User=$USER
+ExecStart=/root/0g-storage-node/target/release/zgs_node --config config.toml
+Restart=on-failure
+StartLimitInterval=0
+RestartSec=3
+LimitNOFILE=65535
+LimitMEMLOCK=209715200
+ 
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+```bash
+# Start the node
+systemctl daemon-reload
+systemctl enable 0gstorage
+systemctl restart 0gstorage && journalctl -u 0gstorage -f -o cat
+
+# Escape from logs ctrl+c
 ```
