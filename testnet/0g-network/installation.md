@@ -1,4 +1,4 @@
-# Installation
+# Installation (Validator Node)
 
 ## _**Automatic Installation**_
 
@@ -137,7 +137,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.0gchain/config/config
 
 ```bash
 # Create service file (One command)
-sudo tee /etc/systemd/system/0gchaind.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/Ogchaind.service > /dev/null <<EOF
 [Unit]
 Description=0G Node
 After=network.target
@@ -161,15 +161,15 @@ EOF
 ```bash
 # Start the node
 systemctl daemon-reload
-systemctl enable 0gchaind
-systemctl restart 0gchaind && journalctl -u 0gchaind -f -o cat
+systemctl enable Ogchaind
+systemctl restart Ogchaind && journalctl -u Ogchaind -f -o cat
 
 # Escape from logs ctrl+c
 ```
 
 ```bash
 # Check the logs again
-journalctl -u 0gchaind -f -o cat
+journalctl -u Ogchaind -f -o cat
 
 # Escape from logs ctrl+c
 ```
