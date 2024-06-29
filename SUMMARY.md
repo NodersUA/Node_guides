@@ -8,10 +8,10 @@
 
 ## Testnet
 
-* [Nubit](testnet/nubit/README.md)
-  * [Install (Light Node)](testnet/nubit/install-light-node.md)
-  * [Install (Validator Node)](testnet/nubit/install-validator-node.md)
-  * [Update (Light Node)](testnet/nubit/update-light-node.md)
+* [Farcastr](testnet/farcastr/README.md)
+  * [Install](testnet/farcastr/install.md)
+* [Union](testnet/union/README.md)
+  * [Install](testnet/union/install.md)
 * [0G Network](testnet/0g-network/README.md)
   * [Installation (Validator Node)](testnet/0g-network/installation.md)
   * [Installation (Storage Node And DA Services)](testnet/0g-network/installation-storage-node-and-da-services.md)
@@ -25,6 +25,10 @@
   * [Installation](testnet/fleek-lightning/installation.md)
   * [Update](testnet/fleek-lightning/update.md)
   * [Useful Commands](testnet/fleek-lightning/useful-commands.md)
+* [Nubit](testnet/nubit/README.md)
+  * [Install (Light Node)](testnet/nubit/install-light-node.md)
+  * [Install (Validator Node)](testnet/nubit/install-validator-node.md)
+  * [Update (Light Node)](testnet/nubit/update-light-node.md)
 * [Penumbra](testnet/penumbra/README.md)
   * [Installation](testnet/penumbra/installation.md)
   * [Update](testnet/penumbra/update.md)
