@@ -33,6 +33,11 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.0
 ```
 
 ```bash
+if ! dpkg -s lz4 &> /dev/null; then
+sudo apt update && apt upgrade -y
+apt install lz4 -y
+fi
+
 cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
 
 0gchaind tendermint unsafe-reset-all --home $HOME/.0gchain --keep-addr-book
