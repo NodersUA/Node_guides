@@ -79,5 +79,5 @@ docker compose up hubble -d
 ```
 
 ```bash
-docker compose logs -fn10 hubble
+cd ~/hub-monorepo/apps/hubble && docker compose logs -fn10 hubble
 ```
