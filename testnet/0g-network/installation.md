@@ -28,7 +28,7 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 MONIKER=<your_moniker>
 
 echo 'export MONIKER='$MONIKER >> $HOME/.bash_profile
-echo "export OG_CHAIN_ID=zgtendermint_16600-1" >> $HOME/.bash_profile
+echo "export OG_CHAIN_ID=zgtendermint_16600-2" >> $HOME/.bash_profile
 echo "export OG_PORT=47" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 # check whether the last command was executed
@@ -37,7 +37,7 @@ source $HOME/.bash_profile
 ```bash
 # Download binary files
 cd $HOME
-git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
+git clone -b v0.2.3 https://github.com/0glabs/0g-chain.git
 cd 0g-chain
 make install
 
@@ -53,7 +53,7 @@ sudo cp $(which 0gchaind) /usr/local/bin/ && cd $HOME
 
 ```bash
 # Download Genesis
-wget wget https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json -O $HOME/.0gchain/config/genesis.json
+wget https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json -O $HOME/.0gchain/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.0gchain/config/genesis.json

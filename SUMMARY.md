@@ -14,6 +14,7 @@
   * [Install](testnet/union/install.md)
 * [0G Network](testnet/0g-network/README.md)
   * [Installation (Validator Node)](testnet/0g-network/installation.md)
+  * [Update (Validator Node)](testnet/0g-network/update-validator-node.md)
   * [Installation (Storage Node And DA Services)](testnet/0g-network/installation-storage-node-and-da-services.md)
   * [Useful Commands](testnet/0g-network/useful-commands.md)
   * [Delete](testnet/0g-network/delete.md)

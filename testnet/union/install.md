@@ -70,6 +70,7 @@ sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" ~/.union/config/config.toml
 ```bash
 # Customize if you need
 EXTERNAL_IP=$(wget -qO- eth0.me) \
+RPC_PORT=${UNION_PORT}657 \
 PROXY_APP_PORT=${UNION_PORT}658 \
 P2P_PORT=${UNION_PORT}656 \
 PPROF_PORT=60${UNION_PORT} \
@@ -148,17 +149,25 @@ systemctl restart uniond && journalctl -u uniond -f -o cat
 
 ```bash
 # Create wallet
-uniond keys add wallet
+uniond keys add wallet --keyring-backend test --home ~/.union/
 ```
 
 The wallet has been created. In the last line there will be a phrase that must be written down
 
 ```bash
 # If the wallet was already there, restore it
-uniond keys add wallet --recover
+uniond keys add wallet --recover --keyring-backend test --home ~/.union/
 # Insert the seed phrase from your wallet
 # If everything is correct, you will see your wallet data
 ```
+
+```bash
+uniond q bank balances $(uniond keys show wallet -a --keyring-backend test --home $HOME/.union) --node https://rpc-1.testnet.union.nodes.guru:443
+```
+
+
+
+
 
 Go to the [faucet](https://faucet.0g.ai/) and request tokens to your evm address
 
