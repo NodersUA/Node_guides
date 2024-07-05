@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Allora](testnet/allora.md)
 * [Analog](testnet/analog/README.md)
   * [Install](testnet/analog/install.md)
 * [Aleo](testnet/aleo/README.md)
