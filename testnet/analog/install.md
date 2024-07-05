@@ -53,3 +53,6 @@ docker pull analoglabs/timechain
 sudo docker run -d --name analog -p 9950:9950 -p 50303:50303 analoglabs/timechain --base-path /data --unsafe-rpc-external --rpc-methods=Unsafe --name $MONIKER --telemetry-url='wss://telemetry.analog.one/submit 9'
 ```
 
+```bash
+docker logs -fn100 analog
+```
