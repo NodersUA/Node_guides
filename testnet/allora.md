@@ -65,7 +65,7 @@ allorad version
 ```
 
 ```bash
-allorad keys add wallet
+allorad keys add wallet --keyring-backend test
 ```
 
 * Go to [explorer](https://explorer.edgenet.allora.network/wallet/suggest) and add the Allora network using Keplr
