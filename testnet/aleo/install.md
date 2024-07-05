@@ -27,6 +27,7 @@ cargo install --locked --path .
 ```bash
 ufw allow 4130/tcp
 ufw allow 3030/tcp
+sudo ufw limit out proto tcp to any port 10333
 ```
 
 ```bash

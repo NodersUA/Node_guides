@@ -8,6 +8,8 @@
 
 ## Testnet
 
+* [Analog](testnet/analog/README.md)
+  * [Install](testnet/analog/install.md)
 * [Aleo](testnet/aleo/README.md)
   * [Install](testnet/aleo/install.md)
 * [0G Network](testnet/0g-network/README.md)
