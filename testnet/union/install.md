@@ -28,7 +28,7 @@ fi
 ```
 
 ```bash
-UNIOND_VERSION=v0.22.0
+UNIOND_VERSION=v0.23.0
 ```
 
 ```bash
@@ -57,7 +57,7 @@ sudo mv ./uniond /usr/local/bin/
 ```
 
 ```bash
-uniond init $MONIKER --chain-id $UNION_CHAIN_ID
+#uniond init $MONIKER --chain-id $UNION_CHAIN_ID
 ```
 
 ```bash
