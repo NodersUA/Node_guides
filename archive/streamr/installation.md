@@ -46,7 +46,7 @@ sudo chmod -R 777 ~/.streamrDocker/
 sudo docker run -it -v $(cd ~/.streamrDocker && pwd):/home/streamr/.streamr streamr/broker-node:v100.0.0-testnet-two.2 bin/config-wizard
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 # Run node
@@ -71,7 +71,7 @@ sudo docker restart streamr
 2.  Click the _**Add node address**_ button, paste in your **node address** (the Ethereum public address, not its private key!), click the button in the dialog and remember to click the _**Save**_ button.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 

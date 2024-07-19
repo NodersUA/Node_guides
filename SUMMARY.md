@@ -8,7 +8,8 @@
 
 ## Testnet
 
-* [Waku](testnet/waku.md)
+* [Rivalz](testnet/rivalz.md)
+* [Dill](testnet/dill.md)
 * [Allora](testnet/allora.md)
 * [Aleo](testnet/aleo/README.md)
   * [Install](testnet/aleo/install.md)
@@ -34,6 +35,7 @@
   * [Delete](testnet/subspace-gemini-3h/delete.md)
 * [Union](testnet/union/README.md)
   * [Install](testnet/union/install.md)
+* [Waku](testnet/waku.md)
 
 ## Mainnet
 
