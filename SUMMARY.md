@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Gaia](testnet/gaia.md)
 * [Rivalz](testnet/rivalz.md)
 * [Dill](testnet/dill.md)
 * [Allora](testnet/allora.md)
