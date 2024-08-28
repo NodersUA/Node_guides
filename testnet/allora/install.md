@@ -94,7 +94,7 @@ sudo tee ~/allora-huggingface-walkthrough/config.json > /dev/null <<EOF
        "alloraHomeDir": "/root/.allorad",
        "gas": "1000000",
        "gasAdjustment": 1.0,
-       "nodeRpc": "allora-testnet-rpc.polkachu.com",
+       "nodeRpc": "https://allora-testnet-rpc.itrocket.net",
        "maxRetries": 1,
        "delay": 1,
        "submitTx": false
