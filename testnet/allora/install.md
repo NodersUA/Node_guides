@@ -94,7 +94,7 @@ sudo tee ~/allora-huggingface-walkthrough/config.json > /dev/null <<EOF
        "alloraHomeDir": "/root/.allorad",
        "gas": "1000000",
        "gasAdjustment": 1.0,
-       "nodeRpc": "https://allora-testnet-rpc.itrocket.net",
+       "nodeRpc": "https://allora-testnet-rpc.polkachu.com/",
        "maxRetries": 1,
        "delay": 1,
        "submitTx": false
@@ -194,6 +194,11 @@ sed -i 's/<Your Coingecko API key>/CG-RBebgnRtVuNPFNAFL82BB3vx/' app.py
 ```bash
 chmod +x init.config
 ./init.config
+```
+
+```bash
+docker stop worker-basic-eth-pred
+docker stop inference-basic-eth-pred
 ```
 
 ```bash
