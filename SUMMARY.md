@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Story](testnet/story.md)
 * [Gaia](testnet/gaia.md)
 * [Rivalz](testnet/rivalz.md)
 * [Dill](testnet/dill.md)
