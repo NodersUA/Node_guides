@@ -37,7 +37,7 @@ source $HOME/.bash_profile
 ```bash
 # Download binary files
 cd $HOME
-git clone -b v0.2.3 https://github.com/0glabs/0g-chain.git
+git clone -b v0.2.5 https://github.com/0glabs/0g-chain.git
 cd 0g-chain
 make install
 
@@ -53,7 +53,7 @@ sudo cp $(which 0gchaind) /usr/local/bin/ && cd $HOME
 
 ```bash
 # Download Genesis
-wget https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json -O $HOME/.0gchain/config/genesis.json
+wget https://server-5.itrocket.net/testnet/og/genesis.json -O $HOME/.0gchain/config/genesis.json
 
 # Check Genesis
 sha256sum $HOME/.0gchain/config/genesis.json
@@ -151,7 +151,7 @@ After=network.target
 Type=simple
 User=$USER
 WorkingDirectory=$HOME/go/bin
-ExecStart=/usr/local/bin/0gchaind start
+ExecStart=/usr/local/bin/0gchaind start --home $HOME/.0gchain
 Restart=on-failure
 StartLimitInterval=0
 RestartSec=3
