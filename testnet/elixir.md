@@ -18,7 +18,7 @@ SIGNER_PRIVATE_KEY=<Validator private key>
 ```
 
 ```bash
-mkdir elixir
+mkdir elixir && cd elixir
 
 sudo tee validator.env > /dev/null <<EOF
 ENV=testnet-3
