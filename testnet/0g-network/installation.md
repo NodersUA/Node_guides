@@ -37,8 +37,11 @@ source $HOME/.bash_profile
 ```bash
 # Download binary files
 cd $HOME
-git clone -b v0.2.5 https://github.com/0glabs/0g-chain.git
+rm -rf 0g-chain
+git clone https://github.com/0glabs/0g-chain.git
 cd 0g-chain
+git checkout v0.3.1
+git submodule update --init
 make install
 
 sudo cp $(which 0gchaind) /usr/local/bin/ && cd $HOME
@@ -151,7 +154,7 @@ After=network.target
 Type=simple
 User=$USER
 WorkingDirectory=$HOME/go/bin
-ExecStart=/usr/local/bin/0gchaind start --home $HOME/.0gchain
+ExecStart=/usr/local/bin/0gchaind start --home $HOME/.0gchain --log_output_console
 Restart=on-failure
 StartLimitInterval=0
 RestartSec=3
