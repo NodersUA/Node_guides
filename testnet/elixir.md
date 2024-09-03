@@ -20,7 +20,7 @@ SIGNER_PRIVATE_KEY=<Validator private key>
 ```bash
 mkdir elixir
 
-sudo tee /etc/systemd/system/rivalz.service > /dev/null <<EOF
+sudo tee validator.env > /dev/null <<EOF
 ENV=testnet-3
 
 STRATEGY_EXECUTOR_IP_ADDRESS=$STRATEGY_EXECUTOR_IP_ADDRESS
