@@ -11,7 +11,7 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 ```
 
 ```bash
-git clone -b v0.3.1 https://github.com/0glabs/0g-storage-node.git
+git clone -b v0.5.1 https://github.com/0glabs/0g-storage-node.git
 cd 0g-storage-node
 git submodule update --init
 
