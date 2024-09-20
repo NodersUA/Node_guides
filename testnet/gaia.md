@@ -29,7 +29,7 @@ cd gaianet-node
 
 ```bash
 docker run --name gaianet \
-  -p 8181:8181 \
+  -p 8182:8182 \
   -v $(pwd)/qdrant_storage:/root/gaianet/qdrant/storage:z \
   gaianet/phi-3-mini-instruct-4k_paris:latest
 ```
