@@ -26,17 +26,17 @@ cp popmd /usr/local/bin/
 ```
 
 ```
-cd ~/heminetwork/bin && ./keygen -secp256k1 -json -net="testnet" > ~/popm-address.json
+cd ~/heminetwork/bin && ./keygen -secp256k1 -json -net="testnet" > ~/heminetwork/bin/popm-address.json
 ```
 
 Get tokens from [faucet](https://coinfaucet.eu/en/btc-testnet/)
 
-```
-export POPM_BTC_PRIVKEY=<private_key>
-export POPM_STATIC_FEE=200
-export POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public
-./popmd
-```
+<pre><code>sudo tee /root/heminetwork/.env > /dev/null &#x3C;&#x3C;EOF
+<strong>POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/bin/popm-address.json)
+</strong>POPM_STATIC_FEE=20
+POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public
+EOF
+</code></pre>
 
 ```
 sudo tee /etc/systemd/system/popmd.service > /dev/null <<EOF
@@ -45,11 +45,10 @@ Description=Hemi Service
 After=network.target
 
 [Service]
-Environment="POPM_BTC_PRIVKEY=<private_key>"
-Environment="POPM_STATIC_FEE=200"
-Environment="POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public"
+User=root
 Type=simple
-ExecStart=$(which popmd) run --POPM_BTC_PRIVKEY 
+EnvironmentFile=/root/heminetwork/.env
+ExecStart=/usr/local/bin/popmd
 Restart=on-failure
 
 [Install]
