@@ -31,12 +31,13 @@ cd ~/heminetwork/bin && ./keygen -secp256k1 -json -net="testnet" > ~/heminetwork
 
 Get tokens from [faucet](https://coinfaucet.eu/en/btc-testnet/)
 
-<pre><code>sudo tee /root/heminetwork/.env > /dev/null &#x3C;&#x3C;EOF
-<strong>POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/bin/popm-address.json)
-</strong>POPM_STATIC_FEE=20
+```
+sudo tee /root/heminetwork/.env > /dev/null <<EOF
+POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/bin/popm-address.json)
+POPM_STATIC_FEE=20
 POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public
 EOF
-</code></pre>
+```
 
 ```
 sudo tee /etc/systemd/system/popmd.service > /dev/null <<EOF
