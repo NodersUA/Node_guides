@@ -63,6 +63,10 @@ curl -sSL https://raw.githubusercontent.com/allora-network/allora-chain/main/ins
 ```
 
 ```bash
+cp /root/.local/bin/allorad /usr/local/bin/
+```
+
+```bash
 allorad keys add wallet --keyring-backend test --recover
 ```
 
