@@ -13,12 +13,9 @@
 * [Story](testnet/story.md)
 * [Gaia](testnet/gaia.md)
 * [Rivalz](testnet/rivalz.md)
-* [Dill](testnet/dill.md)
 * [Allora](testnet/allora/README.md)
   * [Install](testnet/allora/install.md)
   * [Update](testnet/allora/update.md)
-* [Aleo](testnet/aleo/README.md)
-  * [Install](testnet/aleo/install.md)
 * [0G Network](testnet/0g-network/README.md)
   * [Installation (Validator Node)](testnet/0g-network/installation.md)
   * [Update (Validator Node)](testnet/0g-network/update-validator-node.md)
@@ -39,9 +36,6 @@
   * [Update](testnet/subspace-gemini-3h/update.md)
   * [Useful commands](testnet/subspace-gemini-3h/useful-commands.md)
   * [Delete](testnet/subspace-gemini-3h/delete.md)
-* [Union](testnet/union/README.md)
-  * [Install](testnet/union/install.md)
-* [Waku](testnet/waku.md)
 
 ## Mainnet
 
@@ -54,6 +48,11 @@
 
 ## Archive
 
+* [Dill](archive/dill.md)
+* [Aleo](archive/aleo/README.md)
+  * [Install](archive/aleo/install.md)
+* [Union](archive/union/README.md)
+  * [Install](archive/union/install.md)
 * [Analog](archive/analog/README.md)
   * [Install](archive/analog/install.md)
 * [Babylon](archive/babylon/README.md)
@@ -214,3 +213,7 @@
   * [Useful commands](archive/sui-testnet/useful-commands.md)
   * [Update (Linux)](archive/sui-testnet/update-linux.md)
   * [Delete (Linux)](archive/sui-testnet/delete-linux.md)
+
+***
+
+* [Waku](waku.md)
