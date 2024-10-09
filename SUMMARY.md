@@ -213,7 +213,4 @@
   * [Useful commands](archive/sui-testnet/useful-commands.md)
   * [Update (Linux)](archive/sui-testnet/update-linux.md)
   * [Delete (Linux)](archive/sui-testnet/delete-linux.md)
-
-***
-
-* [Waku](waku.md)
+* [Waku](archive/waku.md)
