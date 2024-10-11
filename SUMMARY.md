@@ -8,6 +8,14 @@
 
 ## Testnet
 
+* [Titan](testnet/titan/README.md)
+  * [Installation (Validator Node)](testnet/titan/installation.md)
+  * [Update (Validator Node)](testnet/titan/update-validator-node.md)
+  * [Installation (Storage Node And DA Services)](testnet/titan/installation-storage-node-and-da-services.md)
+  * [Useful Commands](testnet/titan/useful-commands.md)
+  * [Delete](testnet/titan/delete.md)
+* [Cat Protcol](testnet/cat-protcol.md)
+* [Morphl2](testnet/morphl2.md)
 * [Hemi](testnet/hemi.md)
 * [Elixir](testnet/elixir.md)
 * [Story](testnet/story.md)
