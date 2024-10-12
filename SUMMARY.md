@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Midnight](testnet/midnight.md)
 * [Titan](testnet/titan/README.md)
   * [Installation (Validator Node)](testnet/titan/installation.md)
   * [Update (Validator Node)](testnet/titan/update-validator-node.md)
