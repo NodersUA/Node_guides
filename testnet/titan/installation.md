@@ -254,7 +254,7 @@ Check yourself in the list [explorer](https://chainscan-newton.0g.ai/) and fill 
 Or by command
 
 ```bash
-titand query staking validators --limit 1000000 -o json | jq '.validators[] | select(.description.moniker=="$MONIKER")' | jq
+titand q staking validator $(titand keys show wallet --bech val -a --keyring-backend test)
 ```
 
 ```bash
