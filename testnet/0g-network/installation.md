@@ -40,13 +40,12 @@ cd $HOME
 rm -rf 0g-chain
 git clone https://github.com/0glabs/0g-chain.git
 cd 0g-chain
-git checkout v0.3.1
+git checkout v0.4.0
 git submodule update --init
 make install
 
 sudo cp $(which 0gchaind) /usr/local/bin/ && cd $HOME
 0gchaind version --long | grep -e version -e commit
-# 63c16892
 ```
 
 ```bash
