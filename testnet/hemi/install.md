@@ -20,9 +20,9 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 ```bash
 git clone https://github.com/hemilabs/heminetwork.git
 cd heminetwork
-make deps
-make install
-cp popmd /usr/local/bin/
+curl -L -O https://github.com/hemilabs/heminetwork/releases/download/v0.5.0/heminetwork_v0.5.0_linux_amd64.tar.gz
+mkdir -p hemi
+tar --strip-components=1 -xzvf heminetwork_v0.5.0_linux_amd64.tar.gz -C hemi
 ```
 
 ```bash
@@ -34,7 +34,7 @@ Get tokens from [faucet](https://coinfaucet.eu/en/btc-testnet/)
 ```bash
 sudo tee /root/heminetwork/.env > /dev/null <<EOF
 POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/bin/popm-address.json)
-POPM_STATIC_FEE=20
+POPM_STATIC_FEE=200
 POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public
 EOF
 ```
@@ -49,7 +49,8 @@ After=network.target
 User=root
 Type=simple
 EnvironmentFile=/root/heminetwork/.env
-ExecStart=/usr/local/bin/popmd
+ExecStart=/root/heminetwork/hemi/popmd
+WorkingDirectory=/root/heminetwork/hemi/
 Restart=on-failure
 
 [Install]
