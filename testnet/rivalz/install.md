@@ -1,8 +1,7 @@
-# Rivalz
+# Install
 
 ```bash
-sudo apt update
-sudo apt install curl software-properties-common
+udo apt install curl software-properties-common
 ```
 
 ```bash
@@ -38,7 +37,7 @@ npm i -g rivalz-node-cli
 rivalz run
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 sudo tee /etc/systemd/system/rivalz.service > /dev/null <<EOF
