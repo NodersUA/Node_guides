@@ -1,7 +1,7 @@
 # Install
 
 ```bash
-udo apt install curl software-properties-common
+sudo apt install curl software-properties-common
 ```
 
 ```bash

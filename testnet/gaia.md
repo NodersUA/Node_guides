@@ -13,7 +13,7 @@ curl -L https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/llama-3-8
 ```
 
 ```bash
-sed -i 's/"llamaedge_port": "8080"/"llamaedge_port": "8181"/' ~/gaianet/config.json
+sed -i 's/"llamaedge_port": "8080"/"llamaedge_port": "8182"/' ~/gaianet/config.json
 ```
 
 ```bash

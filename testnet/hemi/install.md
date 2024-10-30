@@ -26,14 +26,14 @@ tar --strip-components=1 -xzvf heminetwork_v0.5.0_linux_amd64.tar.gz -C hemi
 ```
 
 ```bash
-cd ~/heminetwork/bin && ./keygen -secp256k1 -json -net="testnet" > ~/heminetwork/bin/popm-address.json
+cd ~/heminetwork/hemi && ./keygen -secp256k1 -json -net="testnet" > ~/heminetwork/hemi/popm-address.json
 ```
 
 Get tokens from [faucet](https://coinfaucet.eu/en/btc-testnet/)
 
 ```bash
 sudo tee /root/heminetwork/.env > /dev/null <<EOF
-POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/bin/popm-address.json)
+POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/hemi/popm-address.json)
 POPM_STATIC_FEE=200
 POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public
 EOF
