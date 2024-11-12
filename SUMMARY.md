@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [ICN](testnet/icn.md)
 * [Midnight](testnet/midnight.md)
 * [Titan](testnet/titan/README.md)
   * [Installation (Validator Node)](testnet/titan/installation.md)
@@ -20,7 +21,8 @@
 * [Hemi](testnet/hemi/README.md)
   * [Install](testnet/hemi/install.md)
   * [Update](testnet/hemi/update.md)
-* [Elixir](testnet/elixir.md)
+* [Elixir](testnet/elixir/README.md)
+  * [Update to mainnet](testnet/elixir/update-to-mainnet.md)
 * [Story](testnet/story.md)
 * [Gaia](testnet/gaia.md)
 * [Rivalz](testnet/rivalz/README.md)
