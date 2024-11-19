@@ -1,4 +1,4 @@
-# Midnight
+# Install
 
 ### Automatic Installation
 
@@ -45,6 +45,29 @@ else
 echo $(docker-compose --version)
 fi
 ```
+
+```bash
+git clone git@github.com:midnight-ntwrk/partner-chain-deps-docker.git
+cd partner-chain-deps-docker
+```
+
+```bash
+sed -i 's/3001:3001/3101:3101/' compose.yml
+```
+
+```bash
+docker-compose up -d
+```
+
+
+
+
+
+
+
+
+
+
 
 ```bash
 docker search midnightnetwork

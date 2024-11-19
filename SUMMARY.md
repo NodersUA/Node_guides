@@ -9,7 +9,9 @@
 ## Testnet
 
 * [ICN](testnet/icn.md)
-* [Midnight](testnet/midnight.md)
+* [Midnight](testnet/midnight/README.md)
+  * [Install](testnet/midnight/install.md)
+  * [New Install](testnet/midnight/new-install.md)
 * [Titan](testnet/titan/README.md)
   * [Installation (Validator Node)](testnet/titan/installation.md)
   * [Update (Validator Node)](testnet/titan/update-validator-node.md)
