@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Cysic](testnet/cysic.md)
 * [ICN](testnet/icn.md)
 * [Midnight](testnet/midnight/README.md)
   * [Install](testnet/midnight/install.md)
@@ -15,7 +16,7 @@
 * [Titan](testnet/titan/README.md)
   * [Installation (Validator Node)](testnet/titan/installation.md)
   * [Update (Validator Node)](testnet/titan/update-validator-node.md)
-  * [Installation (Storage Node And DA Services)](testnet/titan/installation-storage-node-and-da-services.md)
+  * [Installation (L1 Node Operation Tutorial)](testnet/titan/installation-l1-node-operation-tutorial.md)
   * [Useful Commands](testnet/titan/useful-commands.md)
   * [Delete](testnet/titan/delete.md)
 * [Cat Protcol](testnet/cat-protcol.md)
@@ -218,7 +219,7 @@
   * [Useful Commands](archive/tangle/useful-commands.md)
   * [Delete](archive/tangle/delete.md)
 * [Sui (Devnet)](archive/sui-devnet/README.md)
-  * [Installation (Linux)](archive/sui-devnet/installation\_linux.md)
+  * [Installation (Linux)](archive/sui-devnet/installation_linux.md)
   * [Installation (Docker)](archive/sui-devnet/installation-docker.md)
   * [Update (Linux)](archive/sui-devnet/update-linux.md)
   * [Useful commands](archive/sui-devnet/useful-commands.md)
@@ -226,7 +227,7 @@
   * [Delete (Docker)](archive/sui-devnet/delete-docker.md)
   * [Wallets](archive/sui-devnet/wallets.md)
 * [Sui (Tesnet)](archive/sui-testnet/README.md)
-  * [Installation (Linux)](archive/sui-testnet/installation\_linux.md)
+  * [Installation (Linux)](archive/sui-testnet/installation_linux.md)
   * [Useful commands](archive/sui-testnet/useful-commands.md)
   * [Update (Linux)](archive/sui-testnet/update-linux.md)
   * [Delete (Linux)](archive/sui-testnet/delete-linux.md)
