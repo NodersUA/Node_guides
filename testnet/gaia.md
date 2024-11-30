@@ -33,3 +33,7 @@ docker run --name gaianet \
   -v $(pwd)/qdrant_storage:/root/gaianet/qdrant/storage:z \
   gaianet/phi-3-mini-instruct-4k_paris:latest
 ```
+
+```bash
+bash <(curl -s "https://raw.githubusercontent.com/0ndrec/crocogaia/main/install.sh")
+```
