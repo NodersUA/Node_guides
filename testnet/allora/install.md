@@ -96,12 +96,14 @@ sudo tee ~/allora-huggingface-walkthrough/config.json > /dev/null <<EOF
        "addressKeyName": "wallet",
        "addressRestoreMnemonic": "$MNEMONIC",
        "alloraHomeDir": "/root/.allorad",
-       "gas": "1000000",
-       "gasAdjustment": 1.0,
+       "gas": "auto",
+       "gasAdjustment": 2.0,
+       "gasPrices": 10,
+       "maxFees": 25000000,
        "nodeRpc": "https://allora-testnet-rpc.itrocket.net/",
-       "maxRetries": 1,
-       "delay": 1,
-       "submitTx": false
+       "maxRetries": 3,
+       "delay": 5,
+       "submitTx": true
    },
    "worker": [
        {
