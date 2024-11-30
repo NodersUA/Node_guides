@@ -37,3 +37,13 @@ docker run --name gaianet \
 ```bash
 bash <(curl -s "https://raw.githubusercontent.com/0ndrec/crocogaia/main/install.sh")
 ```
+
+```bash
+# Node logs
+docker logs -fn100 gaianet
+```
+
+```bash
+# Script logs
+journalctl -u crocogaia -f -o cat
+```
