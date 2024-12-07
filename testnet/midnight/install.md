@@ -6,7 +6,7 @@
 source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/midnight)
 ```
 
-### Node
+### Cardano Node
 
 Update the repositories
 
@@ -59,6 +59,23 @@ sed -i 's/3001:3001/3101:3101/' compose.yml
 docker-compose up -d
 ```
 
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow Ogmios
+sudo ufw allow 1337/tcp
+
+# Allow Kupo
+sudo ufw allow 1442/tcp
+
+# Allow Postgres-db-sync
+sudo ufw allow 5432/tcp
+
+sudo ufw allow ssh
+
+sudo ufw logging on
+```
 
 
 
@@ -66,6 +83,15 @@ docker-compose up -d
 
 
 
+
+
+
+
+
+
+
+
+\#=======================================================================
 
 
 
