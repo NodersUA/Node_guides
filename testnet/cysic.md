@@ -13,11 +13,11 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ```bash
-MM=<your evm address>
+EVM_ADDRESS=<your evm address>
 ```
 
 ```bash
-curl -L https://github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_linux.sh > ~/setup_linux.sh && bash ~/setup_linux.sh $MM
+curl -L https://github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_linux.sh > ~/setup_linux.sh && bash ~/setup_linux.sh $EVM_ADDRESS
 ```
 
 ```bash
