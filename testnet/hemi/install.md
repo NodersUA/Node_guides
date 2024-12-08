@@ -20,20 +20,20 @@ source <(curl -s https://raw.githubusercontent.com/NodersUA/Scripts/main/system/
 ```bash
 git clone https://github.com/hemilabs/heminetwork.git
 cd heminetwork
-curl -L -O https://github.com/hemilabs/heminetwork/releases/download/v0.5.0/heminetwork_v0.5.0_linux_amd64.tar.gz
+curl -L -O https://github.com/hemilabs/heminetwork/releases/download/v0.8.0/heminetwork_v0.8.0_linux_amd64.tar.gz
 mkdir -p hemi
-tar --strip-components=1 -xzvf heminetwork_v0.5.0_linux_amd64.tar.gz -C hemi
+tar --strip-components=1 -xzvf heminetwork_v0.8.0_linux_amd64.tar.gz -C hemi
 ```
 
 ```bash
-cd ~/heminetwork/hemi && ./keygen -secp256k1 -json -net="testnet" > ~/heminetwork/hemi/popm-address.json
+cd ~/heminetwork/hemi && ./keygen -secp256k1 -json -net="testnet" > ~/heminetwork/popm-address.json
 ```
 
 Get tokens from [faucet](https://coinfaucet.eu/en/btc-testnet/)
 
 ```bash
 sudo tee /root/heminetwork/.env > /dev/null <<EOF
-POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/hemi/popm-address.json)
+POPM_BTC_PRIVKEY=$(jq -r '.private_key' ~/heminetwork/popm-address.json)
 POPM_STATIC_FEE=200
 POPM_BFG_URL=wss://testnet.rpc.hemi.network/v1/ws/public
 EOF
