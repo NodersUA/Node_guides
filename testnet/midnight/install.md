@@ -77,7 +77,7 @@ sudo ufw allow ssh
 sudo ufw logging on
 ```
 
-
+### Cardano Node
 
 
 
