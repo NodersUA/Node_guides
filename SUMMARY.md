@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Nexus](testnet/nexus.md)
 * [Cysic](testnet/cysic.md)
 * [ICN](testnet/icn.md)
 * [Midnight](testnet/midnight/README.md)
