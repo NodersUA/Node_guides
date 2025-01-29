@@ -37,3 +37,7 @@ docker run -d --name privasea \
   -e KEYSTORE_PASSWORD=my_pass \
   privasea/acceleration-node-beta:latest
 ```
+
+```bash
+docker logs -f privasea
+```
