@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Privasea](testnet/privasea.md)
 * [OpenLedger](testnet/openledger.md)
 * [Nexus](testnet/nexus.md)
 * [Cysic](testnet/cysic.md)
