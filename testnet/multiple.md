@@ -10,7 +10,7 @@ chmod +x ./multiple-node
 PATH=$PATH:$(pwd)
 source /etc/profile
 cd && chmod -R 777 multipleforlinux
-nohup ./multiple-node > output.log 2>b&1 &
+nohup ./multipleforlinux/multiple-node > output.log 2>b&1 &
 ```
 
 ```
