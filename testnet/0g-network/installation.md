@@ -40,7 +40,7 @@ cd $HOME
 rm -rf 0g-chain
 git clone https://github.com/0glabs/0g-chain.git
 cd 0g-chain
-git checkout v0.4.0
+git checkout v0.5.0
 git submodule update --init
 make install
 
@@ -251,7 +251,7 @@ Do not forget to create a profile on [https://keybase.io/](https://keybase.io/) 
 -y
 ```
 
-Check yourself in the list [explorer](https://chainscan-newton.0g.ai/) and fill out the [form](https://docs.google.com/forms/d/e/1FAIpQLScsa1lpn43F7XAydVlKK\_ItLGOkuz2fBmQaZjecDn76kysQsw/viewform?ts=6617a343)
+Check yourself in the list [explorer](https://chainscan-newton.0g.ai/) and fill out the [form](https://docs.google.com/forms/d/e/1FAIpQLScsa1lpn43F7XAydVlKK_ItLGOkuz2fBmQaZjecDn76kysQsw/viewform?ts=6617a343)
 
 Or by command
 
