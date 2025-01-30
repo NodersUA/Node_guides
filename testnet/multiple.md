@@ -19,5 +19,5 @@ PIN=
 ```
 
 ```bash
-multiple-cli bind --bandwidth-download 100 --identifier $IDENTITY --pin $PIN --storage 200 --bandwidth-upload 100
+/root/multipleforlinux/multiple-cli bind --bandwidth-download 100 --identifier $IDENTITY --pin $PIN --storage 200 --bandwidth-upload 100
 ```
