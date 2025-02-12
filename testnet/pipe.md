@@ -17,7 +17,7 @@ mkdir -p /var/lib/pop
 ```
 
 ```
-PRIV_SOL=
+SOL_ADDRESS=
 ```
 
 ```bash
@@ -33,7 +33,7 @@ User=root
 Group=root
 ExecStart=/usr/local/bin/pop \
     --ram=12 \
-    --pubKey $PRIV_SOL \
+    --pubKey $SOL_ADDRESS \
     --max-disk 500 \
     --cache-dir /var/cache/pop/download_cache \
     --no-prompt
