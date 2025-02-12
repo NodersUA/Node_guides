@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Pipe](testnet/pipe.md)
 * [Multiple](testnet/multiple.md)
 * [Privasea](testnet/privasea.md)
 * [OpenLedger](testnet/openledger.md)
