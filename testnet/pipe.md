@@ -54,7 +54,7 @@ EOF
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable pop.service
-sudo systemctl start pop.service
+sudo systemctl restart pop.service
 ```
 
 ```bash
