@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [LayerEdge](testnet/layeredge.md)
 * [Pipe](testnet/pipe.md)
 * [Multiple](testnet/multiple.md)
 * [Privasea](testnet/privasea.md)
