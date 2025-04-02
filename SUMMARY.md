@@ -8,6 +8,7 @@
 
 ## Testnet
 
+* [Gensyn](testnet/gensyn.md)
 * [LayerEdge](testnet/layeredge.md)
 * [Pipe](testnet/pipe.md)
 * [Multiple](testnet/multiple.md)
