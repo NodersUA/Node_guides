@@ -63,3 +63,21 @@ sudo systemctl daemon-reload
 sudo systemctl enable gensyn.service
 sudo systemctl restart gensyn.service
 ```
+
+## Troubleshooting:
+
+```bash
+cd rl-swarm
+nano hivemind_exp/configs/mac/grpo-qwen-2.5-0.5b-deepseek-r1.yaml
+```
+
+* Lower `max_steps` to `5`
+
+```bash
+cd modal-login
+yarn install
+
+yarn upgrade && yarn add next@latest && yarn add viem@latest
+
+cd ..
+```
