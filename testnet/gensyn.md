@@ -2,7 +2,7 @@
 
 ```bash
 sudo apt-get update
-sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev  -y
+sudo apt install screen curl cmdtest iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev  -y
 ```
 
 ```bash
@@ -32,6 +32,10 @@ git clone https://github.com/gensyn-ai/rl-swarm/
 ```
 
 ```bash
+screen -S gensyn
+```
+
+```bash
 cd rl-swarm
 python3 -m venv .venv
 source .venv/bin/activate
@@ -39,29 +43,32 @@ source .venv/bin/activate
 ```
 
 ```bash
-sudo tee /etc/systemd/system/gensyn.service > /dev/null <<EOF
-[Unit]
-Description=RL Swarm Service
-After=network.target
-
-[Service]
-Type=simple
-WorkingDirectory=/root/rl-swarm
-ExecStart=/bin/bash -c 'source /root/rl-swarm/.venv/bin/activate && /root/rl-swarm/run_rl_swarm.sh'
-Restart=always
-User=root
-Group=root
-Environment="PATH=/root/rl-swarm/.venv/bin:/usr/local/bin:/usr/bin:/bin"
-
-[Install]
-WantedBy=multi-user.target
-EOF
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl enable gensyn.service
-sudo systemctl restart gensyn.service
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Завантажує nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Додає автодоповнення
+```
+
+```bash
+nvm install 18
+nvm use 18
+```
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+```
+
+```bash
+cd modal-login && yarn install
+
+yarn upgrade && yarn add next@latest && yarn add viem@latest
+
+cd .. && ./run_rl_swarm.sh
 ```
 
 ## Troubleshooting:
