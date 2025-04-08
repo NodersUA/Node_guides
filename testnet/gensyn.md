@@ -51,8 +51,7 @@ export NVM_DIR="$HOME/.nvm"
 ```
 
 ```bash
-nvm install 18
-nvm use 18
+nvm install 18 && nvm use 18
 ```
 
 ```bash
